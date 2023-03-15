@@ -1,0 +1,14 @@
+@import '../../style/global.scss';
+@import '../../style/fonts.scss';
+.container{
+background-color: $color-background ;
+height: 100vh;
+position: relative;
+}
+
+.about{
+    font-family: 'Neue Haas Grotesk Display Pro';
+    color: $color-white;
+    font-weight: 600;
+    font-size: 70px;
+}
