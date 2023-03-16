@@ -5,12 +5,19 @@ import Vectors from "../../assets/image/Vectors.svg";
 const SlideTwo = () => {
   return (
     <div className={style.container}>
-      <img src={Vectors} alt="vectors" />
-      <div className={style.about}>About us</div>
-      <span>
-        “Our mission is to provide<span>high-quality video content</span> to any
-        business that is open to it.”
-      </span>
+      <div className={style.box}>
+        <p className={style.about}>About us</p>
+        <p className={style.textAbout}>
+          “Our mission is to provide
+          <br />
+          <p className={style.orangeText}>
+            high-quality video content
+            <br />
+          </p>
+          to any business that is open to it.”
+        </p>
+      </div>
+      <img src={Vectors} alt="vectors" className={style.image} />
     </div>
   );
 };
