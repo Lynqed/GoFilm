@@ -1,0 +1,8 @@
+@import '../../../style/global.scss';
+
+.container{
+background-image:linear-gradient(0deg, rgba(245, 161, 26, 0.3), rgba(245, 161, 26, 0.3));
+background-color: $color-background ;
+height: 100vh;
+position: relative;
+}

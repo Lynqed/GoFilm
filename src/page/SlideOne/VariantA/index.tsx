@@ -14,4 +14,4 @@ const VariantA = () => {
   );
 };
 
-export default VariantA;
+export default React.memo(VariantA);

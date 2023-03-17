@@ -1,0 +1,45 @@
+@import '../../style/global.scss';
+
+.container{
+    height: 450px;
+    width: 200px;
+    filter: grayscale(100);
+    transition: 0.5s;
+    overflow: hidden;
+    z-index: 9999;
+    position: relative;
+}
+.image{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    
+}
+.container:hover{
+    height: 540px;
+    width: 419px;
+    filter: grayscale(0);
+    position: relative;
+    z-index: 1;
+}
+.boxText{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    top: -50px;
+    z-index: 2;
+}
+.name{
+    color: $color-white;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: $Mediu-font-family-Italic;
+}
+.position{
+    color: $color-white;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: $Light-font-family-Italic;
+}
+

@@ -1,14 +1,41 @@
 @import '../../style/global.scss';
-@import '../../style/fonts.scss';
 .container{
 background-color: $color-background ;
 height: 100vh;
 position: relative;
+z-index: 0;
 }
 
 .about{
-    font-family: 'Neue Haas Grotesk Display Pro';
+    font-family: $Mediu-font-family;
     color: $color-white;
     font-weight: 600;
-    font-size: 70px;
+    padding-bottom: 101px;
+}
+.textAbout{
+    font-family:$Mediu-font-family-Italic;
+    color:$color-white;
+    font-weight: 400;
+}
+.orangeText{
+    color:$color-orange;
+    font-weight: 600;
+}
+.box{
+    position: absolute;
+    left: 40%;
+    top:46%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: calc(10px + 3vw);
+}
+.image{
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+
 }

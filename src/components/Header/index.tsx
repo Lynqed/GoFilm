@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../assets/image/Logo.svg";
+import Logo from "../../assets/image/OrangeLogo.svg";
 import style from "./style.module.scss";
 const Header = () => {
   const array = [
@@ -13,7 +13,7 @@ const Header = () => {
       <img src={Logo} alt="logo" />
       <div className={style.box}>
         {array.map((el) => (
-          <span className={style.label}>{el.label}</span>
+          <p className={style.label}>{el.label}</p>
         ))}
       </div>
     </div>
