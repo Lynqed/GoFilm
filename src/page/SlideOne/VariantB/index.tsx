@@ -12,4 +12,4 @@ const VariantB = () => {
   );
 };
 
-export default VariantB;
+export default React.memo(VariantB);

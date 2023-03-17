@@ -15,8 +15,8 @@ function App() {
       {/* <VariantB /> */}
       {/* <SlideTwo /> */}
 
-      <SlideThree />
-      {/* <SlideFour /> */}
+      {/* <SlideThree /> */}
+      <SlideFour />
     </div>
   );
 }

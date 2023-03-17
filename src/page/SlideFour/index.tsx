@@ -35,4 +35,4 @@ const SlideFour = () => {
   );
 };
 
-export default SlideFour;
+export default React.memo(SlideFour);

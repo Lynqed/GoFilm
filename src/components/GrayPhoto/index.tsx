@@ -8,10 +8,14 @@ interface IProps {
 }
 const GrayPhoto: FC<IProps> = ({ image, name, position }) => {
   return (
-    <div className={style.container}>
-      <img src={image} alt="person" className={style.image} />
-      <div>{name}</div>
-      <div>{position}</div>
+    <div>
+      <div className={style.container}>
+        <img src={image} alt="person" className={style.image} />
+      </div>
+      <div className={style.boxText}>
+        <p className={style.name}>{name}</p>
+        <p className={style.position}>{position}</p>
+      </div>
     </div>
   );
 };
