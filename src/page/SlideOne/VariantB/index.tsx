@@ -3,10 +3,16 @@ import Header from "../../../components/Header";
 import style from "./style.module.scss";
 const VariantB = () => {
   return (
-    <div>
+    <div className={style.backgraundImage}>
       <div className={style.container}>
-        <Header />
-        <div className={style.textCenter}></div>
+        <div>
+          <p className={style.text}>
+            Get things done <br />
+          </p>
+          <p className={style.text}>
+            with<span className={style.yellowText}> Go Film</span>
+          </p>
+        </div>
       </div>
     </div>
   );

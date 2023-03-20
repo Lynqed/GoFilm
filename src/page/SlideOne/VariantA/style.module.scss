@@ -1,12 +1,22 @@
 @import '../../../style/global.scss';
+$color-text:#F5A11A;
 .container{
 background-color: $color-background ;
 height: 100vh;
-position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+flex: 1;
 }
-.textCenter{
-    position: absolute;
-    left: 50%;
-    top:50%;
-    transform: translate(-50%, -50%);
+.text{
+    font-family: $Mediu-font-family ;
+    color: $color-white;
+    font-size: 50px;
+}
+.yellowText{
+    font-family: $Jennasue ;
+    font-size: 100px;
+    color: $color-text;
+    font-weight: 600;
+
 }
