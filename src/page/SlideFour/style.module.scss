@@ -1,22 +1,163 @@
 @import '../../style/global.scss';
-.container{
-background-color: $color-background ;
-height: 100vh;
-display: flex;
-flex: 1;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-}
-.textTeam{
-    font-family: $Bold-font-family-Italic;
-    color: $color-orange;
-    font-size: 90px;
-}
-.boxImage{
+.container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
     display: flex;
-     gap: 20px;
-     align-items:center;
-     z-index: 1;
-     margin-top: 60px;
-}
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    .innerContainer {
+      position: absolute;
+      z-index: 0;
+      background-color: $color-background;
+      border-radius: 100%;
+      height: 0px;
+      width: 0px;
+    }
+    .content {
+      top: 100vh;
+      opacity: 0.95;
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      .textTeam {
+        font-family: $Bold-font-family-Italic;
+        color: $color-orange;
+        font-size: 90px;
+        position: absolute;
+        top: 130px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .boxImage {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        gap: 20px;
+        transform: translate(-50%, -50%);
+        align-items: center;
+      }
+    }
+    &.hide {
+      z-index: 0;
+    }
+    &.show {
+      .innerContainer {
+        animation-name: $animationContainerShow;
+        animation-duration: #{$duration}s;
+        animation-timing-function: $animation-timing-function-show;
+        animation-fill-mode: forwards;
+      }
+      .content {
+        animation-delay: #{$contentDuration}s;
+        animation-duration: #{$contentDuration}s;
+        animation-timing-function: $animation-timing-function-show;
+        animation-name: $animationContentShow;
+        animation-fill-mode: forwards;
+      }
+    }
+    &.showBack {
+      .content {
+        .boxImage {
+          div:nth-child(even) {
+            animation-duration: 2s;
+            animation-timing-function: $animation-timing-function-show;
+            animation-name: evenShowBackAnimation;
+            animation-fill-mode: forwards;
+          }
+          div:nth-child(odd) {
+            animation-duration: 2s;
+            animation-timing-function: $animation-timing-function-show;
+            animation-name: oddShowBacAnimation;
+            animation-fill-mode: forwards;
+          }
+        }
+      }
+    }
+    &.end {
+      .content {
+        .boxImage {
+          > :nth-child(even) {
+            animation-duration: 2s;
+            animation-timing-function: $animation-timing-function-show;
+            animation-name: evenEndAnimation;
+            animation-fill-mode: forwards;
+          }
+          > :nth-child(odd) {
+            animation-duration: 2s;
+            animation-timing-function: $animation-timing-function-show;
+            animation-name: oddEndAnimation;
+            animation-fill-mode: forwards;
+          }
+        }
+        .textTeam{
+          animation-duration: 2s;
+          animation-timing-function: $animation-timing-function-show;
+          animation-name: evenEndAnimationText;
+          animation-fill-mode: forwards;
+        }
+      }
+    }
+  }
+  
+  @keyframes evenShowBackAnimation {
+    from {
+      margin-top: -200px;
+      opacity: 0;
+    }
+    to {
+      margin-top: 0;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes oddShowBacAnimation {
+    from {
+      margin-top: -50px;
+      opacity: 0;
+    }
+    to {
+      margin-top: 0;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes evenEndAnimation {
+    from {
+      margin-top: 0;
+      opacity: 1;
+    }
+    to {
+      margin-top: -200px;
+      opacity: 0;
+    }
+  }
+  
+  @keyframes oddEndAnimation {
+    from {
+      margin-top: 0;
+      opacity: 1;
+    }
+    to {
+      margin-top: -50px;
+      opacity: 0;
+    }
+  }
+  @keyframes evenEndAnimationText {
+    from {
+      margin-top: 0;
+      opacity: 1;
+    }
+    to {
+      margin-top: -100px;
+      opacity: 0;
+    }
+  }

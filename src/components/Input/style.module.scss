@@ -1,5 +1,5 @@
 @import '../../style/global.scss';
-.input{
+input{
 border: 2px solid #FFFFFF ;
 border-radius: 30px;
 outline: none;
@@ -8,6 +8,7 @@ background: rgba( 0,0,0,.0);
 padding: 17px 0 17px 40px ;
 font-size: 24px;
 font-family:$Light-font-family ;
+
 }
 ::placeholder{
     color:#FFFFFF;
