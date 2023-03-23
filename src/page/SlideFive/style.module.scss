@@ -1,41 +1,109 @@
 @import '../../style/global.scss';
+
+
 .container{
-background-color: $color-background ;
-height: 100vh;
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
-padding:  0 70px;
-}
-.slogan{
-    font-size: 60px;
-    font-weight: 500;
-    font-family: $Mediu-font-family;
-    color: $color-white;
-}
-.orangeText{
-    font-size: 60px;
-    font-weight: 500;
-    font-family: $Light-font-family-Italic;
-    color: $color-orange;
-}
-.boxText{
-    font-family: $Light-font-family-Italic;
-    color:rgba(255, 255, 255, 0.4);
-    font-size: 100px;
-    font-weight: 300;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items:flex-end
-}
-.image{
-    width: 100%;
-}
-.test{
-    display: flex;
-    justify-content: space-between;
-    align-items:center
-}
-.imageBox{
-    max-width: 8%;
-}
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+    .innerContainer {
+        position: absolute;
+        z-index: 0;
+        background-color: $color-background;
+        height: 100vh;
+        width: 100vw;
+        opacity: 0;
+      }
+      .content{
+        top: 100vh;
+        opacity: 0.95;
+        position: absolute;
+        padding: 0  70px 0 70px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        z-index: 1;
+        .slogan{
+            font-size: 60px;
+            font-weight: 500;
+            font-family: $Mediu-font-family;
+            color: $color-white;
+        }
+        .orangeText{
+            font-size: 60px;
+            font-weight: 500;
+            font-family: $Light-font-family-Italic;
+            color: $color-orange;
+        }
+        .boxText{
+            font-family: $Light-font-family-Italic;
+            color:rgba(255, 255, 255, 0.4);
+            font-size: 100px;
+            font-weight: 300;
+            display: flex;
+            flex-direction: column;
+            align-items:flex-end
+        }
+        .image{
+            width: 100%;
+        }
+        .test{
+            display: flex;
+            justify-content: space-between;
+            align-items:center
+        }
+        .imageBox{
+            max-width: 8%;
+        }
+    }
+    &.hide {
+      .content{
+        top: 0;
+        animation-duration: #{$contentDuration}s;
+        animation-timing-function: $animation-timing-function-show;
+        animation-name: showHideContent;
+        animation-fill-mode: forwards;
+
+      }
+    }
+    &.show {
+        .innerContainer {
+          animation-name: showInnerContainer;
+          animation-duration: #{$duration}s;
+          animation-timing-function: $animation-timing-function-show;
+          animation-fill-mode: forwards;
+        }
+        .content {
+          animation-delay: #{$contentDuration}s;
+          animation-duration: #{$contentDuration}s;
+          animation-timing-function: $animation-timing-function-show;
+          animation-name: $animationContentShow;
+          animation-fill-mode: forwards;
+        }
+      }
+    }
+@keyframes showInnerContainer {
+    from {
+        opacity: 0;
+
+    }
+    to {
+        opacity: 1;
+
+    }
+  }
+  @keyframes showHideContent {
+    from {
+        opacity: 1;
+
+    }
+    to {
+        opacity: 0;
+
+    }
+  }

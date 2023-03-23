@@ -8,7 +8,12 @@ interface IProps {
 
 const Input: FC<IProps> = ({ placeholder, type }) => {
   return (
-    <input placeholder={placeholder} type={type} className={style.input} />
+    <input
+      placeholder={placeholder}
+      type={type}
+      className={style.input}
+      autoComplete="on"
+    />
   );
 };
 

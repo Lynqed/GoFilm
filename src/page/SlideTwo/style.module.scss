@@ -1,38 +1,115 @@
 @import '../../style/global.scss';
-.container{
-background-color: $color-background ;
-height: 100vh;
-display: flex;
-flex: 1;
-justify-content: center;
-align-items: center;
+
+.container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+  .innerContainer {
+    position: absolute;
+    z-index: 0;
+    background-color: $color-background;
+    border-radius: 100%;
+    height: 100vh;
+    width: 100vw;
+  }
+  .content {
+    top: 100vh;
+    opacity: 0.95;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    .textContainer {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      .about {
+        font-family: $Mediu-font-family;
+        color: $color-white;
+        font-weight: 600;
+        padding-bottom: 101px;
+        font-size: 70px;
+      }
+      .textAbout {
+        font-family: $Light-font-family-Italic;
+        color: $color-white;
+        font-weight: 400;
+        font-size: 70px;
+      }
+      .orangeText {
+        color: $color-orange;
+        font-weight: 600;
+      }
+    }
+    .image {
+      // position: absolute;
+      // left: 0;
+      // right: 0;
+      // bottom: 0;
+      // top: 0;
+      animation: imageAnimation 5s ease infinite;
+    }
+  }
+  &.hide {
+    // .innerContainer {
+    //   animation-name: $animationContainerHide;
+    //   animation-duration: #{$duration}s;
+    //   animation-timing-function: $animation-timing-function-hide;
+    //   animation-fill-mode: forwards;
+    // }
+    // .content {
+    //   animation-duration: #{$contentDuration}s;
+    //   animation-timing-function: $animation-timing-function-hide;
+    //   animation-name: $animationContentHide;
+    //   animation-fill-mode: forwards;
+    // }
+    z-index: 0;
+  }
+  &.show {
+    .innerContainer {
+      animation-name: $animationContainerShow;
+      animation-duration: #{$duration}s;
+      animation-timing-function: $animation-timing-function-show;
+      animation-fill-mode: forwards;
+    }
+    .content {
+      animation-delay: #{$contentDuration}s;
+      animation-duration: #{$contentDuration}s;
+      animation-timing-function: $animation-timing-function-show;
+      animation-name: $animationContentShow;
+      animation-fill-mode: forwards;
+    }
+  }
 }
 
-.about{
-    font-family: $Mediu-font-family;
-    color: $color-white;
-    font-weight: 600;
-    font-size: 70px;
-    padding-bottom: 101px;
-    position: relative;
-    z-index: 2;
+@keyframes imageAnimation {
+  0% {
+    transform: rotate(0deg);
+    top: 0;
+    left: 0;
+  }
+  50% {
+    transform: rotate(-5deg);
+    top: 20px;
+    left: -20px;
+  }
+  100% {
+    transform: rotate(0deg);
+    top: 0;
+    left: 0;
+  }
 }
-.textAbout{
-    font-family:$Mediu-font-family-Italic;
-    color:$color-white;
-    font-weight: 400;
-    font-size: 70px;
-    position: relative;
-    z-index: 2;
-}
-.orangeText{
-    color:$color-orange;
-    font-weight: 600;
-     position: relative;
-    z-index: 2;
-}
-.image{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
+

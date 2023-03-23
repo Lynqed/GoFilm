@@ -4,8 +4,6 @@ $color_Text:rgba(255, 255, 255, 0.6);
 hr{
     background-color: white;
     width: 100%;
-    margin-bottom: 50px;
-
 }
 .container{
     background-color:$color-background;
@@ -30,6 +28,7 @@ hr{
 .boxInformation{
     display: flex;
     align-items: flex-start;
+    margin-top: 50px;
 }
 .social{
     display: flex;
@@ -37,4 +36,5 @@ hr{
     flex: 0 1 40%;
     justify-content: flex-end;
     cursor: pointer;
+    flex-wrap: wrap;
 }
