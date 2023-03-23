@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import style from './style.module.scss';
 import Vectors from '../../assets/image/Vectors.svg';
 import cn from 'classnames';
@@ -12,18 +12,22 @@ const SlideTwo = (props: IProps) => {
   const { end } = props;
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [show, setShow] = useState<null | boolean>(null);
-  useEffect(() => {
-    document.addEventListener('mousemove', (event) => {
-      const x = event.x - window.screen.width / 2;
-      const y = event.y - window.screen.height / 2;
-      const X = x > max ? max : x < -max ? -max : x;
-      const Y = y > max ? max : y < -max ? -max : y;
-      setPosition({
-        x: X,
-        y: Y
-      });
+  const listener = useCallback((event: MouseEvent) => {
+    const x = event.x - window.screen.width / 2;
+    const y = event.y - window.screen.height / 2;
+    const X = x > max ? max : x < -max ? -max : x;
+    const Y = y > max ? max : y < -max ? -max : y;
+    setPosition({
+      x: X,
+      y: Y
     });
+  }, []);
+  useEffect(() => {
+    document.addEventListener('mousemove', listener);
     setShow(true);
+    return () => {
+      document.removeEventListener('mousemove', listener);
+    };
   }, []);
   const imageStyle = useMemo(() => {
     return {

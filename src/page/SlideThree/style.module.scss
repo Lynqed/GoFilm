@@ -1,110 +1,110 @@
 @import '../../style/global.scss';
-$color-background: linear-gradient(90deg, #F4A01A 0%, #BA4734 124.55%);
-  .container {
+$color-background: linear-gradient(90deg, #f4a01a 0%, #ba4734 124.55%);
+.container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  .innerContainer {
+    position: absolute;
+    z-index: 0;
+    height: 0px;
+    width: 0px;
+    border-radius: 100%;
+    background-image: $color-background;
+  }
+  .content {
     position: absolute;
     width: 100vw;
     height: 100vh;
-    z-index: 2;
+    opacity: 0.95;
+    top: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .boxProjects {
+    display: flex;
+    padding-left: 70px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &.hide {
+    // .innerContainer {
+    //   animation-name: $animationContainerHide;
+    //   animation-duration: #{$duration}s;
+    //   animation-timing-function: $animation-timing-function-hide;
+    //   animation-fill-mode: forwards;
+    // }
+    // .content {
+    //   animation-duration: #{$contentDuration}s;
+    //   animation-timing-function: $animation-timing-function-hide;
+    //   animation-name: $animationContentHide;
+    //   animation-fill-mode: forwards;
+    // }
+    z-index: 0;
+  }
+  &.show {
     .innerContainer {
-      position: absolute;
-      z-index: 0;
-      height: 0px;
-      width: 0px;
-      border-radius: 100%;
-      background-image: $color-background;
+      animation-name: $animationContainerShow;
+      animation-duration: #{$duration}s;
+      animation-timing-function: $animation-timing-function-show;
+      animation-fill-mode: forwards;
     }
     .content {
-      position: absolute;
-      width: 100vw;
-      height: 100vh;
-      opacity: 0.95;
-      top: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-    }
-    &.hide {
-      // .innerContainer {
-      //   animation-name: $animationContainerHide;
-      //   animation-duration: #{$duration}s;
-      //   animation-timing-function: $animation-timing-function-hide;
-      //   animation-fill-mode: forwards;
-      // }
-      // .content {
-      //   animation-duration: #{$contentDuration}s;
-      //   animation-timing-function: $animation-timing-function-hide;
-      //   animation-name: $animationContentHide;
-      //   animation-fill-mode: forwards;
-      // }
-      z-index: 0;
-    }
-    &.show {
-      .innerContainer {
-        animation-name: $animationContainerShow;
-        animation-duration: #{$duration}s;
-        animation-timing-function: $animation-timing-function-show;
-        animation-fill-mode: forwards;
-      }
-      .content {
-        animation-delay: #{$contentDuration}s;
-        animation-duration: #{$contentDuration}s;
-        animation-timing-function: $animation-timing-function-show;
-        animation-name: $animationContentShow;
-        animation-fill-mode: forwards;
-        .boxProjects {
-          > :nth-child(1) {
-            animation-duration: 2s;
-            animation-delay: 0.15s;
-            animation-timing-function: $animation-timing-function-show;
-            animation-name: showImage;
-            animation-fill-mode: forwards;
-          }
-          > :nth-child(2) {
-            animation-duration: 2s;
-            animation-delay: 0.3s;
-            animation-timing-function: $animation-timing-function-show;
-            animation-name: showImage;
-            animation-fill-mode: forwards;
-          }
-          > :nth-child(3) {
-            animation-duration: 2s;
-            animation-delay: 0.45s;
-            animation-timing-function: $animation-timing-function-show;
-            animation-name: showImage;
-            animation-fill-mode: forwards;
-          }
+      animation-delay: #{$contentDuration}s;
+      animation-duration: #{$contentDuration}s;
+      animation-timing-function: $animation-timing-function-show;
+      animation-name: $animationContentShow;
+      animation-fill-mode: forwards;
+      .boxProjects {
+        > :nth-child(1) {
+          animation-duration: 2s;
+          animation-delay: 0.15s;
+          animation-timing-function: $animation-timing-function-show;
+          animation-name: showImage;
+          animation-fill-mode: forwards;
+        }
+        > :nth-child(2) {
+          animation-duration: 2s;
+          animation-delay: 0.3s;
+          animation-timing-function: $animation-timing-function-show;
+          animation-name: showImage;
+          animation-fill-mode: forwards;
+        }
+        > :nth-child(3) {
+          animation-duration: 2s;
+          animation-delay: 0.45s;
+          animation-timing-function: $animation-timing-function-show;
+          animation-name: showImage;
+          animation-fill-mode: forwards;
         }
       }
     }
   }
+}
 
 @keyframes showImage {
-    from {
-      transform: translateY(150px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0px);
-      opacity: 1;
-    }
+  from {
+    transform: translateY(150px);
+    opacity: 0;
   }
-
-
-.header{
-    font-family: $Mediu-font-family ;
-    color:$color-white;
-    font-size: 70px;
-    font-weight: 500;
-       padding-left: 70px;
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
-.boxProjects{
-    display: flex;
-    padding-left: 70px;
-    overflow-x: scroll;
-    overflow-y: hidden;
 
+.header {
+  font-family: $Mediu-font-family;
+  color: $color-white;
+  font-size: 70px;
+  font-weight: 500;
+  padding-left: 70px;
 }
