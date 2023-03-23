@@ -44,3 +44,48 @@
     font-family: $Light-font-family-Italic;
 }
 
+@media(max-width: 1100px){
+    .container{
+        height: 380px;
+        width: 150px;
+        &:hover{
+            height: 440px;
+            width: 280px;
+            filter: grayscale(0);
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+}
+
+@media(max-width: 860px){
+    .container{
+        height: 300px;
+        width: 81px;
+        &:hover{
+            height: 380px;
+            width: 219px;
+            filter: grayscale(0);
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+}
+@media(max-width: 400px){
+    .container{
+        height: 180px;
+        width: 80px;
+        display: flex;
+        flex-wrap: wrap;
+        &:hover{
+            height: 200px;
+            width: 100px;
+            filter: grayscale(0);
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+}

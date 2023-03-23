@@ -29,7 +29,7 @@
       .textTeam {
         font-family: $Bold-font-family-Italic;
         color: $color-orange;
-        font-size: 90px;
+        @include adaptiv-font(90, 35);
         position: absolute;
         top: 130px;
         left: 50%;

@@ -55,19 +55,18 @@ textarea::placeholder {
             font-size: $Mediu-font-family;
             color: $color-white;
             font-weight: 600;
-            font-size: 50px;
+              @include adaptiv-font(50, 25);
         }
         .secondtText{
             font-size: $Mediu-font-family;
             color: $color-white;
             font-weight: 600;
-            font-size: 30px;
+            @include adaptiv-font(30, 20);
         }
         .boxForm{
             display: flex;
             gap: 40px;
             padding: 50px 60px;
-        
         }
         .boxInput{
             display: flex;
@@ -83,7 +82,7 @@ textarea::placeholder {
         .buttonSend{
             background-color:$color-white;
             color:black;
-            font-size: 24px;
+            @include adaptiv-font(24, 17);
             font-weight: 500;
             font-family: $Light-font-family;
             padding: 17px ;
@@ -129,5 +128,24 @@ textarea::placeholder {
     to {
       margin-top: -200px;
       opacity: 1;
+    }
+  }
+
+  @media(max-width: 850px){
+    .container{
+      .content{
+        .yellowBox{
+          flex: 0 100%;
+        }
+        .boxForm{
+          display: flex;
+          flex-direction: column;
+          gap: 40px;
+          padding: 50px 60px;
+      }
+      }
+    }
+    textarea{
+      @include adaptiv-font(24, 17);
     }
   }

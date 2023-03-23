@@ -29,13 +29,13 @@
         justify-content: space-evenly;
         z-index: 1;
         .slogan{
-            font-size: 60px;
+          @include adaptiv-font(60, 35);
             font-weight: 500;
             font-family: $Mediu-font-family;
             color: $color-white;
         }
         .orangeText{
-            font-size: 60px;
+          @include adaptiv-font(60, 35);
             font-weight: 500;
             font-family: $Light-font-family-Italic;
             color: $color-orange;
@@ -43,7 +43,7 @@
         .boxText{
             font-family: $Light-font-family-Italic;
             color:rgba(255, 255, 255, 0.4);
-            font-size: 100px;
+            @include adaptiv-font(100, 35);
             font-weight: 300;
             display: flex;
             flex-direction: column;
@@ -106,4 +106,12 @@
         opacity: 0;
 
     }
+  }
+  @media(max-width: 700px){
+    .container{
+      .content{
+        padding: 0;
+      }
+    }
+
   }

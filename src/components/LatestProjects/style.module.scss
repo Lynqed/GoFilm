@@ -16,7 +16,7 @@ overflow: hidden;
 .headerText{
     font-family: $Mediu-font-family;
     color:$color-white;
-    font-size: 24px;
+    @include adaptiv-font(24, 20);
     font-weight: 600;
     padding: 30px 0 30px 30px;
     white-space: nowrap;
@@ -35,13 +35,13 @@ overflow: hidden;
     font-family: $Light-font-family;
     width: 280px;
     margin-right: 30px ;
-    font-size: 22px;
+    @include adaptiv-font(22, 18);
     font-weight: 500;
 }
 .button{
     font-family: $Mediu-font-family;
     color:$color-white;
-    font-size: 20px;
+    @include adaptiv-font(20, 15);
     font-weight: 600;
     background: none;
     border: none;
@@ -65,7 +65,7 @@ height: 218px;
 .bodyHeader{
     font-family: $Mediu-font-family;
     color:$color-white;
-    font-size: 24px;
+    @include adaptiv-font(24, 17);
     font-weight: 600;
     white-space: nowrap;
     margin-left: 30px;
@@ -77,4 +77,31 @@ height: 218px;
     justify-content: space-between;
     background-color:$background-color;
     height:100%
+}
+
+@media(max-width: 1100px){
+    .container{
+        height: 453px;
+        min-width: 133px;
+    }
+    .image{
+        width: 100%;
+        margin: -425px 0 0 0;
+    }
+    .text {
+
+        width: 280px;
+        margin-right: 30px ;
+        margin-left: 20px;
+    }
+
+}
+
+
+@media(max-width: 500px){
+    .container{
+        height: 200x;
+        min-width: 40px;
+    }
+
 }
