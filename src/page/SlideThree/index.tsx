@@ -20,13 +20,13 @@ const SlideThree = () => {
     {
       header: "The Bunny",
       bodyHeader: "IN LOVE WE TRUST",
-      text: "Some people may be satisfied with a ten. We like to take it to eleven.",
+      text: "Some people may be satisfied with a ten. We  like to take it to eleven.",
       img: Desert,
     },
     {
       header: "The Bunny",
       bodyHeader: "IN LOVE WE TRUST",
-      text: "Some people may be satisfied with a ten. We like to take it to eleven.",
+      text: "Some people may be satisfied with a ten.Like to take it to eleven.",
       img: Desert,
     },
   ];
@@ -36,7 +36,7 @@ const SlideThree = () => {
       <div className={style.boxProjects}>
         {array.map((el) => (
           <LatestProjects
-            key={el.img}
+            key={el.text}
             header={el.header}
             text={el.text}
             bodyHeader={el.bodyHeader}

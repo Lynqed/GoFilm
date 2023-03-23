@@ -1,0 +1,76 @@
+@import '../../style/global.scss';
+textarea{
+    border: 2px solid $color-white;
+    border-radius: 30px;
+    background: rgba( 0,0,0,.0);
+    padding: 17px 0 0 40px;
+    font-size: 24px;
+    font-family:$Light-font-family ;
+    outline: none;
+    resize: none;
+    color:$color-white;
+    height:100%;
+    margin-bottom: 20px;
+}
+textarea::placeholder {
+    color:$color-white;
+
+  }
+.container{
+background-image: url('../../assets/image/BG.png');
+height: 100vh;
+background-repeat: no-repeat;
+background-size: cover;
+display: flex;
+justify-content: end;
+}
+.yellowBox{
+    background-color:rgba(244, 160, 26, 0.8);
+    flex: 0 60%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.firstText{
+    font-size: $Mediu-font-family;
+    color: $color-white;
+    font-weight: 600;
+    font-size: 50px;
+}
+.secondtText{
+    font-size: $Mediu-font-family;
+    color: $color-white;
+    font-weight: 600;
+    font-size: 30px;
+}
+.boxForm{
+    display: flex;
+    gap: 40px;
+    padding: 50px 60px;
+
+}
+.boxInput{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    flex: 0 1 50%;
+}
+.boxTextInput{
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 50%;
+}
+.buttonSend{
+    background-color:$color-white;
+    color:black;
+    font-size: 24px;
+    font-weight: 500;
+    font-family: $Light-font-family;
+    padding: 17px ;
+    border: 2px solid $color-white ;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.boxText{
+    text-align: center;
+}

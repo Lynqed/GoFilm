@@ -13,7 +13,9 @@ const Header = () => {
       <img src={Logo} alt="logo" />
       <div className={style.box}>
         {array.map((el) => (
-          <p className={style.label}>{el.label}</p>
+          <p key={el.label} className={style.label}>
+            {el.label}
+          </p>
         ))}
       </div>
     </div>

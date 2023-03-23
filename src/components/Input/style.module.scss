@@ -1,0 +1,26 @@
+@import '../../style/global.scss';
+.input{
+border: 2px solid #FFFFFF ;
+border-radius: 30px;
+outline: none;
+color:#FFFFFF;
+background: rgba( 0,0,0,.0);
+padding: 17px 0 17px 40px ;
+font-size: 24px;
+font-family:$Light-font-family ;
+}
+::placeholder{
+    color:#FFFFFF;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #FFFFFF;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #FFFFFF;
+  }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}

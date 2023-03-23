@@ -6,9 +6,13 @@ import style from "./style.module.scss";
 const VariantA = () => {
   return (
     <div className={style.container}>
-      <Header />
-      <div className={style.textCenter}>
-        <img src={TextCenter} alt="textCenter" />
+      <div>
+        <p className={style.text}>
+          Get things done <br />
+        </p>
+        <p className={style.text}>
+          with<span className={style.yellowText}> your team</span>
+        </p>
       </div>
     </div>
   );

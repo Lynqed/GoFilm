@@ -1,14 +1,14 @@
 @import '../../style/global.scss';
 .container{
-    padding: 40px 70px 0 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    z-index: 1;
-   position: fixed;
-   top: 0px;
-   right: 0px;
-   left: 0px;
+padding: 40px 70px 0 70px;
+display: flex;
+justify-content: space-between;
+align-items: end;
+position: fixed;
+top: 0px;
+right: 0px;
+left: 0px;
+z-index: 9999;
 }
 .box{
     display: flex;
