@@ -11,6 +11,7 @@ const SlideSix = (props: IProps) => {
   useEffect(() => {
     setShow(true);
   }, []);
+
   return (
     <div
       className={cn(style.container, {

@@ -4,15 +4,16 @@ import style from "./style.module.scss";
 interface IProps {
   goTo: (index: number) => any;
 }
+const array = [
+  { label: "Work", page: 2 },
+  { label: "About Us", page: 1 },
+  { label: "Clients", page: 4 },
+  { label: "Contact", page: 5 },
+];
+
 const Header = (props: IProps) => {
   const { goTo } = props;
 
-  const array = [
-    { label: "Work", page: 2 },
-    { label: "About Us", page: 1 },
-    { label: "Clients", page: 4 },
-    { label: "Contact", page: 5 },
-  ];
   return (
     <div className={style.container}>
       <img src={Logo} alt="logo" />

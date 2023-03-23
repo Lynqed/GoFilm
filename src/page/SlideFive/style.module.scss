@@ -62,7 +62,14 @@
         }
     }
     &.hide {
-      z-index: 0;
+      .content{
+        top: 0;
+        animation-duration: #{$contentDuration}s;
+        animation-timing-function: $animation-timing-function-show;
+        animation-name: showHideContent;
+        animation-fill-mode: forwards;
+
+      }
     }
     &.show {
         .innerContainer {
@@ -87,6 +94,16 @@
     }
     to {
         opacity: 1;
+
+    }
+  }
+  @keyframes showHideContent {
+    from {
+        opacity: 1;
+
+    }
+    to {
+        opacity: 0;
 
     }
   }

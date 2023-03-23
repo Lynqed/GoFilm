@@ -22,16 +22,18 @@ const SlideTwo = (props: IProps) => {
       <div className={style.content}>
         <img src={Vectors} alt="vectors" className={style.image} />
         <div className={style.textContainer}>
-          <p className={style.about}>About us</p>
-          <p className={style.textAbout}>
-            “Our mission is to provide
-            <br />
-            <p className={style.orangeText}>
-              high-quality video content
+          <div>
+            <p className={style.about}>About us</p>
+            <p className={style.textAbout}>
+              “Our mission is to provide
               <br />
+              <p className={style.orangeText}>
+                high-quality video content
+                <br />
+              </p>
+              to any business that is open to it.”
             </p>
-            to any business that is open to it.”
-          </p>
+          </div>
         </div>
       </div>
     </div>

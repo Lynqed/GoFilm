@@ -8,20 +8,19 @@
     overflow: hidden;
     z-index: 9999;
     position: relative;
-
+    &:hover{
+        height: 540px;
+        width: 419px;
+        filter: grayscale(0);
+        position: relative;
+        z-index: 1;
+    }
 }
 .image{
     height: 100%;
     width: 100%;
     object-fit: cover;
     
-}
-.container:hover{
-    height: 540px;
-    width: 419px;
-    filter: grayscale(0);
-    position: relative;
-    z-index: 1;
 }
 .boxText{
     display: flex;
@@ -30,6 +29,7 @@
     position: relative;
     top: -80px;
     z-index: 2;
+    cursor: none;
 }
 .name{
     color: $color-white;
