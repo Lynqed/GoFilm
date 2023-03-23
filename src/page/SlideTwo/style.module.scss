@@ -56,12 +56,8 @@
       }
     }
     .image {
-      // position: absolute;
-      // left: 0;
-      // right: 0;
-      // bottom: 0;
-      // top: 0;
-      animation: imageAnimation 5s ease infinite;
+      height: calc(100vh - 30%);
+      transition: all 4s ease-out;
     }
   }
   &.hide {

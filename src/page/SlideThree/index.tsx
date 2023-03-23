@@ -1,36 +1,38 @@
-import React, { useEffect, useState } from "react";
-import style from "./style.module.scss";
-import SunRise from "../../assets/image/SunRise.jpeg";
-import Desert from "../../assets/image/desert.jpeg";
-import LatestProjects from "../../components/LatestProjects";
-import cn from "classnames";
-import { ICommon } from "../../App";
+import React, { useEffect, useState } from 'react';
+import style from './style.module.scss';
+import SunRise from '../../assets/image/SunRise.jpeg';
+import Desert from '../../assets/image/desert.jpeg';
+import LatestProjects from '../../components/LatestProjects';
+import cn from 'classnames';
+import { ICommon } from '../../App';
 interface IProps extends ICommon {}
+
+export const latestProjectsId = 'latest-Projects';
 const array = [
   {
-    header: "IN LOVE WE TRUST",
-    bodyHeader: "OUR REALITY",
-    text: "We helped children create their place in the world by giving them the power to color themselves into it.",
-    img: SunRise,
+    header: 'IN LOVE WE TRUST',
+    bodyHeader: 'OUR REALITY',
+    text: 'We helped children create their place in the world by giving them the power to color themselves into it.',
+    img: SunRise
   },
   {
-    header: "The Bunny",
-    bodyHeader: "IN LOVE WE TRUST",
-    text: "Some people may be satisfied with a ten. We like to take it to eleven.",
-    img: Desert,
+    header: 'The Bunny',
+    bodyHeader: 'IN LOVE WE TRUST',
+    text: 'Some people may be satisfied with a ten. We like to take it to eleven.',
+    img: Desert
   },
   {
-    header: "The Bunny",
-    bodyHeader: "IN LOVE WE TRUST",
-    text: "Some people may be satisfied with a ten. We  like to take it to eleven.",
-    img: Desert,
+    header: 'The Bunny',
+    bodyHeader: 'IN LOVE WE TRUST',
+    text: 'Some people may be satisfied with a ten. We  like to take it to eleven.',
+    img: Desert
   },
   {
-    header: "The Bunny",
-    bodyHeader: "IN LOVE WE TRUST",
-    text: "Some people may be satisfied with a ten.Like to take it to eleven.",
-    img: Desert,
-  },
+    header: 'The Bunny',
+    bodyHeader: 'IN LOVE WE TRUST',
+    text: 'Some people may be satisfied with a ten.Like to take it to eleven.',
+    img: Desert
+  }
 ];
 const SlideThree = (props: IProps) => {
   const { end } = props;
@@ -43,13 +45,13 @@ const SlideThree = (props: IProps) => {
     <div
       className={cn(style.container, {
         [style.show]: show === true,
-        [style.hide]: end,
+        [style.hide]: end
       })}
     >
       <div className={style.innerContainer} />
       <div className={style.content}>
         <p className={style.header}>Lates projects</p>
-        <div className={style.boxProjects}>
+        <div id={latestProjectsId} className={style.boxProjects}>
           {array.map((el) => (
             <div key={el.img}>
               <LatestProjects
