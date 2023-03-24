@@ -104,7 +104,7 @@ $color-background: linear-gradient(90deg, #f4a01a 0%, #ba4734 124.55%);
 .header {
   font-family: $Mediu-font-family;
   color: $color-white;
-  @include adaptiv-font(70, 27);
+  @include adaptiv-font(70, 45);
   font-weight: 500;
   padding-left: 70px;
 }

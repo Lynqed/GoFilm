@@ -33,13 +33,13 @@
 }
 .name{
     color: $color-white;
-    font-size: 24px;
+    @include adaptiv-font(24, 20);
     font-weight: 600;
     font-family: $Mediu-font-family-Italic;
 }
 .position{
     color: $color-white;
-    font-size: 14px;
+    @include adaptiv-font(14, 12);
     font-weight: 400;
     font-family: $Light-font-family-Italic;
 }
@@ -73,15 +73,15 @@
     }
 
 }
-@media(max-width: 400px){
+@media(max-width: 450px){
     .container{
         height: 180px;
-        width: 80px;
+        width: 108px;
         display: flex;
         flex-wrap: wrap;
         &:hover{
             height: 200px;
-            width: 100px;
+            width: 110px;
             filter: grayscale(0);
             position: relative;
             z-index: 1;

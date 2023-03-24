@@ -9,6 +9,7 @@
   justify-content: center;
   overflow: hidden;
   z-index: 1;
+
   .innerContainer {
     position: absolute;
     z-index: 0;
@@ -109,8 +110,6 @@
     left: 0;
   }
 }
-@media (max-width: 900px){
-  .textAbout{
-    color:red;
-  }
+@media(max-width:410px){
+
 }

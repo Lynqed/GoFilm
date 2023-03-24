@@ -144,8 +144,12 @@ textarea::placeholder {
           padding: 50px 60px;
       }
       }
+      textarea{
+        height: 100px
+      }
     }
     textarea{
       @include adaptiv-font(24, 17);
+
     }
   }
