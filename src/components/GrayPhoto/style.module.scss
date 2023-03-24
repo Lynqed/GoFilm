@@ -33,14 +33,59 @@
 }
 .name{
     color: $color-white;
-    font-size: 24px;
+    @include adaptiv-font(24, 20);
     font-weight: 600;
     font-family: $Mediu-font-family-Italic;
 }
 .position{
     color: $color-white;
-    font-size: 14px;
+    @include adaptiv-font(14, 12);
     font-weight: 400;
     font-family: $Light-font-family-Italic;
 }
 
+@media(max-width: 1100px){
+    .container{
+        height: 380px;
+        width: 150px;
+        &:hover{
+            height: 440px;
+            width: 280px;
+            filter: grayscale(0);
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+}
+
+@media(max-width: 860px){
+    .container{
+        height: 300px;
+        width: 81px;
+        &:hover{
+            height: 380px;
+            width: 219px;
+            filter: grayscale(0);
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+}
+@media(max-width: 450px){
+    .container{
+        height: 180px;
+        width: 108px;
+        display: flex;
+        flex-wrap: wrap;
+        &:hover{
+            height: 200px;
+            width: 110px;
+            filter: grayscale(0);
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+}

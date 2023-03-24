@@ -29,7 +29,7 @@
       .textTeam {
         font-family: $Bold-font-family-Italic;
         color: $color-orange;
-        font-size: 90px;
+        @include adaptiv-font(90, 35);
         position: absolute;
         top: 130px;
         left: 50%;
@@ -159,5 +159,18 @@
     to {
       margin-top: -100px;
       opacity: 0;
+    }
+  }
+
+  @media(max-width:450px){
+    .container{
+      .content{
+        .boxImage{
+          left: 0%;
+          transform: translate(0%, -50%);
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
     }
   }

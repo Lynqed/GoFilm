@@ -9,6 +9,7 @@
   justify-content: center;
   overflow: hidden;
   z-index: 1;
+
   .innerContainer {
     position: absolute;
     z-index: 0;
@@ -41,13 +42,14 @@
         color: $color-white;
         font-weight: 600;
         padding-bottom: 101px;
-        font-size: 70px;
+        @include adaptiv-font(70,29)
       }
       .textAbout {
         font-family: $Light-font-family-Italic;
         color: $color-white;
         font-weight: 400;
-        font-size: 70px;
+        @include adaptiv-font(70, 27);
+        flex-wrap: nowrap;
       }
       .orangeText {
         color: $color-orange;
@@ -107,4 +109,7 @@
     top: 0;
     left: 0;
   }
+}
+@media(max-width:410px){
+
 }

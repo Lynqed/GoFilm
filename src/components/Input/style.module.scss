@@ -6,8 +6,9 @@ outline: none;
 color:#FFFFFF;
 background: rgba( 0,0,0,.0);
 padding: 17px 0 17px 40px ;
-font-size: 24px;
+  @include adaptiv-font(24, 15);
 font-family:$Light-font-family ;
+
 
 }
 ::placeholder{
