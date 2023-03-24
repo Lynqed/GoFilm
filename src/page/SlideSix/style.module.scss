@@ -11,6 +11,7 @@ textarea{
     color:$color-white;
     height:100%;
     margin-bottom: 20px;
+    cursor:none;
 }
 textarea::placeholder {
     color:$color-white;
@@ -88,7 +89,7 @@ textarea::placeholder {
             padding: 17px ;
             border: 2px solid $color-white ;
             border-radius: 30px;
-            cursor: pointer;
+            cursor: none;
         }
         .boxText{
             text-align: center;

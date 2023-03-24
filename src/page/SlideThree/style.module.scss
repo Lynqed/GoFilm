@@ -63,6 +63,7 @@ $color-background: linear-gradient(90deg, #f4a01a 0%, #ba4734 124.55%);
       animation-timing-function: $animation-timing-function-show;
       animation-name: $animationContentShow;
       animation-fill-mode: forwards;
+
       .boxProjects {
         > :nth-child(1) {
           animation-duration: 2s;
