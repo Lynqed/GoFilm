@@ -89,6 +89,7 @@
       animation-timing-function: $animation-timing-function-show;
       animation-name: $animationContentShow;
       animation-fill-mode: forwards;
+
     }
   }
 }
@@ -109,7 +110,4 @@
     top: 0;
     left: 0;
   }
-}
-@media(max-width:410px){
-
 }

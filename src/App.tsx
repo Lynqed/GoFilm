@@ -1,14 +1,15 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import _ from 'lodash';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import SlideFive from './page/SlideFive';
-import SlideFour from './page/SlideFour';
-import VariantA from './page/SlideOne/VariantA';
-import VariantB from './page/SlideOne/VariantB';
-import SlideSix from './page/SlideSix';
-import SlideThree, { latestProjectsId } from './page/SlideThree';
-import SlideTwo from './page/SlideTwo';
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import _ from "lodash";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import SlideFive from "./page/SlideFive";
+import SlideFour from "./page/SlideFour";
+import VariantA from "./page/SlideOne/VariantA";
+import VariantB from "./page/SlideOne/VariantB";
+import SlideSix from "./page/SlideSix";
+import SlideThree, { latestProjectsId } from "./page/SlideThree";
+import SlideTwo from "./page/SlideTwo";
+import Cursor from "./components/Cursor";
 
 const sliders = {
   0: VariantA,
@@ -16,7 +17,7 @@ const sliders = {
   2: SlideThree,
   3: SlideFour,
   4: SlideFive,
-  5: SlideSix
+  5: SlideSix,
 };
 export const debouncer = (timeout: number) =>
   _.debounce((f) => f(), timeout, { leading: false });
@@ -37,8 +38,8 @@ function App() {
   >([
     {
       sliderIndex: 0,
-      key: new Date().getTime()
-    }
+      key: new Date().getTime(),
+    },
   ]);
 
   const goTo = useCallback((index: number) => {
@@ -57,7 +58,7 @@ function App() {
       if (last.sliderIndex === 5) return history;
       return [
         last,
-        { sliderIndex: last.sliderIndex + 1, key: new Date().getTime() }
+        { sliderIndex: last.sliderIndex + 1, key: new Date().getTime() },
       ];
     });
   }, []);
@@ -67,7 +68,7 @@ function App() {
       if (last.sliderIndex === 0) return history;
       return [
         last,
-        { sliderIndex: last.sliderIndex - 1, key: new Date().getTime() }
+        { sliderIndex: last.sliderIndex - 1, key: new Date().getTime() },
       ];
     });
   }, []);
@@ -104,14 +105,15 @@ function App() {
     currentSlider.current = last.sliderIndex;
   }, [history]);
   useEffect(() => {
-    document.addEventListener('wheel', listener);
+    document.addEventListener("wheel", listener);
     return () => {
-      document.removeEventListener('wheel', listener);
+      document.removeEventListener("wheel", listener);
     };
   }, []);
   return (
     <div>
       <Header goTo={goTo} />
+      <Cursor />
       {history.map((value, i) => {
         // @ts-ignore
         const Component = sliders[value.sliderIndex];
