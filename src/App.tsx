@@ -1,46 +1,32 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import _ from "lodash";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import SlideFive from "./page/SlideFive";
-import SlideFour from "./page/SlideFour";
-import VariantA from "./page/SlideOne/VariantA";
-import VariantB from "./page/SlideOne/VariantB";
-import SlideSix from "./page/SlideSix";
-import SlideThree, { latestProjectsId } from "./page/SlideThree";
-import SlideTwo from "./page/SlideTwo";
-import Cursor from "./components/Cursor";
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import { latestProjectsId } from './page/SlideThree';
+import Cursor from './components/Cursor';
+import { IHistoryItem } from './types';
 
-const sliders = {
-  0: VariantA,
-  1: SlideTwo,
-  2: SlideThree,
-  3: SlideFour,
-  4: SlideFive,
-  5: SlideSix,
-};
-export const debouncer = (timeout: number) =>
-  _.debounce((f) => f(), timeout, { leading: false });
+import SlideContainer, { sliders } from './page';
+
+import { debouncer } from './utils';
 
 const debounce = debouncer(250);
 
-export interface ICommon {
-  end: boolean;
-}
-
 function App() {
+  const inProgress = useRef(false);
   const currentSlider = useRef(0);
-  const [history, setHistory] = useState<
-    {
-      sliderIndex: number;
-      key: number;
-    }[]
-  >([
+  const [history, setHistory] = useState<IHistoryItem[]>([
     {
       sliderIndex: 0,
-      key: new Date().getTime(),
-    },
+      key: new Date().getTime()
+    }
   ]);
+
+  const setInProgress = useCallback(() => {
+    inProgress.current = true;
+    setTimeout(() => {
+      inProgress.current = false;
+    }, 500);
+  }, []);
 
   const goTo = useCallback((index: number) => {
     setHistory((history) => {
@@ -52,26 +38,33 @@ function App() {
       return [last, { sliderIndex: index, key: new Date().getTime() }];
     });
   }, []);
+
   const next = useCallback(() => {
+    if (inProgress.current) return;
     setHistory((history) => {
       const last = history[history.length - 1];
-      if (last.sliderIndex === 5) return history;
+      if (last.sliderIndex === Object.keys(sliders).length - 1) return history;
+      setInProgress();
       return [
         last,
-        { sliderIndex: last.sliderIndex + 1, key: new Date().getTime() },
+        { sliderIndex: last.sliderIndex + 1, key: new Date().getTime() }
       ];
     });
   }, []);
+
   const prev = useCallback(() => {
+    if (inProgress.current) return;
     setHistory((history) => {
       const last = history[history.length - 1];
       if (last.sliderIndex === 0) return history;
+      setInProgress();
       return [
         last,
-        { sliderIndex: last.sliderIndex - 1, key: new Date().getTime() },
+        { sliderIndex: last.sliderIndex - 1, key: new Date().getTime() }
       ];
     });
   }, []);
+
   const listener = useCallback((e: WheelEvent) => {
     const go = () => {
       debounce(() => {
@@ -100,27 +93,32 @@ function App() {
       go();
     }
   }, []);
+
   useEffect(() => {
     const last = history[history.length - 1];
     currentSlider.current = last.sliderIndex;
   }, [history]);
+
   useEffect(() => {
-    document.addEventListener("wheel", listener);
+    document.addEventListener('wheel', listener);
     return () => {
-      document.removeEventListener("wheel", listener);
+      document.removeEventListener('wheel', listener);
     };
   }, []);
+  const currentSlide = history[history.length - 1];
   return (
     <div>
-      <Header goTo={goTo} />
+      <Header goTo={goTo} currentSlide={currentSlide} />
       <Cursor />
       {history.map((value, i) => {
-        // @ts-ignore
-        const Component = sliders[value.sliderIndex];
+        const end = history.length > 1 ? i === 0 : false;
+        const start = i === 1 ? true : false;
         return (
-          <Component
+          <SlideContainer
             key={value.key}
-            end={history.length > 1 ? i === 0 : false}
+            value={value}
+            start={start}
+            end={end}
           />
         );
       })}

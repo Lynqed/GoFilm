@@ -7,9 +7,9 @@ import persone4 from "../../assets/image/team/person4.jpeg";
 import persone5 from "../../assets/image/team/person5.jpeg";
 import GrayPhoto from "../../components/GrayPhoto";
 import cn from "classnames";
-import { ICommon } from "../../App";
+import { ICommonProps } from "../../types";
 
-interface IProps extends ICommon {}
+interface IProps extends ICommonProps {}
 const array = [
   { name: "Jack Twist", position: "Videographer", image: persone1 },
   { name: "Jack Twist", position: "Videographer", image: persone2 },

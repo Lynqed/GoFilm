@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import style from "./style.module.scss";
+import React, { useEffect, useRef } from 'react';
+import style from './style.module.scss';
 const Cursor = () => {
   const cursorRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    document.addEventListener("mousemove", (event) => {
+    document.addEventListener('mousemove', (event) => {
       const { clientX, clientY } = event;
       if (cursorRef.current != null) {
         const mouseX = clientX - cursorRef.current.clientWidth / 2;
@@ -13,11 +13,7 @@ const Cursor = () => {
       }
     });
   }, []);
-  return (
-    <>
-      <div className={style.cursor} ref={cursorRef} />
-    </>
-  );
+  return <div className={style.cursor} ref={cursorRef} />;
 };
 
-export default Cursor;
+export default React.memo(Cursor);

@@ -4,8 +4,10 @@ import SunRise from '../../assets/image/SunRise.jpeg';
 import Desert from '../../assets/image/desert.jpeg';
 import LatestProjects from '../../components/LatestProjects';
 import cn from 'classnames';
-import { ICommon } from '../../App';
-interface IProps extends ICommon {}
+
+import { ICommonProps } from '../../types';
+
+interface IProps extends ICommonProps {}
 
 export const latestProjectsId = 'latest-Projects';
 const array = [
@@ -48,12 +50,19 @@ const SlideThree = (props: IProps) => {
         [style.hide]: end
       })}
     >
-      <div className={style.innerContainer} />
+      <div className={style.circleContainer}>
+        <div className={style.innerContainer} />
+      </div>
       <div className={style.content}>
         <p className={style.header}>Lates projects</p>
         <div id={latestProjectsId} className={style.boxProjects}>
-          {array.map((el) => (
-            <div key={el.img}>
+          {array.map((el, i) => (
+            <div
+              key={el.img}
+              style={{
+                animationDelay: `${i * 0.15}s`
+              }}
+            >
               <LatestProjects
                 header={el.header}
                 text={el.text}
