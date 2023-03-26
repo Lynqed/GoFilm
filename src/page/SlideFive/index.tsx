@@ -9,9 +9,9 @@ import HBO from "../../assets/image/сompanyLogo/HBO.png";
 import Malcolm from "../../assets/image/сompanyLogo/Malcolm.png";
 import VMW from "../../assets/image/сompanyLogo/VMW.png";
 import cn from "classnames";
-import { ICommon } from "../../App";
+import { ICommonProps } from "../../types";
 
-interface IProps extends ICommon {}
+interface IProps extends ICommonProps {}
 const array = [
   { image: HBO },
   { image: Malcolm },

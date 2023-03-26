@@ -2,14 +2,13 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import style from './style.module.scss';
 import Vectors from '../../assets/image/Vectors.svg';
 import cn from 'classnames';
-import { ICommon } from '../../App';
+import { ICommonProps } from '../../types';
 
-interface IProps extends ICommon {}
+interface IProps extends ICommonProps {}
 
 const max = 100;
 
 const SlideTwo = (props: IProps) => {
-  const { end } = props;
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [show, setShow] = useState<null | boolean>(null);
   const listener = useCallback((event: MouseEvent) => {
@@ -37,8 +36,7 @@ const SlideTwo = (props: IProps) => {
   return (
     <div
       className={cn(style.container, {
-        [style.show]: show === true,
-        [style.hide]: end
+        [style.show]: show === true
       })}
     >
       <div className={style.innerContainer} />

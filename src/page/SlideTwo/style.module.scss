@@ -15,8 +15,8 @@
     z-index: 0;
     background-color: $color-background;
     border-radius: 100%;
-    height: 100vh;
-    width: 100vw;
+    height: 0px;
+    width: 0px;
   }
   .content {
     top: 100vh;
@@ -61,21 +61,6 @@
       transition: all 4s ease-out;
     }
   }
-  &.hide {
-    // .innerContainer {
-    //   animation-name: $animationContainerHide;
-    //   animation-duration: #{$duration}s;
-    //   animation-timing-function: $animation-timing-function-hide;
-    //   animation-fill-mode: forwards;
-    // }
-    // .content {
-    //   animation-duration: #{$contentDuration}s;
-    //   animation-timing-function: $animation-timing-function-hide;
-    //   animation-name: $animationContentHide;
-    //   animation-fill-mode: forwards;
-    // }
-    z-index: 0;
-  }
   &.show {
     .innerContainer {
       animation-name: $animationContainerShow;
@@ -89,7 +74,6 @@
       animation-timing-function: $animation-timing-function-show;
       animation-name: $animationContentShow;
       animation-fill-mode: forwards;
-
     }
   }
 }
