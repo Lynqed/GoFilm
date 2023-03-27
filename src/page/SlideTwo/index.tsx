@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import style from './style.module.scss';
-import Vectors from '../../assets/image/Vectors.svg';
-import cn from 'classnames';
-import { ICommonProps } from '../../types';
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import style from "./style.module.scss";
+import Vectors from "assets/image/Vectors.svg";
+import cn from "classnames";
+import { ICommonProps } from "types";
 
 interface IProps extends ICommonProps {}
 
@@ -18,25 +18,25 @@ const SlideTwo = (props: IProps) => {
     const Y = y > max ? max : y < -max ? -max : y;
     setPosition({
       x: X,
-      y: Y
+      y: Y,
     });
   }, []);
   useEffect(() => {
-    document.addEventListener('mousemove', listener);
+    document.addEventListener("mousemove", listener);
     setShow(true);
     return () => {
-      document.removeEventListener('mousemove', listener);
+      document.removeEventListener("mousemove", listener);
     };
   }, []);
   const imageStyle = useMemo(() => {
     return {
-      transform: `translateX(${position.x}px) translateY(${position.y}px)`
+      transform: `translateX(${position.x}px) translateY(${position.y}px)`,
     };
   }, [position]);
   return (
     <div
       className={cn(style.container, {
-        [style.show]: show === true
+        [style.show]: show === true,
       })}
     >
       <div className={style.innerContainer} />

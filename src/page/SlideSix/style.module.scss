@@ -1,4 +1,4 @@
-@import '../../style/global.scss';
+@import '../../style/global.module.scss';
 textarea{
     border: 2px solid $color-white;
     border-radius: 30px;
@@ -137,6 +137,7 @@ textarea::placeholder {
       .content{
         .yellowBox{
           flex: 0 100%;
+          padding-top: 95px;
         }
         .boxForm{
           display: flex;
@@ -151,6 +152,24 @@ textarea::placeholder {
     }
     textarea{
       @include adaptiv-font(24, 17);
-
+    }
+  }
+  @media(max-width: 375px){
+    .container{
+      .content{
+        .yellowBox{
+          padding-top: 95px;
+        }
+        .boxForm{
+          gap: 15px;
+          padding: 10px 60px;
+      }
+      }
+      textarea{
+        height: 100px
+      }
+    }
+    textarea{
+      @include adaptiv-font(24, 17);
     }
   }
