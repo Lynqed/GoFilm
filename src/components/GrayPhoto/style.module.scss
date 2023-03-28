@@ -76,6 +76,18 @@
     }
 
 }
+@media(max-width: 550px){
+    .container{
+        &:hover{
+            height: 330px;
+            width: 140px;
+            filter: grayscale(0);
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+}
 @media(max-width: 450px){
     .container{
         height: 180px;

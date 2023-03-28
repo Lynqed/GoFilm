@@ -165,6 +165,25 @@
       opacity: 0;
     }
   }
+  @media(max-width:810px){
+    .container{
+      .content{
+        .textTeam{
+          top:20%
+        }
+      }
+    }
+  }
+
+  @media(max-width:510px){
+    .container{
+      .content{
+        .boxImage{
+          gap: 10px;
+        }
+      }
+    }
+  }
 
   @media(max-width:450px){
     .container{

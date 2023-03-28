@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import Footer from "./components/Footer";
+import Footer from "./page/Footer";
 import Header from "components/Header";
 import { latestProjectsId } from "page/SlideThree";
 import Cursor from "components/Cursor";
@@ -27,7 +27,6 @@ function App() {
       inProgress.current = false;
     }, 500);
   }, []);
-
   const goTo = useCallback((index: number) => {
     setHistory((history) => {
       if (history.length === 1) {

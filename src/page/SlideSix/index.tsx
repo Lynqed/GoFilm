@@ -3,6 +3,7 @@ import Input from "components/Input";
 import style from "./style.module.scss";
 import cn from "classnames";
 import { ICommonProps } from "types";
+import Footer from "page/Footer";
 
 interface IProps extends ICommonProps {}
 

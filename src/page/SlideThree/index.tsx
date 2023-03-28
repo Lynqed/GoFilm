@@ -58,7 +58,7 @@ const SlideThree = (props: IProps) => {
         <div id={latestProjectsId} className={style.boxProjects}>
           {array.map((el, i) => (
             <div
-              key={el.img}
+              key={i}
               style={{
                 animationDelay: `${i * 0.15}s`,
               }}
