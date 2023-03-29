@@ -20,7 +20,7 @@ const Header = (props: IProps) => {
   return (
     <div
       className={cn(style.container, {
-        [style.firstSlide]: currentSlide.sliderIndex === 0
+        [style.firstSlide]: currentSlide.sliderId === 0
       })}
     >
       <div className={style.innerContainer}>
