@@ -1,5 +1,5 @@
 @import '../../style/global.module.scss';
-$color-background: linear-gradient(90deg, #f4a01a 0%, #ba4734 124.55%);
+
 .container {
   position: absolute;
   width: 100vw;
@@ -20,7 +20,7 @@ $color-background: linear-gradient(90deg, #f4a01a 0%, #ba4734 124.55%);
       height: 0px;
       width: 0px;
       border-radius: 100%;
-      background-image: $color-background;
+      background-image: $orange-gradient;
     }
   }
 

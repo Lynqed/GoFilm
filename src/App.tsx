@@ -8,6 +8,9 @@ import { IHistoryItem } from "types";
 import SlideContainer, { sliders } from "./page";
 
 import { debouncer } from "./utils";
+import SlideOne from "page/Project/SlideOne";
+import SlideTwo from "page/Project/SlideTwo";
+import SlideThree from "page/Project/SlideThree";
 
 const debounce = debouncer(250);
 
@@ -109,6 +112,7 @@ function App() {
     <div>
       <Header goTo={goTo} currentSlide={currentSlide} />
       <Cursor />
+
       {history.map((value, i) => {
         const end = history.length > 1 ? i === 0 : false;
         const start = i === 1 ? true : false;
