@@ -17,7 +17,7 @@ const SlideContainer: FC<IProps> = ({ value, ...common }: IProps) => {
     return null;
   }
   return (
-    <div style={{ position: 'relative', zIndex: common.end ? 5 : 10 }}>
+    <div style={{ position: "relative", zIndex: common.end ? 5 : 10 }}>
       <Component {...common} />
     </div>
   );

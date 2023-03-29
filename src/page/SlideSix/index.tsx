@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import Input from '../../components/Input';
-import style from './style.module.scss';
-import cn from 'classnames';
-import { ICommonProps } from '../../types';
+import React, { useEffect, useState } from "react";
+import Input from "components/Input";
+import style from "./style.module.scss";
+import cn from "classnames";
+import { ICommonProps } from "types";
+import Footer from "page/Footer";
 
 interface IProps extends ICommonProps {}
 
@@ -17,7 +18,7 @@ const SlideSix = (props: IProps) => {
     <div
       className={cn(style.container, {
         [style.show]: show === true,
-        [style.hide]: end
+        [style.hide]: end,
       })}
     >
       <div className={style.innerContainer} />

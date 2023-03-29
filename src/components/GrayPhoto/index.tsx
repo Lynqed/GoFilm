@@ -11,10 +11,11 @@ const GrayPhoto: FC<IProps> = ({ image, name, position }) => {
     <div>
       <div className={style.container}>
         <img src={image} alt="person" className={style.image} />
-      </div>
-      <div className={style.boxText}>
-        <p className={style.name}>{name}</p>
-        <p className={style.position}>{position}</p>
+
+        <div className={style.boxText}>
+          <p className={style.name}>{name}</p>
+          <p className={style.position}>{position}</p>
+        </div>
       </div>
     </div>
   );

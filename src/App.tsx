@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import Footer from './components/Footer';
 import Header from './components/Header';
 import { latestProjectsId } from './page/SlideThree';
 import Cursor from './components/Cursor';
@@ -54,10 +53,12 @@ function App() {
     setHistory((history) => {
       const last = history[history.length - 1];
       const item = getSliderById(last.sliderId);
-      if (!item || item.last) return history;
+      if (!item) return history;
+      const nextItem = item.data[item.index + 1];
+      if (!nextItem) return history;
       setInProgress();
       const sliderData = {
-        sliderId: item.data[item.index + 1].id,
+        sliderId: nextItem.id,
         group: item.item.group,
         key: new Date().getTime()
       };
@@ -94,19 +95,22 @@ function App() {
         }
       });
     };
-    if (currentSlider.current === 2) {
-      const el = document.getElementById(latestProjectsId);
-      if (el) {
-        el.scrollLeft += e.deltaY / 2;
-        if (el.scrollLeft + el.offsetWidth >= el.scrollWidth) {
-          go();
+    const item = getSliderById(currentSlider.current);
+    if (item) {
+      if (item.item.scrollElementId) {
+        const el = document.getElementById(item.item.scrollElementId);
+        if (el) {
+          el.scrollLeft += e.deltaY / 2;
+          if (el.scrollLeft + el.offsetWidth >= el.scrollWidth) {
+            go();
+          }
+          if (el.scrollLeft === 0) {
+            go();
+          }
         }
-        if (el.scrollLeft === 0) {
-          go();
-        }
+      } else {
+        go();
       }
-    } else {
-      go();
     }
   }, []);
 
@@ -132,6 +136,7 @@ function App() {
         return (
           <SlideContainer
             key={value.key}
+            goTo={goTo}
             value={value}
             start={start}
             end={end}

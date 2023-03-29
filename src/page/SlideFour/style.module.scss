@@ -1,4 +1,4 @@
-@import '../../style/global.scss';
+@import '../../style/global.module.scss';
 .container {
     position: absolute;
     width: 100vw;
@@ -29,11 +29,15 @@
       .textTeam {
         font-family: $Bold-font-family-Italic;
         color: $color-orange;
-        @include adaptiv-font(90, 35);
+        @include adaptiv-font(90, 75);
         position: absolute;
         top: 130px;
         left: 50%;
         transform: translate(-50%, -50%);
+        width: 100%;
+   
+    display: flex;
+    justify-content: center;
       }
       .boxImage {
         display: flex;
@@ -161,15 +165,40 @@
       opacity: 0;
     }
   }
+  @media(max-width:810px){
+    .container{
+      .content{
+        .textTeam{
+          top:20%
+        }
+      }
+    }
+  }
+
+  @media(max-width:510px){
+    .container{
+      .content{
+        .boxImage{
+          gap: 10px;
+        }
+      }
+    }
+  }
 
   @media(max-width:450px){
     .container{
       .content{
+        .textTeam{
+          top: 155px;
+          padding-top: 20%;
+        }
         .boxImage{
           left: 0%;
           transform: translate(0%, -50%);
           flex-wrap: wrap;
           justify-content: center;
+          top:60%;
+          gap: 10px;
         }
       }
     }

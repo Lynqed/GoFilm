@@ -1,5 +1,5 @@
-@import '../../style/global.scss';
-$color-background: linear-gradient(90deg, #f4a01a 0%, #ba4734 124.55%);
+@import '../../style/global.module.scss';
+
 .container {
   position: absolute;
   width: 100vw;
@@ -20,7 +20,7 @@ $color-background: linear-gradient(90deg, #f4a01a 0%, #ba4734 124.55%);
       height: 0px;
       width: 0px;
       border-radius: 100%;
-      background-image: $color-background;
+      background-image: $orange-gradient;
     }
   }
 
@@ -99,7 +99,12 @@ $color-background: linear-gradient(90deg, #f4a01a 0%, #ba4734 124.55%);
 .header {
   font-family: $Mediu-font-family;
   color: $color-white;
-  @include adaptiv-font(70, 45);
+  @include adaptiv-font(70, 40);
   font-weight: 500;
-  padding: 100px 70px 50px 70px;
+  padding: 140px 70px 50px 70px;
+}
+@media(max-width: 850px){
+  .header{
+    padding: 150px 0px 0px 70px;
+  }
 }

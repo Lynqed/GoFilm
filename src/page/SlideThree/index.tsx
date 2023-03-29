@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import style from './style.module.scss';
-import SunRise from '../../assets/image/SunRise.jpeg';
-import Desert from '../../assets/image/desert.jpeg';
-import LatestProjects from '../../components/LatestProjects';
+import SunRise from 'assets/image/SunRise.jpeg';
+import Desert from 'assets/image/desert.jpeg';
+import LatestProjects from 'components/LatestProjects';
 import cn from 'classnames';
 
-import { ICommonProps } from '../../types';
+import { ICommonProps } from 'types';
 
 interface IProps extends ICommonProps {}
 
@@ -37,7 +37,7 @@ const array = [
   }
 ];
 const SlideThree = (props: IProps) => {
-  const { end } = props;
+  const { end, goTo } = props;
   const [show, setShow] = useState<null | boolean>(null);
   useEffect(() => {
     setShow(true);
@@ -58,7 +58,10 @@ const SlideThree = (props: IProps) => {
         <div id={latestProjectsId} className={style.boxProjects}>
           {array.map((el, i) => (
             <div
-              key={el.img}
+              key={i}
+              onClick={() => {
+                goTo(6);
+              }}
               style={{
                 animationDelay: `${i * 0.15}s`
               }}

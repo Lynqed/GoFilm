@@ -1,8 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import cn from 'classnames';
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import cn from "classnames";
 
-import style from './style.module.scss';
-import { ICommonProps } from '../../types';
+import style from "./style.module.scss";
+import { ICommonProps } from "types";
+import Video from "assets/video/test_video.mp4";
 
 import {
   defaultPosition,
@@ -13,8 +14,8 @@ import {
   animationSpeed,
   animationStep,
   interpolation,
-  step
-} from './utils';
+  step,
+} from "./utils";
 
 interface IProps extends ICommonProps {}
 
@@ -86,15 +87,15 @@ const VariantA = (props: IProps) => {
   }, [position]);
 
   useEffect(() => {
-    window.addEventListener('resize', resizeListener);
-    document.addEventListener('mousemove', mousemoveListener);
-    document.addEventListener('mousedown', moveDownListener);
-    document.addEventListener('mouseup', moveUpListener);
+    window.addEventListener("resize", resizeListener);
+    document.addEventListener("mousemove", mousemoveListener);
+    document.addEventListener("mousedown", moveDownListener);
+    document.addEventListener("mouseup", moveUpListener);
     return () => {
-      window.removeEventListener('resize', resizeListener);
-      document.removeEventListener('mousemove', mousemoveListener);
-      document.removeEventListener('mousedown', moveDownListener);
-      document.removeEventListener('mouseup', moveUpListener);
+      window.removeEventListener("resize", resizeListener);
+      document.removeEventListener("mousemove", mousemoveListener);
+      document.removeEventListener("mousedown", moveDownListener);
+      document.removeEventListener("mouseup", moveUpListener);
     };
   }, []);
 
@@ -116,7 +117,7 @@ const VariantA = (props: IProps) => {
     : 1;
 
   const backgroundStyle = {
-    transform: `translateX(${-(screenWidth() - position)}px)`
+    transform: `translateX(${-(screenWidth() - position)}px)`,
   };
 
   const mainTextStyle = {
@@ -125,7 +126,7 @@ const VariantA = (props: IProps) => {
     }%, transparent ${transitionText}%)`,
     maskImage: `linear-gradient(to right,black ${
       transitionText - step
-    }%, transparent ${transitionText}%)`
+    }%, transparent ${transitionText}%)`,
   };
 
   const hiddenTextStyle = {
@@ -134,24 +135,26 @@ const VariantA = (props: IProps) => {
     }%, transparent ${transitionText2}%)`,
     maskImage: `linear-gradient(to left,black ${
       transitionText2 - step
-    }%, transparent ${transitionText2}%)`
+    }%, transparent ${transitionText2}%)`,
   };
 
   const moveElementStyle = {
     opacity: transitionOpacity,
-    left: position
+    left: position,
   };
 
   return (
     <div
       className={cn(style.mainContainer, {
-        [style.startAnimation]: props.start
+        [style.startAnimation]: props.start,
       })}
     >
       <div className={style.circleAnimation} />
       <div className={style.container}>
         <div className={style.backgroundImageContainer}>
-          <div className={style.backgroundImage} />
+          <div className={style.backgroundImage}>
+            <video src={Video} autoPlay muted loop />
+          </div>
         </div>
         <div className={cn(style.innerContainer)} style={backgroundStyle} />
         <div ref={contentRef} className={style.content}>

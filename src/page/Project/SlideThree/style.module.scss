@@ -1,0 +1,23 @@
+@import '../../../style/global.module.scss';
+
+.container{
+    position: absolute;
+    background-color:$color-background;
+    height: 100vh;
+    width: 100vw ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.boxImage{
+    padding: 130px 70px 70px 70px;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+}
+.image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

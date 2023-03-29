@@ -1,6 +1,7 @@
 export interface ICommonProps {
     end: boolean
     start: boolean
+    goTo: (id: number) => any
 }
 
 export enum TypeGroup {
@@ -17,5 +18,6 @@ export interface IHistoryItem {
 export interface ISliderItem {
     id: number,
     group: TypeGroup
+    scrollElementId?: string
     component: React.MemoExoticComponent<React.ComponentType<ICommonProps>>
 }
