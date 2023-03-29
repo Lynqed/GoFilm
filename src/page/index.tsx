@@ -1,12 +1,13 @@
-import React, { FC } from 'react';
-import { ICommonProps, IHistoryItem } from '../types';
+import React, { FC } from "react";
+import { ICommonProps, IHistoryItem } from "../types";
 
-import SlideFive from './SlideFive';
-import SlideFour from './SlideFour';
-import VariantA from './SlideOne';
-import SlideSix from './SlideSix';
-import SlideThree from './SlideThree';
-import SlideTwo from './SlideTwo';
+import SlideFive from "./SlideFive";
+import SlideFour from "./SlideFour";
+import VariantA from "./SlideOne";
+import SlideSix from "./SlideSix";
+import SlideThree from "./SlideThree";
+import SlideTwo from "./SlideTwo";
+import Footer from "page/Footer";
 
 interface IProps extends ICommonProps {
   value: IHistoryItem;
@@ -21,13 +22,14 @@ export const sliders: Record<
   2: SlideThree,
   3: SlideFour,
   4: SlideFive,
-  5: SlideSix
+  5: SlideSix,
+  6: Footer,
 };
 
 const SlideContainer: FC<IProps> = ({ value, ...common }: IProps) => {
   const Component = sliders[value.sliderIndex];
   return (
-    <div style={{ position: 'relative', zIndex: common.end ? 5 : 10 }}>
+    <div style={{ position: "relative", zIndex: common.end ? 5 : 10 }}>
       <Component {...common} />
     </div>
   );

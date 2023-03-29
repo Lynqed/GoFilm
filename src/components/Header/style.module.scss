@@ -10,7 +10,7 @@
   .innerContainer {
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: center;
   }
   &.firstSlide {
     padding: 60px 120px 0 120px;
@@ -74,18 +74,32 @@
     margin-left: 2px;
   }
   .box {
-    gap: 9px;
+    gap: 6px;
   }
+  .logo
+      {
+        transform: scale(0.8) ;
+      }
   .container {
     justify-content: space-evenly;
-    padding: 60px 15px 0 15px;
+    padding: 60px 15px 0 6px;
     &.firstSlide{
-      padding: 60px 20px 0 30px;
+      padding: 60px 20px 0 6px;
+    .innerContainer{
+      justify-content:start;
+    }
+      .box{
+        gap: 2px;
+        margin-left: 20px;
+      }
       .logo
       {
-        transform: scale(1) ;
-    
+        transform: scale(0.8) ;
       }
+      .label{
+      font-size: 12px;
+      margin-left: 8px;
+    }
     }
   }
 }

@@ -45,8 +45,8 @@ const SlideFive = (props: IProps) => {
           <p className={style.orangeText}>Our friends</p>
         </div>
         <div className={style.companies}>
-          {array.map((el) => (
-            <div key={el.image} className={style.imageBox}>
+          {array.map((el, i) => (
+            <div key={i} className={style.imageBox}>
               <img src={el.image} alt="company" className={style.image} />
             </div>
           ))}
