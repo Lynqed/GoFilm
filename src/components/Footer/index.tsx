@@ -1,10 +1,10 @@
 import React from "react";
 import style from "./style.module.scss";
-import YouTube from "../../assets/image/socialMedia/youtube.svg";
-import Instagram from "../../assets/image/socialMedia/instagram.svg";
-import Facebook from "../../assets/image/socialMedia/facebook.svg";
-import Twitter from "../../assets/image/socialMedia/twitter.svg";
-import WhiteLogo from "../../assets/image/WhiteLogo.svg";
+import YouTube from "assets/image/socialMedia/youtube.svg";
+import Instagram from "assets/image/socialMedia/instagram.svg";
+import Facebook from "assets/image/socialMedia/facebook.svg";
+import Twitter from "assets/image/socialMedia/twitter.svg";
+import WhiteLogo from "assets/image/WhiteLogo.svg";
 
 const Footer = () => {
   const pages = [

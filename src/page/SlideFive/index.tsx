@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import style from "./style.module.scss";
-import Atag from "../../assets/image/сompanyLogo/Atag.png";
-import Cola from "../../assets/image/сompanyLogo/Cola.png";
-import Craft from "../../assets/image/сompanyLogo/Craft.png";
-import DHL from "../../assets/image/сompanyLogo/DHL.png";
-import Docker from "../../assets/image/сompanyLogo/Docker.png";
-import HBO from "../../assets/image/сompanyLogo/HBO.png";
-import Malcolm from "../../assets/image/сompanyLogo/Malcolm.png";
-import VMW from "../../assets/image/сompanyLogo/VMW.png";
+import Atag from "assets/image/сompanyLogo/Atag.png";
+import Cola from "assets/image/сompanyLogo/Cola.png";
+import Craft from "assets/image/сompanyLogo/Craft.png";
+import DHL from "assets/image/сompanyLogo/DHL.png";
+import Docker from "assets/image/сompanyLogo/Docker.png";
+import HBO from "assets/image/сompanyLogo/HBO.png";
+import Malcolm from "assets/image/сompanyLogo/Malcolm.png";
+import VMW from "assets/image/сompanyLogo/VMW.png";
 import cn from "classnames";
-import { ICommonProps } from "../../types";
+import { ICommonProps } from "types";
 
 interface IProps extends ICommonProps {}
 const array = [

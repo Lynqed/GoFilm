@@ -1,4 +1,4 @@
-@import '../../style/global.scss';
+@import '../../style/global.module.scss';
 .container {
   padding: 40px 70px 0 70px;
   position: fixed;
@@ -10,6 +10,7 @@
   .innerContainer {
     display: flex;
     justify-content: space-between;
+    align-items: end;
   }
   &.firstSlide {
     padding: 60px 120px 0 120px;
@@ -27,33 +28,64 @@
 .logo {
   transition: all 1s ease;
   cursor: pointer;
+
+  
 }
 .label {
   font-family: $Mediu-font-family;
   color: $color-white;
-  font-size: 20px;
+  @include adaptiv-font(20, 16);
   font-weight: 600;
   white-space: nowrap;
 }
-@media (max-width: 666px) {
+@media (max-width: 811px) {
   .label {
-    font-size: 17px;
     margin-left: 8px;
   }
   .box {
     gap: 20px;
   }
+  .container{
+    .firstSlide{
+      .logo{
+        transform: scale(0.2);
+      }
+    }
+  }
 }
-@media (max-width: 494px) {
+@media (max-width: 712px) {
   .label {
-    font-size: 16px;
     margin-left: 8px;
+    display: flex;
   }
   .box {
     gap: 5px;
   }
   .container {
-    padding: 40px 0 0 0;
     justify-content: space-evenly;
+    padding: 60px 15px 0 15px;
+    &.firstSlide{
+      padding: 60px 50px 0 30px;
+    }
+  }
+}
+@media (max-width: 420px) {
+  .label {
+    margin-left: 2px;
+  }
+  .box {
+    gap: 9px;
+  }
+  .container {
+    justify-content: space-evenly;
+    padding: 60px 15px 0 15px;
+    &.firstSlide{
+      padding: 60px 20px 0 30px;
+      .logo
+      {
+        transform: scale(1) ;
+    
+      }
+    }
   }
 }

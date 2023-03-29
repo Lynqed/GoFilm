@@ -1,13 +1,13 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import { latestProjectsId } from './page/SlideThree';
-import Cursor from './components/Cursor';
-import { IHistoryItem } from './types';
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import Footer from "./components/Footer";
+import Header from "components/Header";
+import { latestProjectsId } from "page/SlideThree";
+import Cursor from "components/Cursor";
+import { IHistoryItem } from "types";
 
-import SlideContainer, { sliders } from './page';
+import SlideContainer, { sliders } from "./page";
 
-import { debouncer } from './utils';
+import { debouncer } from "./utils";
 
 const debounce = debouncer(250);
 
@@ -17,8 +17,8 @@ function App() {
   const [history, setHistory] = useState<IHistoryItem[]>([
     {
       sliderIndex: 0,
-      key: new Date().getTime()
-    }
+      key: new Date().getTime(),
+    },
   ]);
 
   const setInProgress = useCallback(() => {
@@ -47,7 +47,7 @@ function App() {
       setInProgress();
       return [
         last,
-        { sliderIndex: last.sliderIndex + 1, key: new Date().getTime() }
+        { sliderIndex: last.sliderIndex + 1, key: new Date().getTime() },
       ];
     });
   }, []);
@@ -60,7 +60,7 @@ function App() {
       setInProgress();
       return [
         last,
-        { sliderIndex: last.sliderIndex - 1, key: new Date().getTime() }
+        { sliderIndex: last.sliderIndex - 1, key: new Date().getTime() },
       ];
     });
   }, []);
@@ -100,9 +100,9 @@ function App() {
   }, [history]);
 
   useEffect(() => {
-    document.addEventListener('wheel', listener);
+    document.addEventListener("wheel", listener);
     return () => {
-      document.removeEventListener('wheel', listener);
+      document.removeEventListener("wheel", listener);
     };
   }, []);
   const currentSlide = history[history.length - 1];
