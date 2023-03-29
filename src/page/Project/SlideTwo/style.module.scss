@@ -1,57 +1,57 @@
 @import '../../../style/global.module.scss';
 
-.container{
-    width: 100vw;
-    height: 100vh;
-    background-color:$color-background;
-    
-    .headerText{
-        color:$color-white;
-        @include adaptiv-font(100, 45);
-        padding-top: 141px;
-            .orangeText{
-        color: $color-orange;
-        @include adaptiv-font(100, 45);
-    }
-    }
-    .mainText{
-        color:$color-white;
-        @include adaptiv-font(28, 17);
-        padding: 20px 0 71px 0;
-    }
+.container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-background;
 
-    .boxProjects {
-        display: flex;
-        flex: 1;
-        align-items: center;
-        overflow: auto;
-        padding-left: 70px;
-        gap: 30px;
-        &::-webkit-scrollbar {
-          display: none;
-        }
-      }
-
-      .boxProjects {
-        > :nth-child(n) {
-          animation-duration: 2s;
-          animation-timing-function: $animation-timing-function-show;
-          animation-name: showImage;
-          animation-fill-mode: forwards;
-        }
-      }
-      .boxText{
-        padding-left: 70px;
-      }
-}
-@keyframes showImage {
-    from {
-    //   transform: translateY(150px);
-      opacity: 0;
-    }
-    to {
-    //   transform: translateY(0px);
-      opacity: 1;
+  .headerText {
+    color: $color-white;
+    @include adaptiv-font(100, 45);
+    padding-top: 141px;
+    .orangeText {
+      color: $color-orange;
+      @include adaptiv-font(100, 45);
     }
   }
-  
+  .mainText {
+    color: $color-white;
+    @include adaptiv-font(28, 17);
+    padding: 20px 0 71px 0;
+  }
+
+  .boxProjects {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    overflow: auto;
+    padding-left: 70px;
+    gap: 30px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .boxProjects {
+    > :nth-child(n) {
+      animation-duration: 2s;
+      animation-timing-function: $animation-timing-function-show;
+      animation-name: showImage;
+      animation-fill-mode: forwards;
+    }
+  }
+  .boxText {
+    padding-left: 70px;
+  }
+}
+@keyframes showImage {
+  from {
+    //   transform: translateY(150px);
+    opacity: 0;
+  }
+  to {
+    //   transform: translateY(0px);
+    opacity: 1;
+  }
+}

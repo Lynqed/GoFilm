@@ -1,6 +1,6 @@
-import React from "react";
-import style from "./style.module.scss";
-import image from "assets/image/projectImg/imgBack.png";
+import React from 'react';
+import style from './style.module.scss';
+import image from 'assets/image/projectImg/imgBack.png';
 
 const SlideThree = () => {
   return (
@@ -12,4 +12,4 @@ const SlideThree = () => {
   );
 };
 
-export default SlideThree;
+export default React.memo(SlideThree);

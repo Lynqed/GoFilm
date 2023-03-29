@@ -22,11 +22,11 @@ const Header = (props: IProps) => {
   return (
     <div
       className={cn(style.container, {
-        [style.firstSlide]: currentSlide.sliderIndex === 0,
+        [style.firstSlide]: currentSlide.sliderId === 0
       })}
     >
       <div className={style.innerContainer}>
-        {props.currentSlide.sliderIndex === 2 ? (
+        {props.currentSlide.sliderId === 2 ? (
           <img
             className={style.logo}
             src={LogoWhite}

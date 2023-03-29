@@ -1,13 +1,16 @@
-import React from "react";
-import style from "./style.module.scss";
-import imageProject from "assets/image/projectImg/imgProject.png";
+import React from 'react';
+import style from './style.module.scss';
+import imageProject from 'assets/image/projectImg/imgProject.png';
+
+const image = [
+  { image: imageProject },
+  { image: imageProject },
+  { image: imageProject }
+];
+
+export const imagesSliderList = 'images-list';
 
 const SlideTwo = () => {
-  const image = [
-    { image: imageProject },
-    { image: imageProject },
-    { image: imageProject },
-  ];
   return (
     <div className={style.container}>
       <div className={style.boxText}>
@@ -19,12 +22,12 @@ const SlideTwo = () => {
           <br /> giving them the power to color themselves into it.
         </p>
       </div>
-      <div className={style.boxProjects}>
+      <div id={imagesSliderList} className={style.boxProjects}>
         {image.map((el, i) => (
           <div
             key={i}
             style={{
-              animationDelay: `${i * 0.15}s`,
+              animationDelay: `${i * 0.15}s`
             }}
           >
             <img src={el.image} alt="projectImg" />

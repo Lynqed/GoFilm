@@ -1,33 +1,21 @@
-import React, { FC } from "react";
-import { ICommonProps, IHistoryItem } from "../types";
-
-import SlideFive from "./SlideFive";
-import SlideFour from "./SlideFour";
-import VariantA from "./SlideOne";
-import SlideSix from "./SlideSix";
-import SlideThree from "./SlideThree";
-import SlideTwo from "./SlideTwo";
-import Footer from "page/Footer";
+import React, { FC, useState } from 'react';
+import { ICommonProps, IHistoryItem } from '../types';
+import { getSliderById } from '../utils';
 
 interface IProps extends ICommonProps {
   value: IHistoryItem;
 }
 
-export const sliders: Record<
-  number,
-  React.MemoExoticComponent<React.ComponentType<ICommonProps>>
-> = {
-  0: VariantA,
-  1: SlideTwo,
-  2: SlideThree,
-  3: SlideFour,
-  4: SlideFive,
-  5: SlideSix,
-  6: Footer,
-};
-
 const SlideContainer: FC<IProps> = ({ value, ...common }: IProps) => {
-  const Component = sliders[value.sliderIndex];
+  const [Component] = useState(() => {
+    const component = getSliderById(value.sliderId);
+    if (component) {
+      return component.item.component;
+    }
+  });
+  if (!Component) {
+    return null;
+  }
   return (
     <div style={{ position: "relative", zIndex: common.end ? 5 : 10 }}>
       <Component {...common} />

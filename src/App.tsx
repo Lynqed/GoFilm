@@ -1,16 +1,12 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import Footer from "./page/Footer";
-import Header from "components/Header";
-import { latestProjectsId } from "page/SlideThree";
-import Cursor from "components/Cursor";
-import { IHistoryItem } from "types";
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import Header from './components/Header';
+import { latestProjectsId } from './page/SlideThree';
+import Cursor from './components/Cursor';
+import { IHistoryItem, TypeGroup } from './types';
 
-import SlideContainer, { sliders } from "./page";
+import SlideContainer from './page';
 
-import { debouncer } from "./utils";
-import SlideOne from "page/Project/SlideOne";
-import SlideTwo from "page/Project/SlideTwo";
-import SlideThree from "page/Project/SlideThree";
+import { debouncer, getSliderById } from './utils';
 
 const debounce = debouncer(250);
 
@@ -19,9 +15,10 @@ function App() {
   const currentSlider = useRef(0);
   const [history, setHistory] = useState<IHistoryItem[]>([
     {
-      sliderIndex: 0,
-      key: new Date().getTime(),
-    },
+      sliderId: 0,
+      group: TypeGroup.main,
+      key: new Date().getTime()
+    }
   ]);
 
   const setInProgress = useCallback(() => {
@@ -30,14 +27,24 @@ function App() {
       inProgress.current = false;
     }, 500);
   }, []);
-  const goTo = useCallback((index: number) => {
+
+  const goTo = useCallback((id: number) => {
     setHistory((history) => {
+      const item = getSliderById(id);
+      if (!item) {
+        return history;
+      }
+      const sliderData = {
+        sliderId: id,
+        group: item.item.group,
+        key: new Date().getTime()
+      };
       if (history.length === 1) {
-        return [...history, { sliderIndex: index, key: new Date().getTime() }];
+        return [...history, sliderData];
       }
       const last = history[history.length - 1];
-      if (last.sliderIndex === index) return history;
-      return [last, { sliderIndex: index, key: new Date().getTime() }];
+      if (last.sliderId === id) return history;
+      return [last, sliderData];
     });
   }, []);
 
@@ -45,12 +52,17 @@ function App() {
     if (inProgress.current) return;
     setHistory((history) => {
       const last = history[history.length - 1];
-      if (last.sliderIndex === Object.keys(sliders).length - 1) return history;
+      const item = getSliderById(last.sliderId);
+      if (!item) return history;
+      const nextItem = item.data[item.index + 1];
+      if (!nextItem) return history;
       setInProgress();
-      return [
-        last,
-        { sliderIndex: last.sliderIndex + 1, key: new Date().getTime() },
-      ];
+      const sliderData = {
+        sliderId: nextItem.id,
+        group: item.item.group,
+        key: new Date().getTime()
+      };
+      return [last, sliderData];
     });
   }, []);
 
@@ -58,12 +70,15 @@ function App() {
     if (inProgress.current) return;
     setHistory((history) => {
       const last = history[history.length - 1];
-      if (last.sliderIndex === 0) return history;
+      const item = getSliderById(last.sliderId);
+      if (!item || item.first) return history;
       setInProgress();
-      return [
-        last,
-        { sliderIndex: last.sliderIndex - 1, key: new Date().getTime() },
-      ];
+      const sliderData = {
+        sliderId: item.data[item.index - 1].id,
+        group: item.item.group,
+        key: new Date().getTime()
+      };
+      return [last, sliderData];
     });
   }, []);
 
@@ -80,31 +95,34 @@ function App() {
         }
       });
     };
-    if (currentSlider.current === 2) {
-      const el = document.getElementById(latestProjectsId);
-      if (el) {
-        el.scrollLeft += e.deltaY / 2;
-        if (el.scrollLeft + el.offsetWidth >= el.scrollWidth) {
-          go();
+    const item = getSliderById(currentSlider.current);
+    if (item) {
+      if (item.item.scrollElementId) {
+        const el = document.getElementById(item.item.scrollElementId);
+        if (el) {
+          el.scrollLeft += e.deltaY / 2;
+          if (el.scrollLeft + el.offsetWidth >= el.scrollWidth) {
+            go();
+          }
+          if (el.scrollLeft === 0) {
+            go();
+          }
         }
-        if (el.scrollLeft === 0) {
-          go();
-        }
+      } else {
+        go();
       }
-    } else {
-      go();
     }
   }, []);
 
   useEffect(() => {
     const last = history[history.length - 1];
-    currentSlider.current = last.sliderIndex;
+    currentSlider.current = last.sliderId;
   }, [history]);
 
   useEffect(() => {
-    document.addEventListener("wheel", listener);
+    document.addEventListener('wheel', listener);
     return () => {
-      document.removeEventListener("wheel", listener);
+      document.removeEventListener('wheel', listener);
     };
   }, []);
   const currentSlide = history[history.length - 1];
@@ -112,13 +130,13 @@ function App() {
     <div>
       <Header goTo={goTo} currentSlide={currentSlide} />
       <Cursor />
-
       {history.map((value, i) => {
         const end = history.length > 1 ? i === 0 : false;
         const start = i === 1 ? true : false;
         return (
           <SlideContainer
             key={value.key}
+            goTo={goTo}
             value={value}
             start={start}
             end={end}
