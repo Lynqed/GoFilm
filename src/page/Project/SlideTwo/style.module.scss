@@ -4,54 +4,81 @@
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-color: $color-background;
-
-  .headerText {
-    color: $color-white;
-    @include adaptiv-font(100, 45);
-    padding-top: 141px;
-    .orangeText {
-      color: $color-orange;
-      @include adaptiv-font(100, 45);
+ 
+  .content{
+    background-color: $color-background;
+    height: 100vh;
+    width: 100vw;
+    .boxText {
+      padding-left: 70px;
+      .headerText {
+        color: $color-white;
+        @include adaptiv-font(100, 45);
+        padding-top: 141px;
+        .orangeText {
+          color: $color-orange;
+          @include adaptiv-font(100, 45);
+        }
+      }
+    
+      .mainText {
+        color: $color-white;
+        @include adaptiv-font(28, 17);
+        padding: 20px 0 71px 0;
+      }
+    }
+    .boxProjects {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      padding-left: 70px;
+      overflow: auto;
+      gap:30px;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
-  .mainText {
-    color: $color-white;
-    @include adaptiv-font(28, 17);
-    padding: 20px 0 71px 0;
-  }
-
-  .boxProjects {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    overflow: auto;
-    padding-left: 70px;
-    gap: 30px;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  .boxProjects {
-    > :nth-child(n) {
-      animation-duration: 2s;
+  &.show {
+    .container{
+      animation-delay: #{$contentDuration}s;
+      animation-duration: #{$contentDuration}s;
       animation-timing-function: $animation-timing-function-show;
-      animation-name: showImage;
+      animation-name: $animationContentShow;
       animation-fill-mode: forwards;
     }
+    .content {
+      animation-delay: #{$contentDuration}s;
+      animation-duration: #{$contentDuration}s;
+      animation-timing-function: $animation-timing-function-show;
+      animation-name: showContent;
+      animation-fill-mode: forwards;
+    }
+    .boxProjects {
+      > :nth-child(n) {
+        animation-duration: 2s;
+        animation-timing-function: $animation-timing-function-show;
+        animation-name: showImage;
+        animation-fill-mode: forwards;
+      }
+    }
+    .boxText{
+      animation-duration: 2s;
+      animation-timing-function: $animation-timing-function-show;
+      animation-name: evenEndAnimationText;
+      animation-fill-mode: forwards;
+    }
+  } 
   }
-  .boxText {
-    padding-left: 70px;
-  }
-}
+
+
 @keyframes showImage {
   from {
-    //   transform: translateY(150px);
     opacity: 0;
   }
   to {
-    //   transform: translateY(0px);
+
     opacity: 1;
   }
 }
+
