@@ -1,15 +1,15 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import cn from "classnames";
-import style from "./style.module.scss";
-import { interpolation } from "../../SlideOne/utils";
-import { ICommonProps } from "types";
-const Video = require("assets/video/test_video.mp4");
-const Play = require("assets/image/play.svg").default;
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import cn from 'classnames';
+import style from './style.module.scss';
+import { interpolation } from '../../SlideOne/utils';
+import { ICommonProps } from 'types';
+const Video = require('assets/video/test_video.mp4');
+const Play = require('assets/image/play.svg').default;
 
 interface IProps extends ICommonProps {}
 const defaultSetScreen = () => ({
   width: window.innerWidth,
-  height: window.innerHeight,
+  height: window.innerHeight
 });
 
 const step = 50;
@@ -27,15 +27,15 @@ const SlideOne = (props: IProps) => {
   const [screen, setScreen] = useState(defaultSetScreen());
   const [screenOpen, setScreenOpen] = useState({
     width: 0,
-    height: 0,
+    height: 0
   });
   const resizeListener = useCallback(() => {
     setScreen(defaultSetScreen());
   }, []);
   useEffect(() => {
-    window.addEventListener("resize", resizeListener);
+    window.addEventListener('resize', resizeListener);
     return () => {
-      window.removeEventListener("resize", resizeListener);
+      window.removeEventListener('resize', resizeListener);
     };
   }, []);
   const onChangeOpen = useCallback(() => {
@@ -47,7 +47,7 @@ const SlideOne = (props: IProps) => {
           }, animationTime);
           return {
             width: screenOpen.width + step,
-            height: screenOpen.height + step,
+            height: screenOpen.height + step
           };
         }
         return screenOpen;
@@ -65,7 +65,7 @@ const SlideOne = (props: IProps) => {
           const height = screenOpen.height - step;
           return {
             width: width < 0 ? 0 : width,
-            height: height < 0 ? 0 : height,
+            height: height < 0 ? 0 : height
           };
         }
         return screenOpen;
@@ -113,19 +113,17 @@ const SlideOne = (props: IProps) => {
     <div
       className={cn(style.container, {
         [style.show]: show === true,
-        [style.end]: end,
+        [style.end]: end
       })}
     >
-      <div className={style.circleContainer}>
-        <div className={style.innerContainer} />
-      </div>
+      <div className={style.circleContainer}></div>
       <div className={style.content}>
         <div className={style.boxImage}>
           <div className={style.imageContainer}>
             <video className={style.video} src={Video} autoPlay muted loop />
             <div
               className={cn(style.maskText, style.text1, {
-                [style.open]: open,
+                [style.open]: open
               })}
             >
               {text}
