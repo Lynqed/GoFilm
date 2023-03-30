@@ -1,89 +1,151 @@
 @import '../../../style/global.module.scss';
 
-.container{
+.container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  .svgPoligon {
+    position: absolute;
+  }
+  .circleContainer {
+    position: absolute;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: $orange-gradient;
+
+    .innerContainer {
+      position: absolute;
+      z-index: 0;
+      height: 0px;
+      width: 0px;
+  
+    }
+  }
+  .content {
     position: absolute;
     width: 100vw;
     height: 100vh;
+    opacity: 0.95;
+    top: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  } 
+
+  &.show {
+    .circleContainer {
+    
+      animation-duration: #{$contentDuration}s;
+      animation-timing-function: $animation-timing-function-show;
+      animation-name: $animationContentShow;
+      animation-fill-mode: forwards;
+    }
+    .content {
+      animation-delay: #{$contentDuration}s;
+      animation-duration: #{$contentDuration}s;
+      animation-timing-function: $animation-timing-function-show;
+      animation-name: $animationContentShow;
+      animation-fill-mode: forwards;
+    }
+  }
+  &.end {
+     .content {
+      animation-duration: 2s;
+      animation-timing-function: $animation-timing-function-show;
+      animation-name: evenEndAnimationText;
+      animation-fill-mode: forwards;
+    }
+}
+
+}
+
+  .maskText {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100vw;
+    top: -20px;
+    height: 100vh;
+    font-weight: 700;
+    @include adaptiv-font(200, 50);
+    line-height: 200%;
+    text-align: center;
+  }
+  .boxImage {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    .content {
+    .text2 {
+      z-index: 0;
+      color: white;
+    }
+    .imageContainer {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+      clip-path: url('#poligon');
+      transition: all 1s ease;
+      z-index: 1;
+      .controlContainer {
         position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        .playButton {
+          height: 75px;
+          width: 75px;
+          transition: all 0.25s ease;
+          cursor: pointer;
+          opacity: 1;
+          &:active {
+            transform: scale(0.9);
+          }
+          &.open {
+            opacity: 0;
+          }
+        }
+        &.open {
+          cursor: pointer;
+        }
+      }
+      .video {
         width: 100vw;
         height: 100vh;
-        opacity: 0.95;
-        top: 100vh;
-        font-family: $Bold-font-family-Italic;
-        @include adaptiv-font(90, 56);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+        object-fit: cover;
       }
-        .innerContainer {
-          position: absolute;
-          z-index: 0;
-          height: 0px;
-          width: 0px;
-          border-radius: 100%;
-          background-image: $orange-gradient;
-      }
-      &.hide {
-        .innerContainer{
-          top: 0;
-          animation-duration: #{$contentDuration}s;
-          animation-timing-function: $animation-timing-function-show;
-          animation-name: $animationContentShow;
-          animation-fill-mode: forwards;
-  
-        }
-      }
-      &.show {
-        .innerContainer {
-          animation-name: $animationContainerShow;
-          animation-duration: #{$duration}s;
-          animation-timing-function: $animation-timing-function-show;
-          animation-fill-mode: forwards;
-        }
-        .content {
-          animation-delay: #{$contentDuration}s;
-          animation-duration: #{$contentDuration}s;
-          animation-timing-function: $animation-timing-function-show;
-          animation-name: $animationContentShow;
-          animation-fill-mode: forwards;
-        }
-      }
-
-    .boxImage{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-
-    }
-    .image{
-        max-width: 100%;
-        background-repeat: no-repeat;
-    }
-
-}
-@keyframes evenShowBackAnimation {
-    from {
-      margin-top: -200px;
-      opacity: 0;
-    }
-    to {
-      margin-top: 0;
-      opacity: 1;
-    }
-  }
-  @keyframes showHideContent {
-    from {
+      .text1 {
+        z-index: 1;
+        color: black;
         opacity: 1;
-
-    }
-    to {
-        opacity: 0;
-
+        transition: opacity 1s ease;
+        &.open {
+          opacity: 0;
+        }
+      }
     }
   }
+
+@keyframes evenEndAnimationText {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

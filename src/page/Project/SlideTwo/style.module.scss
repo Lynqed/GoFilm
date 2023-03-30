@@ -6,11 +6,15 @@
   height: 100vh;
  
   .content{
-    background-color: $color-background;
-    height: 100vh;
+    background-color: transparent ;
+    position: absolute;
     width: 100vw;
+    height: 100vh;
+    transition: all 2s ease;
+  
     .boxText {
       padding-left: 70px;
+      padding-top: 400px;
       .headerText {
         color: $color-white;
         @include adaptiv-font(100, 45);
@@ -38,47 +42,30 @@
         display: none;
       }
     }
+
+} 
+&.show {
+    .boxText {
+    animation-duration: 2s;
+    animation-timing-function: $animation-timing-function-show;
+    animation-name: textShow;
+    animation-fill-mode: forwards;
   }
-  &.show {
-    .container{
-      animation-delay: #{$contentDuration}s;
-      animation-duration: #{$contentDuration}s;
-      animation-timing-function: $animation-timing-function-show;
-      animation-name: $animationContentShow;
-      animation-fill-mode: forwards;
-    }
-    .content {
-      animation-delay: #{$contentDuration}s;
-      animation-duration: #{$contentDuration}s;
-      animation-timing-function: $animation-timing-function-show;
-      animation-name: showContent;
-      animation-fill-mode: forwards;
-    }
-    .boxProjects {
-      > :nth-child(n) {
-        animation-duration: 2s;
-        animation-timing-function: $animation-timing-function-show;
-        animation-name: showImage;
-        animation-fill-mode: forwards;
-      }
-    }
-    .boxText{
-      animation-duration: 2s;
-      animation-timing-function: $animation-timing-function-show;
-      animation-name: evenEndAnimationText;
-      animation-fill-mode: forwards;
-    }
-  } 
-  }
+  // .content{
+  //   background-color:$color-background;
+  // }
+}
 
 
-@keyframes showImage {
+}
+
+@keyframes textShow {
   from {
+    padding-top:400px ;
     opacity: 0;
   }
   to {
-
+    padding-top:0 ;
     opacity: 1;
   }
 }
-

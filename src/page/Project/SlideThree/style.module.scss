@@ -8,16 +8,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    .boxImage{
+        padding: 130px 70px 70px 70px;
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+    }
+    .image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    &.show {
+        .boxImage {
+        animation-duration: 2.5s;
+        animation-timing-function: $animation-timing-function-show;
+        animation-name: textShow;
+        animation-fill-mode: forwards;
+    
+      }
+    }
 
 }
-.boxImage{
-    padding: 130px 70px 70px 70px;
-    box-sizing: border-box;
-    height: 100%;
-    width: 100%;
-}
-.image{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+
+@keyframes textShow {
+    from {
+      margin-top:400px ;
+      padding-bottom: 0;
+
+    }
+    to {
+        
+    }
+  }
