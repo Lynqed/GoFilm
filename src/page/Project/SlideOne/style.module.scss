@@ -4,15 +4,65 @@
   position: absolute;
   width: 100vw;
   height: 100vh;
-  width: 100vw;
-  height: 100vh;
-  background-image: $orange-gradient;
   display: flex;
   align-items: center;
   z-index: 1;
   .svgPoligon {
     position: absolute;
   }
+  .circleContainer {
+    position: absolute;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: $orange-gradient;
+
+    .innerContainer {
+      position: absolute;
+      z-index: 0;
+      height: 0px;
+      width: 0px;
+  
+    }
+  }
+  .content {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.95;
+    top: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  } 
+
+  &.show {
+    .circleContainer {
+    
+      animation-duration: #{$contentDuration}s;
+      animation-timing-function: $animation-timing-function-show;
+      animation-name: $animationContentShow;
+      animation-fill-mode: forwards;
+    }
+    .content {
+      animation-delay: #{$contentDuration}s;
+      animation-duration: #{$contentDuration}s;
+      animation-timing-function: $animation-timing-function-show;
+      animation-name: $animationContentShow;
+      animation-fill-mode: forwards;
+    }
+  }
+  &.end {
+     .content {
+      animation-duration: 2s;
+      animation-timing-function: $animation-timing-function-show;
+      animation-name: evenEndAnimationText;
+      animation-fill-mode: forwards;
+    }
+}
+
+}
+
   .maskText {
     position: absolute;
     display: flex;
@@ -22,7 +72,7 @@
     top: -20px;
     height: 100vh;
     font-weight: 700;
-    font-size: 200px;
+    @include adaptiv-font(200, 50);
     line-height: 200%;
     text-align: center;
   }
@@ -89,5 +139,13 @@
         }
       }
     }
+  }
+
+@keyframes evenEndAnimationText {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

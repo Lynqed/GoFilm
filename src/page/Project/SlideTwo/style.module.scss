@@ -4,54 +4,68 @@
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-color: $color-background;
-
-  .headerText {
-    color: $color-white;
-    @include adaptiv-font(100, 45);
-    padding-top: 141px;
-    .orangeText {
-      color: $color-orange;
-      @include adaptiv-font(100, 45);
+ 
+  .content{
+    background-color: transparent ;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    transition: all 2s ease;
+  
+    .boxText {
+      padding-left: 70px;
+      padding-top: 400px;
+      .headerText {
+        color: $color-white;
+        @include adaptiv-font(100, 45);
+        padding-top: 141px;
+        .orangeText {
+          color: $color-orange;
+          @include adaptiv-font(100, 45);
+        }
+      }
+    
+      .mainText {
+        color: $color-white;
+        @include adaptiv-font(28, 17);
+        padding: 20px 0 71px 0;
+      }
     }
-  }
-  .mainText {
-    color: $color-white;
-    @include adaptiv-font(28, 17);
-    padding: 20px 0 71px 0;
-  }
-
-  .boxProjects {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    overflow: auto;
-    padding-left: 70px;
-    gap: 30px;
-    &::-webkit-scrollbar {
-      display: none;
+    .boxProjects {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      padding-left: 70px;
+      overflow: auto;
+      gap:30px;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
-  }
 
-  .boxProjects {
-    > :nth-child(n) {
-      animation-duration: 2s;
-      animation-timing-function: $animation-timing-function-show;
-      animation-name: showImage;
-      animation-fill-mode: forwards;
-    }
+} 
+&.show {
+    .boxText {
+    animation-duration: 2s;
+    animation-timing-function: $animation-timing-function-show;
+    animation-name: textShow;
+    animation-fill-mode: forwards;
   }
-  .boxText {
-    padding-left: 70px;
-  }
+  // .content{
+  //   background-color:$color-background;
+  // }
 }
-@keyframes showImage {
+
+
+}
+
+@keyframes textShow {
   from {
-    //   transform: translateY(150px);
+    padding-top:400px ;
     opacity: 0;
   }
   to {
-    //   transform: translateY(0px);
+    padding-top:0 ;
     opacity: 1;
   }
 }
