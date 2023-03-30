@@ -4,17 +4,17 @@
   position: absolute;
   width: 100vw;
   height: 100vh;
- 
-  .content{
-    background-color: transparent ;
+
+  .content {
+    background-color: transparent;
     position: absolute;
     width: 100vw;
     height: 100vh;
-    transition: all 2s ease;
-  
+
     .boxText {
       padding-left: 70px;
       padding-top: 400px;
+      opacity: 0;
       .headerText {
         color: $color-white;
         @include adaptiv-font(100, 45);
@@ -24,7 +24,7 @@
           @include adaptiv-font(100, 45);
         }
       }
-    
+
       .mainText {
         color: $color-white;
         @include adaptiv-font(28, 17);
@@ -37,35 +37,44 @@
       align-items: center;
       padding-left: 70px;
       overflow: auto;
-      gap:30px;
+      gap: 30px;
       &::-webkit-scrollbar {
         display: none;
       }
     }
-
-} 
-&.show {
-    .boxText {
-    animation-duration: 2s;
-    animation-timing-function: $animation-timing-function-show;
-    animation-name: textShow;
-    animation-fill-mode: forwards;
   }
-  // .content{
-  //   background-color:$color-background;
-  // }
-}
-
-
+  &.show {
+    .boxText {
+      animation-duration: #{$duration}s;
+      animation-timing-function: $animation-timing-function-show;
+      animation-name: textShow;
+      animation-fill-mode: forwards;
+    }
+    .content {
+      animation-duration: #{$duration}s;
+      animation-timing-function: $animation-timing-function-show;
+      animation-name: backgroundShow;
+      animation-fill-mode: forwards;
+    }
+  }
 }
 
 @keyframes textShow {
   from {
-    padding-top:400px ;
+    padding-top: 400px;
     opacity: 0;
   }
   to {
-    padding-top:0 ;
+    padding-top: 0;
     opacity: 1;
+  }
+}
+
+@keyframes backgroundShow {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: $color-background;
   }
 }
