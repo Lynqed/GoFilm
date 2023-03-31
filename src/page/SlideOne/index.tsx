@@ -112,7 +112,7 @@ const VariantA = (props: IProps) => {
     document.addEventListener('mousemove', mousemoveListener);
     document.addEventListener('mousedown', moveDownListener);
     document.addEventListener('mouseup', moveUpListener);
-    if (mobileDevice) {
+    if (mobileDevice.current) {
       document.addEventListener('touchstart', touchstartListener);
       document.addEventListener('touchmove', touchmoveListener);
       document.addEventListener('touchend', moveUpListener);
@@ -122,7 +122,7 @@ const VariantA = (props: IProps) => {
       document.removeEventListener('mousemove', mousemoveListener);
       document.removeEventListener('mousedown', moveDownListener);
       document.removeEventListener('mouseup', moveUpListener);
-      if (mobileDevice) {
+      if (mobileDevice.current) {
         document.removeEventListener('touchstart', touchstartListener);
         document.removeEventListener('touchmove', touchmoveListener);
         document.removeEventListener('touchend', moveUpListener);

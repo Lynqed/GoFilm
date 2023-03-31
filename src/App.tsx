@@ -131,14 +131,14 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (mobileDevice) {
+    if (mobileDevice.current) {
       document.addEventListener('touchstart', listenerTouchstart);
       document.addEventListener('touchend', listenerTouchend);
     }
     document.addEventListener('wheel', listener);
     return () => {
       document.removeEventListener('wheel', listener);
-      if (mobileDevice) {
+      if (mobileDevice.current) {
         document.removeEventListener('touchstart', listenerTouchstart);
         document.removeEventListener('touchend', listenerTouchend);
       }
@@ -148,7 +148,7 @@ function App() {
   return (
     <div>
       <Header goTo={goTo} currentSlide={currentSlide} />
-      {!mobileDevice && <Cursor />}
+      {!mobileDevice.current && <Cursor />}
       {history.map((value, i) => {
         const end = history.length > 1 ? i === 0 : false;
         const start = i === 1 ? true : false;
