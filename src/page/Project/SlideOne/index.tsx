@@ -41,7 +41,7 @@ const SlideOne = (props: IProps) => {
   const onChangeOpen = useCallback(() => {
     if (openState.current === true) {
       setScreenOpen((screenOpen) => {
-        if (screenOpen.width <= window.innerWidth) {
+        if (screenOpen.width <= window.innerWidth * 4) {
           setTimeout(() => {
             onChangeOpen();
           }, animationTime);
