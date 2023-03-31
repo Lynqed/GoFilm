@@ -63,3 +63,10 @@
     background-color: $color-background;
   }
 }
+@media(max-width:500px){
+  .container{
+    .content{
+      padding: 120px 30px 30px 30px;
+    }
+  }
+}

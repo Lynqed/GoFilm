@@ -78,3 +78,19 @@
     background-color: $color-background;
   }
 }
+@media(max-width:500px){
+  .container{
+    .content{
+      .boxText{
+        padding-left: 30px;
+      }
+      .boxProjects{
+        padding-left: 30px;
+      }
+    }
+  }
+  .image{
+    height: 200px;
+  }
+
+}

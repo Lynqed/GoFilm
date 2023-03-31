@@ -108,3 +108,7 @@ export const AboutSliders: ISliderItem[] = [
     group: TypeGroup.about,
   },
 ];
+
+export const isMobile = () => {
+  return /Android|iPhone/i.test(navigator.userAgent);
+};

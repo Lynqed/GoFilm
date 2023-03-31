@@ -44,7 +44,7 @@ const SlideTwo = (props: IProps) => {
                 animationDelay: `${i * 0.15}s`,
               }}
             >
-              <img src={el.image} alt="projectImg" />
+              <img src={el.image} alt="projectImg" className={style.image} />
             </div>
           ))}
         </div>
