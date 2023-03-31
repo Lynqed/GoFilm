@@ -22,7 +22,7 @@ const SlideTwo = (props: IProps) => {
     <div
       className={cn(style.container, {
         [style.show]: show === true,
-        [style.hide]: end,
+        [style.end]: end,
       })}
     >
       <div className={style.innerContainer} />

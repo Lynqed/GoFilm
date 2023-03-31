@@ -26,7 +26,8 @@ const Header = (props: IProps) => {
       })}
     >
       <div className={style.innerContainer}>
-        {props.currentSlide.sliderId === 2 ? (
+        {props.currentSlide.sliderId === 2 ||
+        props.currentSlide.sliderId === 6 ? (
           <img
             className={style.logo}
             src={LogoWhite}

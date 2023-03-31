@@ -100,7 +100,7 @@ export const AboutSliders: ISliderItem[] = [
   {
     id: 10,
     component: SlideFour,
-    group: TypeGroup.main,
+    group: TypeGroup.about,
   },
   {
     id: 11,
