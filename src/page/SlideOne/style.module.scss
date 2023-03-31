@@ -17,6 +17,7 @@ video{
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   .circleAnimation {
     position: absolute;
     z-index: 0;

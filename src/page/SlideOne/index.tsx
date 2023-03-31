@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import cn from "classnames";
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import cn from 'classnames';
 
-import style from "./style.module.scss";
-import { ICommonProps } from "types";
-import Video from "assets/video/test_video.mp4";
+import style from './style.module.scss';
+import { ICommonProps } from 'types';
+import Video from 'assets/video/test_video.mp4';
 
 import {
   defaultPosition,
@@ -14,12 +14,15 @@ import {
   animationSpeed,
   animationStep,
   interpolation,
-  step,
-} from "./utils";
+  step
+} from './utils';
+import { isMobile } from 'utils';
 
 interface IProps extends ICommonProps {}
 
 const VariantA = (props: IProps) => {
+  const mobileDevice = useRef(isMobile());
+
   const element_pos = useRef({ left: 0 });
   const moveElement = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -28,7 +31,7 @@ const VariantA = (props: IProps) => {
   const currentPosition = useRef(defaultPosition());
   const [position, setPosition] = useState(defaultPosition());
 
-  const mousemoveListener = useCallback((e: MouseEvent) => {
+  const mousemoveListener = useCallback((e: { pageX: number }) => {
     if (dragStart.current) {
       const x = e.pageX - element_pos.current.left;
       if (e.pageX >= 0 && x + elementWidth <= screenWidth()) {
@@ -78,6 +81,24 @@ const VariantA = (props: IProps) => {
     }
   }, []);
 
+  const touchstartListener = useCallback((e: TouchEvent) => {
+    // @ts-ignore
+    if (e.target.id === moveBlockId) {
+      // @ts-ignore
+      element_pos.current = { left: 0 };
+      dragStart.current = true;
+    }
+  }, []);
+
+  const touchmoveListener = useCallback((e: TouchEvent) => {
+    if (dragStart.current) {
+      const pageX = e.changedTouches[0]?.pageX;
+      if (pageX !== undefined) {
+        mousemoveListener({ pageX });
+      }
+    }
+  }, []);
+
   const resizeListener = useCallback(() => {
     setPosition(defaultPosition());
   }, []);
@@ -87,15 +108,25 @@ const VariantA = (props: IProps) => {
   }, [position]);
 
   useEffect(() => {
-    window.addEventListener("resize", resizeListener);
-    document.addEventListener("mousemove", mousemoveListener);
-    document.addEventListener("mousedown", moveDownListener);
-    document.addEventListener("mouseup", moveUpListener);
+    window.addEventListener('resize', resizeListener);
+    document.addEventListener('mousemove', mousemoveListener);
+    document.addEventListener('mousedown', moveDownListener);
+    document.addEventListener('mouseup', moveUpListener);
+    if (mobileDevice) {
+      document.addEventListener('touchstart', touchstartListener);
+      document.addEventListener('touchmove', touchmoveListener);
+      document.addEventListener('touchend', moveUpListener);
+    }
     return () => {
-      window.removeEventListener("resize", resizeListener);
-      document.removeEventListener("mousemove", mousemoveListener);
-      document.removeEventListener("mousedown", moveDownListener);
-      document.removeEventListener("mouseup", moveUpListener);
+      window.removeEventListener('resize', resizeListener);
+      document.removeEventListener('mousemove', mousemoveListener);
+      document.removeEventListener('mousedown', moveDownListener);
+      document.removeEventListener('mouseup', moveUpListener);
+      if (mobileDevice) {
+        document.removeEventListener('touchstart', touchstartListener);
+        document.removeEventListener('touchmove', touchmoveListener);
+        document.removeEventListener('touchend', moveUpListener);
+      }
     };
   }, []);
 
@@ -117,7 +148,7 @@ const VariantA = (props: IProps) => {
     : 1;
 
   const backgroundStyle = {
-    transform: `translateX(${-(screenWidth() - position)}px)`,
+    transform: `translateX(${-(screenWidth() - position)}px)`
   };
 
   const mainTextStyle = {
@@ -126,7 +157,7 @@ const VariantA = (props: IProps) => {
     }%, transparent ${transitionText}%)`,
     maskImage: `linear-gradient(to right,black ${
       transitionText - step
-    }%, transparent ${transitionText}%)`,
+    }%, transparent ${transitionText}%)`
   };
 
   const hiddenTextStyle = {
@@ -135,18 +166,18 @@ const VariantA = (props: IProps) => {
     }%, transparent ${transitionText2}%)`,
     maskImage: `linear-gradient(to left,black ${
       transitionText2 - step
-    }%, transparent ${transitionText2}%)`,
+    }%, transparent ${transitionText2}%)`
   };
 
   const moveElementStyle = {
     opacity: transitionOpacity,
-    left: position,
+    left: position
   };
 
   return (
     <div
       className={cn(style.mainContainer, {
-        [style.startAnimation]: props.start,
+        [style.startAnimation]: props.start
       })}
     >
       <div className={style.circleAnimation} />
