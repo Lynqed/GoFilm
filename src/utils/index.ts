@@ -1,15 +1,17 @@
 import _ from "lodash";
 
-import SlideFive from "../page/SlideFive";
-import SlideFour from "../page/SlideFour";
-import VariantA from "../page/SlideOne";
-import SlideSix from "../page/SlideSix";
-import SlideThree, { latestProjectsId } from "../page/SlideThree";
-import SlideTwo from "../page/SlideTwo";
+import SlideFive from "page/SlideFive";
+import SlideFour from "page/SlideFour";
+import VariantA from "page/SlideOne";
+import SlideSix from "page/SlideSix";
+import SlideThree, { latestProjectsId } from "page/SlideThree";
+import SlideTwo from "page/SlideTwo";
 import Footer from "page/Footer";
-import ProjectSliderOne from "../page/Project/SlideOne";
+import ProjectSliderOne from "page/Project/SlideOne";
 import ProjectSliderTwo, { imagesSliderList } from "../page/Project/SlideTwo";
-import ProjectSliderThree from "../page/Project/SlideThree";
+import ProjectSliderThree from "page/Project/SlideThree";
+
+import AboutSlideTwo from "page/AboutUs/SlideTwo";
 
 import { ISliderItem, TypeGroup } from "../types";
 
@@ -29,9 +31,11 @@ export const getSliderById = (id: number) => {
       };
     }
   };
-  const item = [chechGroup(mainSliders), chechGroup(projectSliders)].find(
-    (v) => v
-  );
+  const item = [
+    chechGroup(mainSliders),
+    chechGroup(projectSliders),
+    chechGroup(AboutSliders),
+  ].find((v) => v);
   return item;
 };
 
@@ -90,5 +94,17 @@ export const projectSliders: ISliderItem[] = [
     id: 8,
     component: ProjectSliderThree,
     group: TypeGroup.project,
+  },
+];
+export const AboutSliders: ISliderItem[] = [
+  {
+    id: 10,
+    component: SlideFour,
+    group: TypeGroup.main,
+  },
+  {
+    id: 11,
+    component: AboutSlideTwo,
+    group: TypeGroup.about,
   },
 ];
