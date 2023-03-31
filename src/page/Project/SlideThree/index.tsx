@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import style from "./style.module.scss";
-import image from "assets/image/projectImg/imgBack.png";
 import { ICommonProps } from "types";
 import cn from "classnames";
+import image from "assets/image/projectImg/imgBack.png";
 
 interface IProps extends ICommonProps {}
 
@@ -19,8 +19,11 @@ const SlideThree = (props: IProps) => {
         [style.hide]: end,
       })}
     >
-      <div className={style.boxImage}>
-        <img src={image} className={style.image} alt="bgImage" />
+      <div className={style.innerContainer} />
+      <div className={style.content}>
+        <div className={style.boxImage}>
+          <img src={image} className={style.image} alt="bgImage" />
+        </div>
       </div>
     </div>
   );

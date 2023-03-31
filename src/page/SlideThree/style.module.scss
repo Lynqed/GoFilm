@@ -14,14 +14,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     .innerContainer {
       position: absolute;
       z-index: 0;
       height: 0px;
       width: 0px;
       border-radius: 100%;
-      background-image: $orange-gradient;
+      background: $orange-gradient;
     }
   }
 

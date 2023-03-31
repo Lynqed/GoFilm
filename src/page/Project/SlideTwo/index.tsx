@@ -22,7 +22,7 @@ const SlideTwo = (props: IProps) => {
     <div
       className={cn(style.container, {
         [style.show]: show === true,
-        [style.hide]: end,
+        [style.end]: end,
       })}
     >
       <div className={style.innerContainer} />
@@ -44,7 +44,7 @@ const SlideTwo = (props: IProps) => {
                 animationDelay: `${i * 0.15}s`,
               }}
             >
-              <img src={el.image} alt="projectImg" />
+              <img src={el.image} alt="projectImg" className={style.image} />
             </div>
           ))}
         </div>

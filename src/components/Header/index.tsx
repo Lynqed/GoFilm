@@ -11,7 +11,7 @@ interface IProps {
 }
 const array = [
   { label: "Work", page: 2 },
-  { label: "About Us", page: 1 },
+  { label: "About Us", page: 10 },
   { label: "Clients", page: 4 },
   { label: "Contact", page: 5 },
 ];
@@ -22,11 +22,12 @@ const Header = (props: IProps) => {
   return (
     <div
       className={cn(style.container, {
-        [style.firstSlide]: currentSlide.sliderId === 0
+        [style.firstSlide]: currentSlide.sliderId === 0,
       })}
     >
       <div className={style.innerContainer}>
-        {props.currentSlide.sliderId === 2 ? (
+        {props.currentSlide.sliderId === 2 ||
+        props.currentSlide.sliderId === 6 ? (
           <img
             className={style.logo}
             src={LogoWhite}

@@ -1,43 +1,72 @@
 @import '../../../style/global.module.scss';
 
-.container{
+.container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+
+  .content {
     position: absolute;
-    background-color:$color-background;
+    width: 100vw;
     height: 100vh;
-    width: 100vw ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 130px 70px 70px 70px;
+    box-sizing: border-box;
+
+
     .boxImage{
-        padding: 130px 70px 70px 70px;
-        box-sizing: border-box;
-        height: 100%;
-        width: 100%;
-    }
-    .image{
+     
+      height: 100%;
+      width: 100%;
+      .image{
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
-    &.show {
-        .boxImage {
-        animation-duration: 2.5s;
-        animation-timing-function: $animation-timing-function-show;
-        animation-name: textShow;
-        animation-fill-mode: forwards;
-    
-      }
+  }
+  }
+  &.show {
+    .boxImage {
+      animation-duration: #{$duration}s;
+      animation-timing-function: $animation-timing-function-show;
+      animation-name: textShow;
+      animation-fill-mode: forwards;
     }
-
+    .content {
+      animation-duration: #{$duration}s;
+      animation-timing-function: $animation-timing-function-show;
+      animation-name: backgroundShow;
+      animation-fill-mode: forwards;
+    }
+  }
 }
 
 @keyframes textShow {
-    from {
-      margin-top:400px ;
-      padding-bottom: 0;
+  from {
+    padding-top: 400px;
+    opacity: 0;
+  }
+  to {
+    padding-top: 0;
+    opacity: 1;
+  }
+}
 
-    }
-    to {
-        
+@keyframes backgroundShow {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: $color-background;
+  }
+}
+@media(max-width:500px){
+  .container{
+    .content{
+      padding: 120px 30px 30px 30px;
     }
   }
+}
