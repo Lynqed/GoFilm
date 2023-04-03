@@ -1,0 +1,52 @@
+name: CI/CD Dev build & deploy
+
+env:
+  SOURCE: build/*
+  TARGET: /var/www/gofilm
+  STRIP: 1
+  OVERWRITE: true
+
+on:
+  push:
+    branches: [dev]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+      - uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        env:
+          NODE_ENV: production
+          CI: false
+          GENERATE_SOURCEMAP: false
+        run: npm run build
+
+      - name: Deploy
+        uses: appleboy/scp-action@master
+        with:
+          overwrite: ${{ env.OVERWRITE }}
+          strip_components: ${{ env.STRIP }}
+          passphrase: ${{ secrets.REMOTE_PASSPHRASE }}
+          host: ${{ secrets.REMOTE_HOST }}
+          port: ${{ secrets.REMOTE_PORT }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.REMOTE_SSH }}
+          source: ${{ env.SOURCE }}
+          target: ${{ env.TARGET }}
