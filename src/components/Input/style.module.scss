@@ -13,6 +13,7 @@ cursor: none;
 }
 ::placeholder{
     color:#FFFFFF;
+    opacity: 0.6;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: #FFFFFF;
@@ -25,4 +26,25 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0; 
+}
+.inputError{
+  border: 2px solid red ;
+border-radius: 30px;
+outline: none;
+color:#FFFFFF;
+background: rgba(234, 126, 126, 0);
+padding: 17px 0 17px 40px ;
+  @include adaptiv-font(24, 15);
+font-family:$Light-font-family ;
+cursor: none;
+flex: 1;
+}
+
+.boxInput{
+  display: flex;
+  flex-direction:column
+}
+.textError{
+  color:red;
+  @include adaptiv-font(16, 12);
 }
