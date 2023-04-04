@@ -1,20 +1,49 @@
 @import '../../style/global.module.scss';
 textarea{
-    border: 2px solid $color-white;
-    border-radius: 30px;
     background: rgba( 0,0,0,.0);
-    padding: 17px 0 0 40px;
+    border: 0px;
     font-size: 24px;
     font-family:$Light-font-family ;
     outline: none;
     resize: none;
     color:$color-white;
     height:100%;
-    margin-bottom: 20px;
     cursor:none;
+    overflow: auto;
+    width: 100%;
+
+}
+.textArea{
+  outline: none;
+  resize: none;
+  height:100%;
+  border: 2px solid $color-white;
+  border-radius: 30px;
+  padding: 17px 15px 15px 40px;
+  margin-bottom: 20px;
 }
 textarea::placeholder {
     color:$color-white;
+}
+textarea::-webkit-scrollbar {
+  width: 5px;
+  pointer-events: none; 
+}
+textarea::-webkit-scrollbar-track {
+  background: #e8e4e4;
+  border-radius:30px;
+}
+
+/* Handle */
+textarea::-webkit-scrollbar-thumb {
+  background: #888;
+
+}
+
+/* Handle on hover */
+textarea::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius:30px;
 }
 
 .container {
@@ -83,13 +112,24 @@ textarea::placeholder {
         .buttonSend{
             background-color:$color-white;
             color:black;
-            @include adaptiv-font(24, 17);
+            @include adaptiv-font(24, 14);
             font-weight: 500;
             font-family: $Light-font-family;
             padding: 17px ;
             border: 2px solid $color-white ;
             border-radius: 30px;
             cursor: none;
+        }
+        .buttonSend:disabled,
+        .buttonSend[disabled]{
+          border: 2px solid #999999;
+          background-color: #cccccc;
+          color: #666666;
+          pointer-events: none; 
+        }
+        .buttonSend:active{
+          opacity: 0.6;
+          
         }
         .boxText{
             text-align: center;
