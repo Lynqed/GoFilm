@@ -1,11 +1,14 @@
 .cursor{
+    
     z-index: 1000;
     border-radius: 50%;
     width: 120px;
     height:120px;
     pointer-events: none;
     overflow: hidden;
-    transform: translate(0,0,0) ;
     position: fixed ;
-    background-image: url(../../assets/image/cursor.svg)
+    transform: rotate(120deg);
+    background-image: url(../../assets/image/cursor.svg);
 }
+
+
