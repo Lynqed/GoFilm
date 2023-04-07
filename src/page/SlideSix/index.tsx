@@ -43,8 +43,10 @@ const SlideSix = (props: IProps) => {
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(form.current);
-    if (form.current !== null) {
+    if (
+      form.current !== null &&
+      !Object.values(validation).some((v) => v === false)
+    ) {
       emailjs
         .sendForm(
           emailjsData.serviceId,
@@ -60,8 +62,11 @@ const SlideSix = (props: IProps) => {
             toast.error(`connection error, try again later`);
           }
         );
+    } else {
+      toast.warning(`you need to fill in all fields with an asterisk`);
     }
   };
+
   const validation = {
     email: isValidEmail(data.email),
     phone: isValidPhone(data.phone),
@@ -86,41 +91,41 @@ const SlideSix = (props: IProps) => {
           <form ref={form} onSubmit={sendEmail} className={style.boxForm}>
             <div className={style.boxInput}>
               <Input
-                placeholder="First Name"
+                placeholder="First Name *"
                 type="text"
                 name="firstName"
                 value={data.firstName}
                 onChange={(firstName) => onChange({ firstName })}
-                status={validation.firstName}
                 title={"min 1 character max 30"}
+                onBlur={() => {}}
               />
 
               <Input
-                placeholder="Last Name"
+                placeholder="Last Name *"
                 type="text"
                 name="lastName"
                 value={data.secondName}
                 onChange={(secondName) => onChange({ secondName })}
-                status={validation.secondName}
                 title={"min 1 character max 30"}
+                onBlur={() => {}}
               />
               <Input
-                placeholder="yourmail@gmail.com"
+                placeholder="yourmail@gmail.com*"
                 type="text"
                 name="email"
                 onChange={(email) => onChange({ email })}
                 value={data.email}
-                status={validation.email}
                 title={"the email is not correct. Example: yourmail@gmail.com"}
+                onBlur={() => {}}
               />
               <Input
-                placeholder="Example:+1(234)5678901"
+                placeholder="Example:+1(234)5678901  *"
                 type="text"
                 name="phoneNumber"
                 onChange={(phone) => onChange({ phone })}
                 value={data.phone}
-                status={validation.phone}
                 title={"not the right number. Example: +1(234)5678901"}
+                onBlur={() => {}}
               />
             </div>
             <div className={style.boxTextInput}>
@@ -131,12 +136,7 @@ const SlideSix = (props: IProps) => {
                   name="message"
                 />
               </div>
-              <button
-                className={style.buttonSend}
-                disabled={Object.values(validation).some((v) => v === false)}
-              >
-                Send Message
-              </button>
+              <button className={style.buttonSend}>Send Message</button>
             </div>
           </form>
         </div>
