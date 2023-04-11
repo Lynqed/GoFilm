@@ -1,12 +1,14 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import Header from './components/Header';
-import { latestProjectsId } from './page/SlideThree';
-import Cursor from './components/Cursor';
-import { IHistoryItem, TypeGroup } from './types';
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import Header from "./components/Header";
+import { latestProjectsId } from "./page/SlideThree";
+import { ToastContainer, toast } from "react-custom-alert";
+import "react-custom-alert/dist/index.css";
+import Cursor from "./components/Cursor";
+import { IHistoryItem, TypeGroup } from "./types";
 
-import SlideContainer from './page';
+import SlideContainer from "./page";
 
-import { debouncer, getSliderById, isMobile } from './utils';
+import { debouncer, getSliderById, isMobile } from "./utils";
 
 const debounce = debouncer(250);
 
@@ -19,8 +21,8 @@ function App() {
     {
       sliderId: 0,
       group: TypeGroup.main,
-      key: new Date().getTime()
-    }
+      key: new Date().getTime(),
+    },
   ]);
 
   const setInProgress = useCallback(() => {
@@ -39,7 +41,7 @@ function App() {
       const sliderData = {
         sliderId: id,
         group: item.item.group,
-        key: new Date().getTime()
+        key: new Date().getTime(),
       };
       if (history.length === 1) {
         return [...history, sliderData];
@@ -62,7 +64,7 @@ function App() {
       const sliderData = {
         sliderId: nextItem.id,
         group: item.item.group,
-        key: new Date().getTime()
+        key: new Date().getTime(),
       };
       return [last, sliderData];
     });
@@ -78,7 +80,7 @@ function App() {
       const sliderData = {
         sliderId: item.data[item.index - 1].id,
         group: item.item.group,
-        key: new Date().getTime()
+        key: new Date().getTime(),
       };
       return [last, sliderData];
     });
@@ -132,15 +134,15 @@ function App() {
 
   useEffect(() => {
     if (mobileDevice.current) {
-      document.addEventListener('touchstart', listenerTouchstart);
-      document.addEventListener('touchend', listenerTouchend);
+      document.addEventListener("touchstart", listenerTouchstart);
+      document.addEventListener("touchend", listenerTouchend);
     }
-    document.addEventListener('wheel', listener);
+    document.addEventListener("wheel", listener);
     return () => {
-      document.removeEventListener('wheel', listener);
+      document.removeEventListener("wheel", listener);
       if (mobileDevice.current) {
-        document.removeEventListener('touchstart', listenerTouchstart);
-        document.removeEventListener('touchend', listenerTouchend);
+        document.removeEventListener("touchstart", listenerTouchstart);
+        document.removeEventListener("touchend", listenerTouchend);
       }
     };
   }, []);
@@ -148,6 +150,7 @@ function App() {
   return (
     <div>
       <Header goTo={goTo} currentSlide={currentSlide} />
+      <ToastContainer floatingTime={3000} />
       {!mobileDevice.current && <Cursor />}
       {history.map((value, i) => {
         const end = history.length > 1 ? i === 0 : false;

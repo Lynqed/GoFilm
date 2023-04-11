@@ -4,6 +4,7 @@ import style from "./style.module.scss";
 import cn from "classnames";
 import { ICommonProps } from "types";
 import emailjs from "emailjs-com";
+import { toast } from "react-custom-alert";
 import {
   isValidEmail,
   isValidFirstName,
@@ -53,15 +54,14 @@ const SlideSix = (props: IProps) => {
         )
         .then(
           (result) => {
-            console.log(result.text);
+            toast.success("Your letter has been sent");
           },
           (error) => {
-            console.log(error.text);
+            toast.error(`connection error, try again later`);
           }
         );
     }
   };
-
   const validation = {
     email: isValidEmail(data.email),
     phone: isValidPhone(data.phone),
