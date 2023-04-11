@@ -17,6 +17,7 @@ const Input: FC<IProps> = ({
   onChange,
   status,
   title,
+  name,
 }) => {
   return (
     <div className={style.boxInput}>
@@ -27,6 +28,7 @@ const Input: FC<IProps> = ({
         autoComplete="on"
         value={value}
         onChange={(event) => onChange(event.target.value)}
+        name={name}
       />
       {status ? null : <p className={style.textError}>*{title}</p>}
     </div>

@@ -1,71 +1,72 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Input from "components/Input";
 import style from "./style.module.scss";
 import cn from "classnames";
 import { ICommonProps } from "types";
+import emailjs from "emailjs-com";
+import {
+  isValidEmail,
+  isValidFirstName,
+  isValidPhone,
+  isValidSecondName,
+} from "utils/Validation";
 
 interface IProps extends ICommonProps {}
-const regEmail =
-  /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
-const regNumber = /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+const emailjsData = {
+  serviceId: "service_tkljv1g",
+  templateId: "template_0xn8sj1",
+  publicKey: "UVL2GjbJcGYA8mWwZ",
+};
 
 const SlideSix = (props: IProps) => {
   const { end } = props;
   const [show, setShow] = useState<null | boolean>(null);
-  const [isValid, setIsValid] = useState(false);
-
-  const [emailInput, setEmailInput] = useState({
-    error: false,
-    value: "",
-  });
-  const [phoneInput, setPhoneInput] = useState({
-    error: false,
-    value: "",
-  });
-  const [firstName, setFirstName] = useState({
-    error: false,
-    value: "",
-  });
-  const [secondName, setSecondName] = useState({
-    error: false,
-    value: "",
+  const form = useRef<HTMLFormElement>(null);
+  const [data, setData] = useState({
+    email: "",
+    phone: "",
+    firstName: "",
+    secondName: "",
   });
 
   useEffect(() => {
     setShow(true);
   }, []);
-  useEffect(() => {
-    if (
-      emailInput.error &&
-      phoneInput.error &&
-      firstName.error &&
-      secondName.error
-    ) {
-      setIsValid(false);
-    } else {
-      setIsValid(true);
-    }
-  }, [emailInput.error, phoneInput.error, firstName.error, secondName.error]);
 
-  const isValidEmail = (email: string) => {
-    const isValidEmail = regEmail.test(email);
-    return setEmailInput({ error: isValidEmail, value: email });
+  const onChange = (obj: Partial<typeof data>) => {
+    setData((data) => ({
+      ...data,
+      ...obj,
+    }));
   };
-  const isValidPhone = (phone: string) => {
-    const isValidPhone = regNumber.test(phone);
-    return setPhoneInput({ error: isValidPhone, value: phone });
-  };
-  const isValidFirstName = (firstName: string) => {
-    if (firstName.trim().length > 0 && firstName.length < 30) {
-      return setFirstName({ error: true, value: firstName });
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(form.current);
+    if (form.current !== null) {
+      emailjs
+        .sendForm(
+          emailjsData.serviceId,
+          emailjsData.templateId,
+          form.current,
+          emailjsData.publicKey
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
     }
-    return setFirstName({ error: false, value: firstName });
   };
-  const isValidSecondName = (secondName: string) => {
-    if (secondName.trim().length > 0 && secondName.length < 30) {
-      return setSecondName({ error: true, value: secondName });
-    }
-    return setSecondName({ error: false, value: secondName });
+
+  const validation = {
+    email: isValidEmail(data.email),
+    phone: isValidPhone(data.phone),
+    firstName: isValidFirstName(data.firstName),
+    secondName: isValidSecondName(data.secondName),
   };
 
   return (
@@ -82,15 +83,15 @@ const SlideSix = (props: IProps) => {
             <p className={style.firstText}>Let’s make film together</p>
             <p className={style.secondtText}>Film for everybody</p>
           </div>
-          <div className={style.boxForm}>
+          <form ref={form} onSubmit={sendEmail} className={style.boxForm}>
             <div className={style.boxInput}>
               <Input
                 placeholder="First Name"
                 type="text"
                 name="firstName"
-                value={firstName.value}
-                onChange={isValidFirstName}
-                status={firstName.error}
+                value={data.firstName}
+                onChange={(firstName) => onChange({ firstName })}
+                status={validation.firstName}
                 title={"min 1 character max 30"}
               />
 
@@ -98,39 +99,46 @@ const SlideSix = (props: IProps) => {
                 placeholder="Last Name"
                 type="text"
                 name="lastName"
-                value={secondName.value}
-                onChange={isValidSecondName}
-                status={secondName.error}
+                value={data.secondName}
+                onChange={(secondName) => onChange({ secondName })}
+                status={validation.secondName}
                 title={"min 1 character max 30"}
               />
               <Input
                 placeholder="yourmail@gmail.com"
                 type="text"
                 name="email"
-                onChange={isValidEmail}
-                value={emailInput.value}
-                status={emailInput.error}
+                onChange={(email) => onChange({ email })}
+                value={data.email}
+                status={validation.email}
                 title={"the email is not correct. Example: yourmail@gmail.com"}
               />
               <Input
                 placeholder="Example:+1(234)5678901"
                 type="text"
                 name="phoneNumber"
-                onChange={isValidPhone}
-                value={phoneInput.value}
-                status={phoneInput.error}
+                onChange={(phone) => onChange({ phone })}
+                value={data.phone}
+                status={validation.phone}
                 title={"not the right number. Example: +1(234)5678901"}
               />
             </div>
             <div className={style.boxTextInput}>
               <div className={style.textArea}>
-                <textarea placeholder="Description" maxLength={250} />
+                <textarea
+                  placeholder="Description"
+                  maxLength={250}
+                  name="message"
+                />
               </div>
-              <button className={style.buttonSend} disabled={isValid}>
+              <button
+                className={style.buttonSend}
+                disabled={Object.values(validation).some((v) => v === false)}
+              >
                 Send Message
               </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
