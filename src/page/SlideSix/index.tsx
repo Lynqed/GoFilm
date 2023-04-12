@@ -79,7 +79,9 @@ const SlideSix = (props: IProps) => {
           }
         );
     } else {
-      toast.warning(`you need to fill in all fields with an asterisk`);
+      toast.warning(
+        `One of the required field is missed. Please define all the required fields and re-attempt.`
+      );
     }
   };
 
