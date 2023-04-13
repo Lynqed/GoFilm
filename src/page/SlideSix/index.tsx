@@ -102,43 +102,59 @@ const SlideSix = (props: IProps) => {
           <form ref={form} onSubmit={sendEmail} className={style.boxForm}>
             <div className={style.boxInput}>
               <Input
-                placeholder="First Name*"
+                placeholder="First Name"
                 type="text"
                 name="firstName"
                 value={data.firstName}
                 onChange={(firstName) => onChange({ firstName })}
-                title={"min 1 character max 30"}
+                title={
+                  data.firstName.length
+                    ? "Please limit your response to 30 characters"
+                    : "This field is required."
+                }
                 onBlur={() => {}}
                 status={firstName}
               />
 
               <Input
-                placeholder="Last Name*"
+                placeholder="Last Name"
                 type="text"
                 name="lastName"
                 value={data.secondName}
                 onChange={(secondName) => onChange({ secondName })}
-                title={"min 1 character max 30"}
+                title={
+                  data.secondName.length
+                    ? "Please limit your response to 30 characters"
+                    : "This field is required."
+                }
                 onBlur={() => {}}
                 status={secondName}
               />
               <Input
-                placeholder="yourmail@gmail.com*"
+                placeholder="Email"
                 type="text"
                 name="email"
                 onChange={(email) => onChange({ email })}
                 value={data.email}
-                title={"the email is not correct. Example: yourmail@gmail.com"}
+                title={
+                  data.email.length
+                    ? "Please make sure your email address is valid"
+                    : "This field is required."
+                }
                 onBlur={() => {}}
                 status={email}
               />
               <Input
-                placeholder="Example:+1(555)5555555*"
+                placeholder="Phone Number"
                 type="text"
                 name="phoneNumber"
                 onChange={(phone) => onChange({ phone })}
                 value={data.phone}
-                title={"Example:+1(555)5555555*"}
+                title={
+                  data.phone.length
+                    ? "Please make sure your phone number is in the following format:+15555555555*"
+                    : "This field is required."
+                }
                 onBlur={() => {}}
                 status={phone}
               />
@@ -146,7 +162,7 @@ const SlideSix = (props: IProps) => {
             <div className={style.boxTextInput}>
               <div className={style.textArea}>
                 <textarea
-                  placeholder="Description"
+                  placeholder="Your message "
                   maxLength={250}
                   name="message"
                 />
