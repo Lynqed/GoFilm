@@ -29,6 +29,10 @@ const SlideSix = (props: IProps) => {
     firstName: "",
     secondName: "",
   });
+  const [email, setEmail] = useState(true);
+  const [firstName, setFirstName] = useState(true);
+  const [secondName, setSecondName] = useState(true);
+  const [phone, setPhone] = useState(true);
 
   useEffect(() => {
     setShow(true);
@@ -41,8 +45,20 @@ const SlideSix = (props: IProps) => {
     }));
   };
 
+  const validation = {
+    email: isValidEmail(data.email),
+    phone: isValidPhone(data.phone),
+    firstName: isValidFirstName(data.firstName),
+    secondName: isValidSecondName(data.secondName),
+  };
+
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    setEmail(validation.email);
+    setFirstName(validation.firstName);
+    setSecondName(validation.secondName);
+    setPhone(validation.phone);
     if (
       form.current !== null &&
       !Object.values(validation).some((v) => v === false)
@@ -63,15 +79,10 @@ const SlideSix = (props: IProps) => {
           }
         );
     } else {
-      toast.warning(`you need to fill in all fields with an asterisk`);
+      toast.warning(
+        `One of the required field is missed. Please define all the required fields and re-attempt.`
+      );
     }
-  };
-
-  const validation = {
-    email: isValidEmail(data.email),
-    phone: isValidPhone(data.phone),
-    firstName: isValidFirstName(data.firstName),
-    secondName: isValidSecondName(data.secondName),
   };
 
   return (
@@ -91,23 +102,25 @@ const SlideSix = (props: IProps) => {
           <form ref={form} onSubmit={sendEmail} className={style.boxForm}>
             <div className={style.boxInput}>
               <Input
-                placeholder="First Name *"
+                placeholder="First Name*"
                 type="text"
                 name="firstName"
                 value={data.firstName}
                 onChange={(firstName) => onChange({ firstName })}
                 title={"min 1 character max 30"}
                 onBlur={() => {}}
+                status={firstName}
               />
 
               <Input
-                placeholder="Last Name *"
+                placeholder="Last Name*"
                 type="text"
                 name="lastName"
                 value={data.secondName}
                 onChange={(secondName) => onChange({ secondName })}
                 title={"min 1 character max 30"}
                 onBlur={() => {}}
+                status={secondName}
               />
               <Input
                 placeholder="yourmail@gmail.com*"
@@ -117,15 +130,17 @@ const SlideSix = (props: IProps) => {
                 value={data.email}
                 title={"the email is not correct. Example: yourmail@gmail.com"}
                 onBlur={() => {}}
+                status={email}
               />
               <Input
-                placeholder="Example:+1(234)5678901  *"
+                placeholder="Example:+1(555)5555555*"
                 type="text"
                 name="phoneNumber"
                 onChange={(phone) => onChange({ phone })}
                 value={data.phone}
-                title={"not the right number. Example: +1(234)5678901"}
+                title={"Example:+1(555)5555555*"}
                 onBlur={() => {}}
+                status={phone}
               />
             </div>
             <div className={style.boxTextInput}>

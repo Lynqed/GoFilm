@@ -12,9 +12,9 @@ interface IProps {
   name: string;
   value: string;
   onChange: (str: string) => void;
-  status?: boolean;
   title?: string;
   onBlur: FocusEventHandler<HTMLInputElement>;
+  status: boolean;
 }
 
 const Input: FC<IProps> = ({
@@ -28,6 +28,7 @@ const Input: FC<IProps> = ({
   onBlur,
 }) => {
   const [isValid, setIsValid] = useState(true);
+
   const handleSubmit = (event: React.FocusEvent<HTMLInputElement>) => {
     let regex: any;
     switch (name) {
@@ -49,12 +50,13 @@ const Input: FC<IProps> = ({
     }
     setIsValid(regex);
   };
+
   return (
     <div className={style.boxInput}>
       <input
         placeholder={placeholder}
         type={type}
-        className={isValid ? style.input : style.inputError}
+        className={status && isValid ? style.input : style.inputError}
         autoComplete="on"
         value={value}
         onChange={(event) => onChange(event.target.value)}
@@ -64,7 +66,7 @@ const Input: FC<IProps> = ({
           handleSubmit(event);
         }}
       />
-      {isValid ? null : <p className={style.textError}>*{title}</p>}
+      {status && isValid ? null : <p className={style.textError}>*{title}</p>}
     </div>
   );
 };

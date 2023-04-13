@@ -1,6 +1,7 @@
 const regEmail =
   /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
-const regNumber = /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+const regNumber =
+  /^(\+1-?)?(\([2-9][0-9]{2}\)|[2-9][0-9]{2})-?[2-9][0-9]{2}-?[0-9]{4}$|^(\+|00)([1-9]\d{0,2}|\d{2,3})[-. ]?\d{1,9}[-. ]?\d{1,9}$/;
 
 export const isValidEmail = (email: string) => {
   const isValidEmail = regEmail.test(email);
