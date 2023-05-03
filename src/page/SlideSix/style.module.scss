@@ -111,7 +111,7 @@ textarea::-webkit-scrollbar-thumb:hover {
         }
         .buttonSend{
             background-color:$color-white;
-            color:black;
+            color:$color-orange;
             @include adaptiv-font(24, 14);
             font-weight: 500;
             font-family: $Light-font-family;
@@ -119,13 +119,11 @@ textarea::-webkit-scrollbar-thumb:hover {
             border: 2px solid $color-white ;
             border-radius: 30px;
             cursor: none;
-        }
-        .buttonSend:disabled,
-        .buttonSend[disabled]{
-          border: 2px solid #999999;
-          background-color: #cccccc;
-          color: #666666;
-          pointer-events: none; 
+            
+            &:hover{
+              background-color:$color-orange;
+              color: white;
+            }
         }
         .buttonSend:active{
           opacity: 0.6;
