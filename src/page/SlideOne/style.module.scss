@@ -13,7 +13,7 @@ video{
 .mainContainer {
   height: 100vh;
   width: 100vw;
-  position: absolute;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,22 +92,22 @@ video{
       cursor: pointer;
     }
   }
-  &.startAnimation {
-    .circleAnimation {
-      animation-name: $animationContainerShow;
-      animation-duration: #{$duration}s;
-      animation-timing-function: $animation-timing-function-show;
-      animation-fill-mode: forwards;
-    }
-    .container {
-      top: 100vh;
-      animation-delay: #{$contentDuration}s;
-      animation-duration: #{$contentDuration}s;
-      animation-timing-function: $animation-timing-function-show;
-      animation-name: $animationContentShow;
-      animation-fill-mode: forwards;
-    }
-  }
+  // &.startAnimation {
+  //   .circleAnimation {
+  //     animation-name: $animationContainerShow;
+  //     animation-duration: #{$duration}s;
+  //     animation-timing-function: $animation-timing-function-show;
+  //     animation-fill-mode: forwards;
+  //   }
+  //   .container {
+  //     top: 100vh;
+  //     animation-delay: #{$contentDuration}s;
+  //     animation-duration: #{$contentDuration}s;
+  //     animation-timing-function: $animation-timing-function-show;
+  //     animation-name: $animationContentShow;
+  //     animation-fill-mode: forwards;
+  //   }
+  // }
   .text {
     font-family: $Mediu-font-family;
     color: $color-white;

@@ -11,7 +11,7 @@ interface IProps {
 }
 const array = [
   { label: "Work", page: 2 },
-  { label: "About Us", page: 10 },
+  { label: "About Us", page: 1 },
   { label: "Clients", page: 4 },
   { label: "Contact", page: 5 },
 ];

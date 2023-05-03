@@ -2,7 +2,7 @@
 $color_Text:rgba(255, 255, 255, 0.6);
 
 .container {
-    position: absolute;
+    position: relative;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -41,7 +41,7 @@ $color_Text:rgba(255, 255, 255, 0.6);
           animation-fill-mode: forwards;
         }
         .content {
-          animation-delay: #{$contentDuration}s;
+          // animation-delay: #{$contentDuration}s;
           animation-duration: #{$contentDuration}s;
           animation-timing-function: $animation-timing-function-show;
           animation-name: $animationContentShow;

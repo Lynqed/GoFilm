@@ -1,14 +1,54 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import Header from "./components/Header";
-import { latestProjectsId } from "./page/SlideThree";
-import { ToastContainer, toast } from "react-custom-alert";
-import "react-custom-alert/dist/index.css";
-import Cursor from "./components/Cursor";
-import { IHistoryItem, TypeGroup } from "./types";
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { v4 as uuid } from 'uuid';
 
-import SlideContainer from "./page";
+import Header from './components/Header';
+import { ToastContainer } from 'react-custom-alert';
+import 'react-custom-alert/dist/index.css';
+import Cursor from './components/Cursor';
+import { IHistoryItem, TypeGroup } from './types';
 
-import { debouncer, getSliderById, isMobile } from "./utils";
+import SlideContainer from './page';
+
+import { debouncer, generateSliderId, getSliderById, isMobile } from './utils';
+import globalStyle from 'style/global.module.scss';
+
+const listOfPages: IHistoryItem[] = [
+  {
+    sliderId: 0,
+    group: TypeGroup.main,
+    key: uuid()
+  },
+  {
+    sliderId: 1,
+    group: TypeGroup.main,
+    key: uuid()
+  },
+  {
+    sliderId: 2,
+    group: TypeGroup.main,
+    key: uuid()
+  },
+  {
+    sliderId: 3,
+    group: TypeGroup.main,
+    key: uuid()
+  },
+  {
+    sliderId: 4,
+    group: TypeGroup.main,
+    key: uuid()
+  },
+  {
+    sliderId: 5,
+    group: TypeGroup.main,
+    key: uuid()
+  },
+  {
+    sliderId: 9,
+    group: TypeGroup.main,
+    key: uuid()
+  }
+];
 
 const debounce = debouncer(250);
 
@@ -21,8 +61,8 @@ function App() {
     {
       sliderId: 0,
       group: TypeGroup.main,
-      key: new Date().getTime(),
-    },
+      key: new Date().getTime()
+    }
   ]);
 
   const setInProgress = useCallback(() => {
@@ -33,6 +73,11 @@ function App() {
   }, []);
 
   const goTo = useCallback((id: number) => {
+    const el = document.getElementById(generateSliderId(id));
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+    return;
     setHistory((history) => {
       const item = getSliderById(id);
       if (!item) {
@@ -41,7 +86,7 @@ function App() {
       const sliderData = {
         sliderId: id,
         group: item.item.group,
-        key: new Date().getTime(),
+        key: new Date().getTime()
       };
       if (history.length === 1) {
         return [...history, sliderData];
@@ -64,7 +109,7 @@ function App() {
       const sliderData = {
         sliderId: nextItem.id,
         group: item.item.group,
-        key: new Date().getTime(),
+        key: new Date().getTime()
       };
       return [last, sliderData];
     });
@@ -80,7 +125,7 @@ function App() {
       const sliderData = {
         sliderId: item.data[item.index - 1].id,
         group: item.item.group,
-        key: new Date().getTime(),
+        key: new Date().getTime()
       };
       return [last, sliderData];
     });
@@ -133,26 +178,39 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (mobileDevice.current) {
-      document.addEventListener("touchstart", listenerTouchstart);
-      document.addEventListener("touchend", listenerTouchend);
-    }
-    document.addEventListener("wheel", listener);
-    return () => {
-      document.removeEventListener("wheel", listener);
-      if (mobileDevice.current) {
-        document.removeEventListener("touchstart", listenerTouchstart);
-        document.removeEventListener("touchend", listenerTouchend);
-      }
-    };
+    return;
+    // if (mobileDevice.current) {
+    //   document.addEventListener('touchstart', listenerTouchstart);
+    //   document.addEventListener('touchend', listenerTouchend);
+    // }
+    // document.addEventListener('wheel', listener);
+    // return () => {
+    //   document.removeEventListener('wheel', listener);
+    //   if (mobileDevice.current) {
+    //     document.removeEventListener('touchstart', listenerTouchstart);
+    //     document.removeEventListener('touchend', listenerTouchend);
+    //   }
+    // };
   }, []);
   const currentSlide = history[history.length - 1];
   return (
-    <div>
+    <div id="main" className={globalStyle.slidersMainContainer}>
       <Header goTo={goTo} currentSlide={currentSlide} />
       <ToastContainer floatingTime={3000} />
       {!mobileDevice.current && <Cursor />}
-      {history.map((value, i) => {
+      {listOfPages.map((value) => {
+        return (
+          <SlideContainer
+            key={value.key}
+            goTo={goTo}
+            value={value}
+            start={false}
+            end={false}
+          />
+        );
+      })}
+
+      {/* {history.map((value, i) => {
         const end = history.length > 1 ? i === 0 : false;
         const start = i === 1 ? true : false;
         return (
@@ -164,7 +222,7 @@ function App() {
             end={end}
           />
         );
-      })}
+      })} */}
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 
 .container{
-    position: absolute;
+    position: relative;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -79,7 +79,7 @@
           animation-fill-mode: forwards;
         }
         .content {
-          animation-delay: #{$contentDuration}s;
+          // animation-delay: #{$contentDuration}s;
           animation-duration: #{$contentDuration}s;
           animation-timing-function: $animation-timing-function-show;
           animation-name: $animationContentShow;

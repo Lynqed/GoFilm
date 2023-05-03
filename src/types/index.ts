@@ -13,7 +13,7 @@ export enum TypeGroup {
 export interface IHistoryItem {
   sliderId: number;
   group: TypeGroup;
-  key: number;
+  key: number | string;
 }
 
 export interface ISliderItem {

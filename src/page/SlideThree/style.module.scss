@@ -1,10 +1,9 @@
 @import '../../style/global.module.scss';
 
 .container {
-  position: absolute;
+  position: relative;
   width: 100vw;
   height: 100vh;
-  z-index: 2;
   overflow: hidden;
   .circleContainer {
     position: absolute;
@@ -67,7 +66,7 @@
       animation-fill-mode: forwards;
     }
     .content {
-      animation-delay: #{$contentDuration}s;
+      // animation-delay: #{$contentDuration}s;
       animation-duration: #{$contentDuration}s;
       animation-timing-function: $animation-timing-function-show;
       animation-name: $animationContentShow;
