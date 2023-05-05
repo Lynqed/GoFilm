@@ -1,5 +1,14 @@
 @import './fonts.scss';
 
+.routerContainer {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
 .slideContainer {
   width: 100vw;
   height: 100vh;
@@ -9,8 +18,14 @@
   overflow: hidden;
   overflow-y: auto;
   overflow-x: hidden;
-  width: 100vw;
-  height: 100vh;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 @keyframes animationContainerShow {
@@ -88,6 +103,7 @@ hr {
 :export {
   duration: $duration;
   contentDuration: $contentDuration;
+  colorBackground: $color-background;
 }
 $maxWidth: 1920;
 @mixin adaptiv-font($pcSize, $mobSize) {
