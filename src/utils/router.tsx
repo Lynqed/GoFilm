@@ -1,10 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
-
-import App from 'App';
-
-export default createBrowserRouter([
-  {
-    path: '/',
-    element: <App />
-  }
-]);
+export const URLS = {
+  MAIN: '/',
+  PROJECT: '/project'
+} as const;

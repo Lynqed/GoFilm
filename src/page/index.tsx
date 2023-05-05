@@ -1,59 +1,34 @@
-import React, { FC, useCallback, useEffect, useRef, useState } from "react";
-import { ICommonProps, IHistoryItem } from "../types";
-import { generateSliderId, getSliderById } from "../utils";
-import globalStyle from "style/global.module.scss";
+import React, { FC, useRef } from 'react';
+import { ToastContainer } from 'react-custom-alert';
 
-interface IProps extends ICommonProps {
-  value: IHistoryItem;
-}
+import Header from 'components/Header';
+import Cursor from 'components/Cursor';
+import { URLS } from 'utils/router';
+import { isMobile } from 'utils';
+import { Route, Routes } from 'react-router-dom';
 
-function elementInViewport(el: any) {
-  var rect = el.getBoundingClientRect();
-  return rect.top <= window.innerHeight * 0.7;
-}
+import 'react-custom-alert/dist/index.css';
 
-const SlideContainer: FC<IProps> = ({ value, ...common }: IProps) => {
-  const defaultStart = value.sliderId === 0;
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [start, setStart] = useState(defaultStart);
-  const startValue = useRef(defaultStart);
-  const [Component] = useState(() => {
-    const component = getSliderById(value.sliderId);
-    if (component) {
-      return component.item.component;
-    }
-  });
+import Main from './Main';
+import Project from './Project';
 
-  const onScroll = useCallback(() => {
-    if (containerRef.current && !startValue.current) {
-      const inView = elementInViewport(containerRef.current);
-      if (inView) {
-        console.log(inView, value, "inView");
-        setStart(true);
-        startValue.current = true;
-      }
-    }
-  }, []);
+interface IProps {}
 
-  useEffect(() => {
-    const el = document.getElementById("main");
-    if (el) {
-      el.addEventListener("scroll", onScroll);
-    }
-  }, []);
+const Component: FC<IProps> = ({}: IProps) => {
+  const mobileDevice = useRef(isMobile());
 
-  if (!Component) {
-    return null;
-  }
   return (
-    <div
-      ref={containerRef}
-      id={generateSliderId(value.sliderId)}
-      className={value.sliderId !== 4 ? globalStyle.slideContainer : ""}
-    >
-      {start && <Component {...common} start={start} />}
+    <div>
+      <ToastContainer floatingTime={3000} />
+      {!mobileDevice.current && <Cursor />}
+      <Header />
+      <Routes>
+        <Route path={URLS.MAIN} element={<Main />} />
+        <Route path={`${URLS.MAIN}:slideId`} element={<Main />} />
+        <Route path={URLS.PROJECT} element={<Project />} />
+      </Routes>
     </div>
   );
 };
 
-export default React.memo(SlideContainer);
+export default React.memo(Component);

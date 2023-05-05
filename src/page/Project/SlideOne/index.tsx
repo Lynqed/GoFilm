@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import style from './style.module.scss';
-import { interpolation } from '../../SlideOne/utils';
 import { ICommonProps } from 'types';
+import { interpolation } from 'page/Slides/SlideOne/utils';
+
 const Video = require('assets/video/test_video.mp4');
 const Play = require('assets/image/play.svg').default;
 
@@ -41,7 +42,7 @@ const SlideOne = (props: IProps) => {
   const onChangeOpen = useCallback(() => {
     if (openState.current === true) {
       setScreenOpen((screenOpen) => {
-        if (screenOpen.width <= window.innerWidth * 4) {
+        if (screenOpen.width <= window.innerWidth * 2) {
           setTimeout(() => {
             onChangeOpen();
           }, animationTime);

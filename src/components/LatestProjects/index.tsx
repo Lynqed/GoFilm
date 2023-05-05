@@ -1,6 +1,7 @@
-import React, { FC } from "react";
-import style from "./style.module.scss";
-
+import React, { FC } from 'react';
+import style from './style.module.scss';
+import { useNavigate } from 'react-router-dom';
+import { URLS } from 'utils/router';
 interface IProps {
   header: string;
   text: string;
@@ -9,6 +10,7 @@ interface IProps {
 }
 
 const LatestProjects: FC<IProps> = ({ header, text, img, bodyHeader }) => {
+  const navigate = useNavigate();
   return (
     <div className={style.container}>
       <p className={style.headerText}>{header}</p>
@@ -21,7 +23,14 @@ const LatestProjects: FC<IProps> = ({ header, text, img, bodyHeader }) => {
           <p className={style.text}>{text}</p>
         </div>
         <div className={style.boxButton}>
-          <button className={style.button}>VIEW CASE</button>
+          <button
+            className={style.button}
+            onClick={() => {
+              navigate(URLS.PROJECT);
+            }}
+          >
+            VIEW CASE
+          </button>
         </div>
       </div>
     </div>
