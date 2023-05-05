@@ -18,6 +18,8 @@ import {
 } from './utils';
 import { isMobile } from 'utils';
 
+import globalStyle from 'style/global.module.scss';
+
 interface IProps extends ICommonProps {}
 
 const VariantA = (props: IProps) => {
@@ -27,6 +29,7 @@ const VariantA = (props: IProps) => {
   const moveElement = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const dragStart = useRef(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const currentPosition = useRef(defaultPosition());
   const [position, setPosition] = useState(defaultPosition());
@@ -110,8 +113,8 @@ const VariantA = (props: IProps) => {
   useEffect(() => {
     window.addEventListener('resize', resizeListener);
     document.addEventListener('mousemove', mousemoveListener);
-    document.addEventListener('mousedown', moveDownListener);
-    document.addEventListener('mouseup', moveUpListener);
+    // document.addEventListener('mousedown', moveDownListener);
+    // document.addEventListener('mouseup', moveUpListener);
     if (mobileDevice.current) {
       document.addEventListener('touchstart', touchstartListener);
       document.addEventListener('touchmove', touchmoveListener);
@@ -120,8 +123,8 @@ const VariantA = (props: IProps) => {
     return () => {
       window.removeEventListener('resize', resizeListener);
       document.removeEventListener('mousemove', mousemoveListener);
-      document.removeEventListener('mousedown', moveDownListener);
-      document.removeEventListener('mouseup', moveUpListener);
+      // document.removeEventListener('mousedown', moveDownListener);
+      // document.removeEventListener('mouseup', moveUpListener);
       if (mobileDevice.current) {
         document.removeEventListener('touchstart', touchstartListener);
         document.removeEventListener('touchmove', touchmoveListener);
@@ -175,44 +178,49 @@ const VariantA = (props: IProps) => {
   };
 
   return (
-    <div
-      className={cn(style.mainContainer, {
-        [style.startAnimation]: props.start
-      })}
-    >
-      <div className={style.circleAnimation} />
-      <div className={style.container}>
-        <div className={style.backgroundImageContainer}>
-          <div className={style.backgroundImage}>
-            <video src={Video} autoPlay muted loop />
+    <div className={globalStyle.slideContainer}>
+      <div
+        ref={containerRef}
+        onMouseOver={() => (dragStart.current = true)}
+        onMouseLeave={() => (dragStart.current = false)}
+        className={cn(style.mainContainer, {
+          [style.startAnimation]: props.start
+        })}
+      >
+        <div className={style.circleAnimation} />
+        <div className={style.container}>
+          <div className={style.backgroundImageContainer}>
+            <div className={style.backgroundImage}>
+              <video src={Video} autoPlay muted loop />
+            </div>
           </div>
+          <div className={cn(style.innerContainer)} style={backgroundStyle} />
+          <div ref={contentRef} className={style.content}>
+            <div style={mainTextStyle}>
+              <p className={style.text}>
+                Get things done <br />
+              </p>
+              <p className={style.text}>
+                with<span className={style.yellowText}> your team</span>
+              </p>
+            </div>
+            <div className={style.hiddenContent} style={hiddenTextStyle}>
+              <p className={style.text2}>
+                Get things done <br />
+              </p>
+              <p className={style.text2}>
+                with<span className={style.yellowText2}> Go Film</span>
+              </p>
+            </div>
+          </div>
+          <div
+            ref={moveElement}
+            tabIndex={0}
+            id={moveBlockId}
+            className={cn(style.moveBlock)}
+            style={moveElementStyle}
+          />
         </div>
-        <div className={cn(style.innerContainer)} style={backgroundStyle} />
-        <div ref={contentRef} className={style.content}>
-          <div style={mainTextStyle}>
-            <p className={style.text}>
-              Get things done <br />
-            </p>
-            <p className={style.text}>
-              with<span className={style.yellowText}> your team</span>
-            </p>
-          </div>
-          <div className={style.hiddenContent} style={hiddenTextStyle}>
-            <p className={style.text2}>
-              Get things done <br />
-            </p>
-            <p className={style.text2}>
-              with<span className={style.yellowText2}> Go Film</span>
-            </p>
-          </div>
-        </div>
-        <div
-          ref={moveElement}
-          tabIndex={0}
-          id={moveBlockId}
-          className={cn(style.moveBlock)}
-          style={moveElementStyle}
-        />
       </div>
     </div>
   );

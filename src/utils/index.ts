@@ -112,3 +112,5 @@ export const AboutSliders: ISliderItem[] = [
 export const isMobile = () => {
   return /Android|iPhone/i.test(navigator.userAgent);
 };
+
+export const generateSliderId = (id: number) => `slider-${id}`
