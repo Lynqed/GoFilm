@@ -1,7 +1,7 @@
-import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
-import { ICommonProps, IHistoryItem } from '../types';
-import { generateSliderId, getSliderById } from '../utils';
-import globalStyle from 'style/global.module.scss';
+import React, { FC, useCallback, useEffect, useRef, useState } from "react";
+import { ICommonProps, IHistoryItem } from "../types";
+import { generateSliderId, getSliderById } from "../utils";
+import globalStyle from "style/global.module.scss";
 
 interface IProps extends ICommonProps {
   value: IHistoryItem;
@@ -28,7 +28,7 @@ const SlideContainer: FC<IProps> = ({ value, ...common }: IProps) => {
     if (containerRef.current && !startValue.current) {
       const inView = elementInViewport(containerRef.current);
       if (inView) {
-        console.log(inView, value, 'inView');
+        console.log(inView, value, "inView");
         setStart(true);
         startValue.current = true;
       }
@@ -36,9 +36,9 @@ const SlideContainer: FC<IProps> = ({ value, ...common }: IProps) => {
   }, []);
 
   useEffect(() => {
-    const el = document.getElementById('main');
+    const el = document.getElementById("main");
     if (el) {
-      el.addEventListener('scroll', onScroll);
+      el.addEventListener("scroll", onScroll);
     }
   }, []);
 
@@ -49,7 +49,7 @@ const SlideContainer: FC<IProps> = ({ value, ...common }: IProps) => {
     <div
       ref={containerRef}
       id={generateSliderId(value.sliderId)}
-      className={globalStyle.slideContainer}
+      className={value.sliderId !== 4 ? globalStyle.slideContainer : ""}
     >
       {start && <Component {...common} start={start} />}
     </div>

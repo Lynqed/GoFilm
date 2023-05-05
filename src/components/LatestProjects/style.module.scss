@@ -14,7 +14,7 @@ overflow: hidden;
 
 }
 .headerText{
-    font-family: $Mediu-font-family;
+    font-family: $Medium-font-family;
     color:$color-white;
     @include adaptiv-font(24, 20);
     font-weight: 600;
@@ -39,7 +39,7 @@ overflow: hidden;
     font-weight: 500;
 }
 .button{
-    font-family: $Mediu-font-family;
+    font-family: $Medium-font-family;
     color:$color-white;
     @include adaptiv-font(20, 15);
     font-weight: 600;
@@ -63,7 +63,7 @@ height: 218px;
     justify-content: flex-end;
 }
 .bodyHeader{
-    font-family: $Mediu-font-family;
+    font-family: $Medium-font-family;
     color:$color-white;
     @include adaptiv-font(24, 17);
     font-weight: 600;

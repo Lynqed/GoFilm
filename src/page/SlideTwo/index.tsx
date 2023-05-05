@@ -1,9 +1,8 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import style from './style.module.scss';
-import Vectors from 'assets/image/Vectors.svg';
-import cn from 'classnames';
-import { ICommonProps } from 'types';
-import globalStyle from 'style/global.module.scss';
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import style from "./style.module.scss";
+import Vectors from "assets/image/Vectors.svg";
+import { ICommonProps } from "types";
+import globalStyle from "style/global.module.scss";
 
 interface IProps extends ICommonProps {}
 
@@ -18,7 +17,7 @@ const SlideTwo = ({ start }: IProps) => {
     const Y = y > max ? max : y < -max ? -max : y;
     setPosition({
       x: X,
-      y: Y
+      y: Y,
     });
   }, []);
   useEffect(() => {
@@ -29,17 +28,12 @@ const SlideTwo = ({ start }: IProps) => {
   }, []);
   const imageStyle = useMemo(() => {
     return {
-      transform: `translateX(${position.x}px) translateY(${position.y}px)`
+      transform: `translateX(${position.x}px) translateY(${position.y}px)`,
     };
   }, [position]);
   return (
     <div className={globalStyle.slideContainer}>
-      <div
-        className={cn(style.container, {
-          [style.show]: start
-        })}
-      >
-        <div className={style.innerContainer} />
+      <div className={style.container}>
         <div className={style.content}>
           <img
             src={Vectors}

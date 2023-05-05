@@ -1,53 +1,53 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { v4 as uuid } from 'uuid';
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { v4 as uuid } from "uuid";
 
-import Header from './components/Header';
-import { ToastContainer } from 'react-custom-alert';
-import 'react-custom-alert/dist/index.css';
-import Cursor from './components/Cursor';
-import { IHistoryItem, TypeGroup } from './types';
+import Header from "./components/Header";
+import { ToastContainer } from "react-custom-alert";
+import "react-custom-alert/dist/index.css";
+import Cursor from "./components/Cursor";
+import { IHistoryItem, TypeGroup } from "./types";
 
-import SlideContainer from './page';
+import SlideContainer from "./page";
 
-import { debouncer, generateSliderId, getSliderById, isMobile } from './utils';
-import globalStyle from 'style/global.module.scss';
+import { debouncer, generateSliderId, getSliderById, isMobile } from "./utils";
+import globalStyle from "style/global.module.scss";
 
 const listOfPages: IHistoryItem[] = [
   {
     sliderId: 0,
     group: TypeGroup.main,
-    key: uuid()
+    key: uuid(),
   },
   {
     sliderId: 1,
     group: TypeGroup.main,
-    key: uuid()
+    key: uuid(),
   },
   {
     sliderId: 2,
     group: TypeGroup.main,
-    key: uuid()
+    key: uuid(),
   },
   {
     sliderId: 3,
     group: TypeGroup.main,
-    key: uuid()
+    key: uuid(),
   },
   {
     sliderId: 4,
     group: TypeGroup.main,
-    key: uuid()
+    key: uuid(),
   },
   {
     sliderId: 5,
     group: TypeGroup.main,
-    key: uuid()
+    key: uuid(),
   },
   {
     sliderId: 9,
     group: TypeGroup.main,
-    key: uuid()
-  }
+    key: uuid(),
+  },
 ];
 
 const debounce = debouncer(250);
@@ -61,8 +61,8 @@ function App() {
     {
       sliderId: 0,
       group: TypeGroup.main,
-      key: new Date().getTime()
-    }
+      key: new Date().getTime(),
+    },
   ]);
 
   const setInProgress = useCallback(() => {
@@ -75,7 +75,7 @@ function App() {
   const goTo = useCallback((id: number) => {
     const el = document.getElementById(generateSliderId(id));
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      el.scrollIntoView({ behavior: "smooth" });
     }
     return;
     setHistory((history) => {
@@ -86,7 +86,7 @@ function App() {
       const sliderData = {
         sliderId: id,
         group: item.item.group,
-        key: new Date().getTime()
+        key: new Date().getTime(),
       };
       if (history.length === 1) {
         return [...history, sliderData];
@@ -109,7 +109,7 @@ function App() {
       const sliderData = {
         sliderId: nextItem.id,
         group: item.item.group,
-        key: new Date().getTime()
+        key: new Date().getTime(),
       };
       return [last, sliderData];
     });
@@ -125,7 +125,7 @@ function App() {
       const sliderData = {
         sliderId: item.data[item.index - 1].id,
         group: item.item.group,
-        key: new Date().getTime()
+        key: new Date().getTime(),
       };
       return [last, sliderData];
     });

@@ -15,16 +15,12 @@
     justify-content: center;
     .innerContainer {
       position: absolute;
-      z-index: 0;
-      height: 0px;
-      width: 0px;
-      border-radius: 100%;
+      // border-radius: 100%;
       background: $orange-gradient;
     }
   }
 
   .content {
-    position: absolute;
     width: 100vw;
     height: 100vh;
     opacity: 0.95;
@@ -32,6 +28,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    background: $orange-gradient;
   }
   .boxProjects {
     display: flex;
@@ -43,60 +40,10 @@
       display: none;
     }
   }
-  &.hide {
-    // .innerContainer {
-    //   animation-name: $animationContainerHide;
-    //   animation-duration: #{$duration}s;
-    //   animation-timing-function: $animation-timing-function-hide;
-    //   animation-fill-mode: forwards;
-    // }
-    // .content {
-    //   animation-duration: #{$contentDuration}s;
-    //   animation-timing-function: $animation-timing-function-hide;
-    //   animation-name: $animationContentHide;
-    //   animation-fill-mode: forwards;
-    // }
-    z-index: 0;
-  }
-  &.show {
-    .innerContainer {
-      animation-name: $animationContainerShow;
-      animation-duration: #{$duration}s;
-      animation-timing-function: $animation-timing-function-show;
-      animation-fill-mode: forwards;
-    }
-    .content {
-      // animation-delay: #{$contentDuration}s;
-      animation-duration: #{$contentDuration}s;
-      animation-timing-function: $animation-timing-function-show;
-      animation-name: $animationContentShow;
-      animation-fill-mode: forwards;
-
-      .boxProjects {
-        > :nth-child(n) {
-          animation-duration: 2s;
-          animation-timing-function: $animation-timing-function-show;
-          animation-name: showImage;
-          animation-fill-mode: forwards;
-        }
-      }
-    }
-  }
-}
-
-@keyframes showImage {
-  from {
-    transform: translateY(150px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0px);
-    opacity: 1;
-  }
 }
 
 .header {
-  font-family: $Mediu-font-family;
+  font-family: $Medium-font-family;
   color: $color-white;
   @include adaptiv-font(70, 40);
   font-weight: 500;

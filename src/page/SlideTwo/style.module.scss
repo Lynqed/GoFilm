@@ -8,6 +8,7 @@
   justify-content: center;
   overflow: hidden;
   background-color: $color-background;
+
   .innerContainer {
     position: absolute;
     z-index: 0;
@@ -19,7 +20,6 @@
   .content {
     top: 100vh;
     opacity: 0.95;
-    position: absolute;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -36,7 +36,7 @@
       justify-content: center;
       z-index: 2;
       .about {
-        font-family: $Mediu-font-family;
+        font-family: $Medium-font-family;
         color: $color-white;
         font-weight: 600;
         padding-bottom: 101px;
@@ -59,37 +59,5 @@
       transition: all 4s ease-out;
     }
   }
-  &.show {
-    .innerContainer {
-      animation-name: $animationContainerShow;
-      animation-duration: #{$duration}s;
-      animation-timing-function: $animation-timing-function-show;
-      animation-fill-mode: forwards;
-    }
-    .content {
-      // animation-delay: #{$contentDuration}s;
-      animation-duration: #{$contentDuration}s;
-      animation-timing-function: $animation-timing-function-show;
-      animation-name: $animationContentShow;
-      animation-fill-mode: forwards;
-    }
-  }
 }
 
-@keyframes imageAnimation {
-  0% {
-    transform: rotate(0deg);
-    top: 0;
-    left: 0;
-  }
-  50% {
-    transform: rotate(-5deg);
-    top: 20px;
-    left: -20px;
-  }
-  100% {
-    transform: rotate(0deg);
-    top: 0;
-    left: 0;
-  }
-}
