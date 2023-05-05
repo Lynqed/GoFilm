@@ -13,8 +13,6 @@
 
     .boxText {
       padding-left: 70px;
-      padding-top: 400px;
-      opacity: 0;
       .headerText {
         color: $color-white;
         @include adaptiv-font(100, 45);
@@ -43,41 +41,8 @@
       }
     }
   }
-  &.show {
-    .boxText {
-      animation-duration: #{$duration}s;
-      animation-timing-function: $animation-timing-function-show;
-      animation-name: textShow;
-      animation-fill-mode: forwards;
-    }
-    .content {
-      animation-duration: #{$duration}s;
-      animation-timing-function: $animation-timing-function-show;
-      animation-name: backgroundShow;
-      animation-fill-mode: forwards;
-    }
-  }
 }
 
-@keyframes textShow {
-  from {
-    padding-top: 400px;
-    opacity: 0;
-  }
-  to {
-    padding-top: 0;
-    opacity: 1;
-  }
-}
-
-@keyframes backgroundShow {
-  from {
-    background-color: transparent;
-  }
-  to {
-    background-color: $color-background;
-  }
-}
 @media(max-width:500px){
   .container{
     .content{

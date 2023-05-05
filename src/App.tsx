@@ -49,7 +49,23 @@ const listOfPages: IHistoryItem[] = [
     key: uuid(),
   },
 ];
-
+const listOfPagesTest: IHistoryItem[] = [
+  {
+    sliderId: 6,
+    group: TypeGroup.project,
+    key: uuid(),
+  },
+  {
+    sliderId: 7,
+    group: TypeGroup.project,
+    key: uuid(),
+  },
+  {
+    sliderId: 8,
+    group: TypeGroup.project,
+    key: uuid(),
+  },
+];
 const debounce = debouncer(250);
 
 function App() {

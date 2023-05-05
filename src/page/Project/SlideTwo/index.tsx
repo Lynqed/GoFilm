@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import style from "./style.module.scss";
 import imageProject from "assets/image/projectImg/imgProject.png";
 import { ICommonProps } from "types";
-import cn from "classnames";
 
 const image = [
   { image: imageProject },
@@ -12,20 +11,9 @@ const image = [
 interface IProps extends ICommonProps {}
 export const imagesSliderList = "images-list";
 
-const SlideTwo = (props: IProps) => {
-  const { end } = props;
-  const [show, setShow] = useState<null | boolean>(null);
-  useEffect(() => {
-    setShow(true);
-  }, []);
+const SlideTwo = () => {
   return (
-    <div
-      className={cn(style.container, {
-        [style.show]: show === true,
-        [style.end]: end,
-      })}
-    >
-      <div className={style.innerContainer} />
+    <div className={style.container}>
       <div className={style.content}>
         <div className={style.boxText}>
           <p className={style.headerText}>
