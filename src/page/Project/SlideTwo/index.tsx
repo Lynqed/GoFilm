@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import style from "./style.module.scss";
 import imageProject from "assets/image/projectImg/imgProject.png";
 import { ICommonProps } from "types";

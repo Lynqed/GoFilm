@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useState } from "react";
+import React, { FC } from "react";
 import { IHistoryItem, TypeGroup } from "types";
 import { v4 as uuid } from "uuid";
 import SlideContainer from "../Slides";
