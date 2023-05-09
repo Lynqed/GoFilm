@@ -6,7 +6,7 @@
   overflow: hidden;
   z-index: 1;
   .innerContainer {
-    position: absolute;
+    // position: absolute;
     z-index: 0;
     background-color: $color-background;
     height: 100vh;
@@ -41,6 +41,7 @@
     .buttonBox {
       display: flex;
       justify-content: flex-end;
+   
     }
     .button {
       padding: 17px 40px 17px 40px;

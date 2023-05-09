@@ -1,34 +1,22 @@
-import React, { FC, useEffect } from "react";
-import { v4 as uuid } from "uuid";
-
+import React, { FC, useCallback, useEffect, useState } from "react";
 import { IHistoryItem, TypeGroup } from "types";
-
-import SlideContainer from "./Slides";
-
+import { v4 as uuid } from "uuid";
+import SlideContainer from "../Slides";
 interface IProps {}
 
 const listOfPages: IHistoryItem[] = [
   {
-    sliderId: 6,
-    group: TypeGroup.project,
+    sliderId: 10,
+    group: TypeGroup.about,
     key: uuid(),
   },
   {
-    sliderId: 7,
-    group: TypeGroup.project,
-    key: uuid(),
-  },
-  {
-    sliderId: 8,
-    group: TypeGroup.project,
+    sliderId: 11,
+    group: TypeGroup.about,
     key: uuid(),
   },
 ];
-
-const Component: FC<IProps> = ({}: IProps) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+const AboutUs: FC<IProps> = ({}: IProps) => {
   return (
     <div>
       {listOfPages.map((value) => {
@@ -46,4 +34,4 @@ const Component: FC<IProps> = ({}: IProps) => {
   );
 };
 
-export default React.memo(Component);
+export default React.memo(AboutUs);

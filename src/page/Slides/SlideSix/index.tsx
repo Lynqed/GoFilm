@@ -3,6 +3,7 @@ import style from "./style.module.scss";
 import { ICommonProps } from "types";
 import emailjs from "emailjs-com";
 import { toast } from "react-custom-alert";
+import Video from "assets/video/test_video.mp4";
 import {
   isValidEmail,
   isValidFirstName,
@@ -74,6 +75,7 @@ const SlideSix = (props: IProps) => {
     <>
       <div className={style.container}>
         <div className={style.content}>
+          <video src={Video} autoPlay muted loop />
           {!showMessage ? (
             <>
               <div className={style.yellowBox}>

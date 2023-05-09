@@ -1,40 +1,41 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from "react";
 
-import cn from 'classnames';
-import Logo from 'assets/image/OrangeLogo.svg';
+import cn from "classnames";
+import Logo from "assets/image/OrangeLogo.svg";
 
-import style from './style.module.scss';
-import { useNavigate } from 'react-router-dom';
-import { URLS } from 'utils/router';
-import { interpolation } from 'page/Slides/SlideOne/utils';
+import style from "./style.module.scss";
+import { useNavigate } from "react-router-dom";
+import { URLS } from "utils/router";
+import { interpolation } from "page/Slides/SlideOne/utils";
 
-import globalStyles from 'style/global.module.scss';
+import globalStyles from "style/global.module.scss";
 
 interface IProps {}
 
 const array = [
-  { label: 'Work', page: 2 },
-  { label: 'About Us', page: 1 },
-  { label: 'Clients', page: 4 },
-  { label: 'Contact', page: 5 }
+  { label: "Work", page: 2 },
+  { label: "About Us", page: URLS.ABOUT },
+  { label: "Clients", page: 4 },
+  { label: "Contact", page: 5 },
 ] as const;
 
 const defaultSetScreen = () => ({
   width: window.innerWidth,
-  height: window.innerHeight
+  height: window.innerHeight,
 });
 
 const Header = (props: IProps) => {
   const [scrollValue, setScrollValue] = useState(
     document.documentElement.scrollTop
   );
+  console.log(scrollValue);
   const [screen] = useState(defaultSetScreen());
   const navigate = useNavigate();
   const scrollListener = useCallback((ev: Event) => {
     setScrollValue(document.documentElement.scrollTop);
   }, []);
   useEffect(() => {
-    window.addEventListener('scroll', scrollListener);
+    window.addEventListener("scroll", scrollListener);
   }, []);
   const opacity = interpolation(scrollValue, 0, screen.height, 0, 1);
   return (
@@ -44,7 +45,7 @@ const Header = (props: IProps) => {
           className={style.background}
           style={{
             backgroundColor: `${globalStyles.colorBackground}`,
-            opacity: opacity > 0.95 ? 0.95 : opacity
+            opacity: opacity > 0.95 ? 0.95 : opacity,
           }}
         />
         <img

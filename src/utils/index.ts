@@ -10,7 +10,7 @@ import ProjectSliderOne from "page/Project/SlideOne";
 import ProjectSliderTwo, { imagesSliderList } from "../page/Project/SlideTwo";
 import ProjectSliderThree from "page/Project/SlideThree";
 
-import AboutSlideTwo from "page/Slides/AboutUs/SlideTwo";
+import AboutSlideTwo from "page/AboutUs/SlideTwo";
 
 import { ISliderItem, TypeGroup } from "../types";
 

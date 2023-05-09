@@ -1,52 +1,66 @@
-import React, { useEffect, useState } from "react";
-import { ICommonProps } from "types";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import style from "./style.module.scss";
+import Vectors from "assets/image/Vectors.svg";
 import cn from "classnames";
+import { ICommonProps } from "types";
+import globalStyle from "style/global.module.scss";
 
 interface IProps extends ICommonProps {}
 
-const SlideTwo = (props: IProps) => {
-  const { goTo } = props;
-  const [show, setShow] = useState<null | boolean>(null);
-  useEffect(() => {
-    setShow(true);
-  }, []);
-  return (
-    <div
-      className={cn(style.container, {
-        [style.show]: show === true,
-      })}
-    >
-      <div className={style.innerContainer} />
-      <div className={style.content}>
-        <div className={style.boxText}>
-          <p className={style.boldText}>
-            With storyboarding, cinematography, sound design, and high-end
-            equipment, we’ll capture your audience’s attention and get your
-            message across for you.
-          </p>
+const max = 100;
 
-          <p className={style.text}>
-            Our team has extensive experience remotely guiding clients through
-            video projects. Whether you’re working from home or located across
-            the country, we can conduct pre-planning and video shoots via
-            Microsoft Teams or some other form of virtual conferencing services.
-            Throughout this process, our team will work with you to accommodate
-            your project needs and produce stunning video assets that tell your
-            story. No matter which type of video you need, we can work with you
-            to market your product, spread your message, and achieve any other
-            goal you’ve set for your project.
-          </p>
-        </div>
-        <div className={style.buttonBox}>
-          <button
-            className={style.button}
-            onClick={() => {
-              goTo(5);
-            }}
-          >
-            Let`s contact us
-          </button>
+const SlideTwo = ({ start }: IProps) => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const listener = useCallback((event: MouseEvent) => {
+    const x = event.x - window.screen.width / 2;
+    const y = event.y - window.screen.height / 2;
+    const X = x > max ? max : x < -max ? -max : x;
+    const Y = y > max ? max : y < -max ? -max : y;
+    setPosition({
+      x: X,
+      y: Y,
+    });
+  }, []);
+  useEffect(() => {
+    document.addEventListener("mousemove", listener);
+    return () => {
+      document.removeEventListener("mousemove", listener);
+    };
+  }, []);
+  const imageStyle = useMemo(() => {
+    return {
+      transform: `translateX(${position.x}px) translateY(${position.y}px)`,
+    };
+  }, [position]);
+  return (
+    <div className={globalStyle.slideContainer}>
+      <div
+        className={cn(style.container, {
+          [style.show]: start,
+        })}
+      >
+        <div className={style.innerContainer} />
+        <div className={style.content}>
+          <img
+            src={Vectors}
+            alt="vectors"
+            className={style.image}
+            style={imageStyle}
+          />
+          <div className={style.textContainer}>
+            <div>
+              <p className={style.about}>About us</p>
+              <p className={style.textAbout}>
+                “Our mission is to provide
+                <br />
+                <p className={style.orangeText}>
+                  high-quality video content
+                  <br />
+                </p>
+                to any business that is open to it.”
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -45,6 +45,7 @@ const SlideThree = (props: IProps) => {
       <div className={style.container}>
         <div className={style.content}>
           <p className={style.header}>Latest projects</p>
+
           <div id={latestProjectsId} className={style.boxProjects}>
             {array.map((el, i) => (
               <div
