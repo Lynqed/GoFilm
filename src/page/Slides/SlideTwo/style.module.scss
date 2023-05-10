@@ -1,14 +1,13 @@
-@import '../../style/global.module.scss';
+@import 'style/global.module.scss';
 .container {
-  position: absolute;
+  position: relative;
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  z-index: 1;
-
+  background-color: $color-background;
   .innerContainer {
     position: absolute;
     z-index: 0;
@@ -37,7 +36,7 @@
       justify-content: center;
       z-index: 2;
       .about {
-        font-family: $Mediu-font-family;
+        font-family: $Medium-font-family;
         color: $color-white;
         font-weight: 600;
         padding-bottom: 101px;
@@ -68,7 +67,7 @@
       animation-fill-mode: forwards;
     }
     .content {
-      animation-delay: #{$contentDuration}s;
+      // animation-delay: #{$contentDuration}s;
       animation-duration: #{$contentDuration}s;
       animation-timing-function: $animation-timing-function-show;
       animation-name: $animationContentShow;

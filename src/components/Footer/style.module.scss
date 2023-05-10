@@ -1,0 +1,51 @@
+
+@import '../../style/global.module.scss';
+$color_Text:rgba(255, 255, 255, 0.6);
+
+hr{
+
+    background-color: white;
+    width: 100%;
+}
+.container{
+    margin-top: 197px;
+    background-color:$color-background;
+    height: 35vh;
+    padding: 0 70px;
+    display: flex;
+    flex-direction: column;
+}
+.image{
+    display: flex;
+    flex: 0 1 20%;
+}
+.text{
+    display: flex;
+    flex: 0 1 20%;
+    font-size: 20px;
+    color: $color_Text;
+    gap: 40px ;
+    flex-direction: column;
+    cursor: pointer;
+}
+.boxInformation{
+    display: flex;
+    align-items: flex-start;
+    margin-top: 50px;
+}
+.social{
+    display: flex;
+    gap: 50px;
+    flex: 0 1 40%;
+    justify-content: flex-end;
+    cursor: pointer;
+    flex-wrap: wrap;
+}
+@media(max-width:800px){
+    .container{
+        padding: 0 20px;
+    }
+    .boxInformation{
+        gap: 20px;
+    }
+  }

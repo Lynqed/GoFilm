@@ -6,18 +6,11 @@ import image from "assets/image/projectImg/imgBack.png";
 
 interface IProps extends ICommonProps {}
 
-const SlideThree = (props: IProps) => {
-  const { end } = props;
-  const [show, setShow] = useState<null | boolean>(null);
-  useEffect(() => {
-    setShow(true);
-  }, []);
+const SlideThree = () => {
+
   return (
     <div
-      className={cn(style.container, {
-        [style.show]: show === true,
-        [style.hide]: end,
-      })}
+      className={style.container}
     >
       <div className={style.innerContainer} />
       <div className={style.content}>

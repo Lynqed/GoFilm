@@ -19,7 +19,7 @@
     opacity: 0;
   }
   .content {
-    position: absolute;
+    // position: absolute;
     width: 100vw;
     height: 100vh;
     top: 100vh;
@@ -27,6 +27,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    background-image: $orange-gradient;
   }
 
   &.show {

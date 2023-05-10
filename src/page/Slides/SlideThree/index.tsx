@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import style from "./style.module.scss";
 import SunRise from "assets/image/SunRise.jpeg";
 import Desert from "assets/image/desert.jpeg";
 import LatestProjects from "components/LatestProjects";
-import cn from "classnames";
 
 import { ICommonProps } from "types";
+
+import globalStyle from "style/global.module.scss";
 
 interface IProps extends ICommonProps {}
 
@@ -37,43 +38,31 @@ const array = [
   },
 ];
 const SlideThree = (props: IProps) => {
-  const { end, goTo } = props;
-  const [show, setShow] = useState<null | boolean>(null);
-  useEffect(() => {
-    setShow(true);
-  }, []);
+  const { goTo } = props;
 
   return (
-    <div
-      className={cn(style.container, {
-        [style.show]: show === true,
-        [style.hide]: end,
-      })}
-    >
-      <div className={style.circleContainer}>
-        <div className={style.innerContainer} />
-      </div>
-      <div className={style.content}>
-        <p className={style.header}>Latest projects</p>
-        <div id={latestProjectsId} className={style.boxProjects}>
-          {array.map((el, i) => (
-            <div
-              key={i}
-              onClick={() => {
-                goTo(6);
-              }}
-              style={{
-                animationDelay: `${i * 0.15}s`,
-              }}
-            >
-              <LatestProjects
-                header={el.header}
-                text={el.text}
-                bodyHeader={el.bodyHeader}
-                img={el.img}
-              />
-            </div>
-          ))}
+    <div className={globalStyle.slideContainer}>
+      <div className={style.container}>
+        <div className={style.content}>
+          <p className={style.header}>Latest projects</p>
+
+          <div id={latestProjectsId} className={style.boxProjects}>
+            {array.map((el, i) => (
+              <div
+                key={i}
+                onClick={() => {
+                  goTo(6);
+                }}
+              >
+                <LatestProjects
+                  header={el.header}
+                  text={el.text}
+                  bodyHeader={el.bodyHeader}
+                  img={el.img}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

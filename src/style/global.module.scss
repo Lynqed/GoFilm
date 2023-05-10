@@ -1,13 +1,45 @@
 @import './fonts.scss';
 
+.routerContainer {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.slideContainer {
+  width: 100vw;
+  height: 100vh;
+}
+
+.slidersMainContainer {
+  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
 @keyframes animationContainerShow {
   from {
     height: 0px;
     width: 0px;
+    opacity: 0;
+    transform: scale(0.8);
   }
   to {
     height: 250vw;
     width: 250vw;
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -36,23 +68,25 @@
 @keyframes animationContentShow {
   from {
     top: 100vh;
-    opacity: 0.95;
+    transform: scale(0.8);
+    opacity: 0;
   }
   to {
     top: 0px;
+    transform: scale(1);
     opacity: 1;
   }
 }
-$duration: 1.5;
-$contentDuration: 0.5;
+$duration: 0.25;
+$contentDuration: 1.5;
 $color-orange: #f4a01a;
 $color-background: #1e1e1e;
 $orange-gradient: linear-gradient(90deg, #f4a01a 0%, #ba4734 124.55%);
 $color-white: #ffffff;
 $Light-font-family: 'Neue Haas Grotesk Light';
 $Light-font-family-Italic: 'Neue Haas Grotesk Light Italic';
-$Mediu-font-family: 'Neue Haas Grotesk Mediu';
-$Mediu-font-family-Italic: 'Neue Haas Grotesk Mediu Italic';
+$Medium-font-family: 'Neue Haas Grotesk Medium';
+$Medium-font-family-Italic: 'Neue Haas Grotesk Medium Italic';
 $Bold-font-family-Italic: 'Neue Haas Grotesk Bold Italic';
 $Jennasue: 'Jennasue';
 $animationContainerShow: animationContainerShow;
@@ -69,13 +103,17 @@ hr {
 :export {
   duration: $duration;
   contentDuration: $contentDuration;
+  colorBackground: $color-background;
 }
 $maxWidth: 1920;
 @mixin adaptiv-font($pcSize, $mobSize) {
- $addSize: $pcSize - $mobSize;
- $maxWidth: $maxWidth - 320;
- font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+  $addSize: $pcSize - $mobSize;
+  $maxWidth: $maxWidth - 320;
+  font-size: calc(
+    #{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth})
+  );
 }
 body {
   cursor: none;
+  background-color: $color-background;
 }
