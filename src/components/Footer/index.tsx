@@ -1,28 +1,28 @@
 import React from "react";
 import style from "./style.module.scss";
-import YouTube from "../../assets/image/socialMedia/youtube.svg";
-import Instagram from "../../assets/image/socialMedia/instagram.svg";
-import Facebook from "../../assets/image/socialMedia/facebook.svg";
-import Twitter from "../../assets/image/socialMedia/twitter.svg";
-import WhiteLogo from "../../assets/image/WhiteLogo.svg";
+import YouTube from "assets/image/socialMedia/youtube.svg";
+import Instagram from "assets/image/socialMedia/instagram.svg";
+import Facebook from "assets/image/socialMedia/facebook.svg";
+import Twitter from "assets/image/socialMedia/twitter.svg";
+import WhiteLogo from "assets/image/WhiteLogo.svg";
 import { URLS } from "utils/router";
 import { useNavigate } from "react-router-dom";
-
+const pages = [
+  { name: "Services", page: 2 },
+  { name: "About Us", page: URLS.ABOUT },
+  { name: "Clients", page: 4 },
+  { name: "Contact ", page: 5 },
+];
+const email = [{ name: "Examplegmail.com" }, { name: "Examplegmail.2com" }];
+const social = [
+  { image: YouTube, href: "https://www.youtube.com/" },
+  { image: Instagram, href: "https://instagram.com/" },
+  { image: Facebook, href: "https://www.facebook.com/" },
+  { image: Twitter, href: "https://twitter.com/" },
+];
 const Footer = () => {
   const navigate = useNavigate();
-  const pages = [
-    { name: "Services", page: 2 },
-    { name: "About Us", page: URLS.ABOUT },
-    { name: "Clients", page: 4 },
-    { name: "Contact ", page: 5 },
-  ];
-  const email = [{ name: "Examplegmail.com" }, { name: "Examplegmail.2com" }];
-  const social = [
-    { image: YouTube, href: "https://www.youtube.com/" },
-    { image: Instagram, href: "https://instagram.com/" },
-    { image: Facebook, href: "https://www.facebook.com/" },
-    { image: Twitter, href: "https://twitter.com/" },
-  ];
+
   return (
     <div className={style.container}>
       <hr />

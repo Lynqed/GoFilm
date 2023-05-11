@@ -39,13 +39,14 @@ const array = [
 ];
 const SlideThree = (props: IProps) => {
   const { goTo } = props;
-  let ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (el) {
-      const onWheel = (e: any) => {
+      const onWheel = (e: WheelEvent) => {
         e.preventDefault();
+        console.log(e);
         el.scrollTo({
           left: el.scrollLeft + e.deltaY,
           behavior: "auto",

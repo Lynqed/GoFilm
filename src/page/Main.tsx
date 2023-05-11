@@ -47,6 +47,7 @@ const listOfPages: IHistoryItem[] = [
 
 function App() {
   const params = useParams();
+
   useEffect(() => {
     const slideId = params.slideId;
     if (slideId) {
