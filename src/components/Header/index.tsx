@@ -28,7 +28,6 @@ const Header = (props: IProps) => {
   const [scrollValue, setScrollValue] = useState(
     document.documentElement.scrollTop
   );
-  console.log(scrollValue);
   const [screen] = useState(defaultSetScreen());
   const navigate = useNavigate();
   const scrollListener = useCallback((ev: Event) => {
