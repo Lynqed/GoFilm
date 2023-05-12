@@ -1,5 +1,4 @@
 @import 'style/global.module.scss';
-
 .container {
   position: relative;
   width: 100vw;
@@ -15,7 +14,6 @@
     justify-content: center;
     .innerContainer {
       position: absolute;
-      // border-radius: 100%;
       background: $orange-gradient;
     }
   }
@@ -41,6 +39,7 @@
     }
   }
 }
+.test{}
 
 .header {
   font-family: $Medium-font-family;

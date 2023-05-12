@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useState } from "react";
+import React, { FC, useEffect } from "react";
 import { IHistoryItem, TypeGroup } from "types";
 import { v4 as uuid } from "uuid";
 import SlideContainer from "../Slides";
@@ -16,7 +16,10 @@ const listOfPages: IHistoryItem[] = [
     key: uuid(),
   },
 ];
-const AboutUs: FC<IProps> = ({}: IProps) => {
+const AboutUs: FC<IProps> = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       {listOfPages.map((value) => {

@@ -1,7 +1,7 @@
-import React, { FC, useRef, useState } from 'react';
-import { ICommonProps, IHistoryItem } from 'types';
-import { generateSliderId, getSliderById } from 'utils';
-import globalStyle from 'style/global.module.scss';
+import React, { FC, useRef, useState } from "react";
+import { ICommonProps, IHistoryItem } from "types";
+import { generateSliderId, getSliderById } from "utils";
+import globalStyle from "style/global.module.scss";
 
 interface IProps extends ICommonProps {
   value: IHistoryItem;
@@ -23,7 +23,7 @@ const SlideContainer: FC<IProps> = ({ value, ...common }: IProps) => {
     <div
       ref={containerRef}
       id={generateSliderId(value.sliderId)}
-      className={value.sliderId !== 4 ? globalStyle.slideContainer : ''}
+      className={value.sliderId !== 4 ? globalStyle.slideContainer : ""}
     >
       <Component {...common} start={true} />
     </div>

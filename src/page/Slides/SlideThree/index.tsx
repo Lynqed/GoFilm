@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import style from "./style.module.scss";
 import SunRise from "assets/image/SunRise.jpeg";
 import Desert from "assets/image/desert.jpeg";
@@ -39,6 +39,25 @@ const array = [
 ];
 const SlideThree = (props: IProps) => {
   const { goTo } = props;
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (el) {
+      const onWheel = (e: WheelEvent) => {
+        e.preventDefault();
+        console.log(e);
+        el.scrollTo({
+          left: el.scrollLeft + e.deltaY,
+          behavior: "auto",
+        });
+      };
+
+      el.addEventListener("wheel", onWheel);
+
+      return () => el.removeEventListener("wheel", onWheel);
+    }
+  }, []);
 
   return (
     <div className={globalStyle.slideContainer}>
@@ -46,7 +65,7 @@ const SlideThree = (props: IProps) => {
         <div className={style.content}>
           <p className={style.header}>Latest projects</p>
 
-          <div id={latestProjectsId} className={style.boxProjects}>
+          <div id={latestProjectsId} className={style.boxProjects} ref={ref}>
             {array.map((el, i) => (
               <div
                 key={i}
