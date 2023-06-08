@@ -10,9 +10,6 @@ display: flex;
 flex-direction: column;
 margin-right: 30px;
 overflow: hidden;
-
-
-
 }
 .headerText{
     font-family: $Medium-font-family;
@@ -77,7 +74,8 @@ height: 218px;
     flex-direction: column;
     justify-content: space-between;
     background-color:$background-color;
-    height:100%
+    height:100%;
+    
 }
 
 @media(max-width: 1100px){
@@ -106,3 +104,42 @@ height: 218px;
     }
 
 }
+@media(max-height: 660px){
+    .container{
+        height: 490px;
+        }
+        .text {
+            @include adaptiv-font-height(12, 8);
+        }
+  }
+@media(max-height: 550px){
+    .container{
+        height: 400px;
+        }
+        .boxImage{
+            height: 100px;
+            }
+  }
+  @media(max-height: 500px){
+    .container{
+        max-height: 250px;
+        }
+        .boxImage{
+            height: 75px;
+            }
+            .headerText{
+                padding: 5px 0 5px 30px;
+            }
+  }
+  @media(max-height: 370px){
+    .container{
+        max-height: 160px;
+        }
+        .boxImage{
+            height: 0px;
+            }
+            .headerText{
+                padding: 5px 0 5px 30px;
+            }
+  }
+  

@@ -121,9 +121,7 @@ const SlideOne = () => {
               className={cn(style.controlContainer, { [style.open]: open })}
               onClick={onClickStop}
             >
-              <img
-                src={Play}
-                alt="playButton"
+              <div
                 className={cn(style.playButton, { [style.open]: open })}
                 onClick={(e) => {
                   e.preventDefault();

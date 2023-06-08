@@ -244,3 +244,23 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+@media(max-height:525px ){
+  .container{
+  .boxForm {
+    padding: 20px 60px;
+  }
+  .boxInput {
+    gap: 5px;
+  }
+}
+input {
+  padding: 10px 0 10px 40px;
+}
+}
+@media(max-height:325px ){
+  .container{
+  .boxForm {
+    padding:2px 60px;
+  }
+}
+}

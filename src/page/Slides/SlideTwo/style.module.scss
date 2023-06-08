@@ -93,3 +93,26 @@
     left: 0;
   }
 }
+
+@media(max-height:380px ){
+  .container {
+    .content {
+      .textContainer {
+        .about {
+          font-family: $Medium-font-family;
+          color: $color-white;
+          font-weight: 600;
+          padding-bottom: 30px;
+          @include adaptiv-font-height(32,29)
+        }
+        .textAbout {
+          font-family: $Light-font-family-Italic;
+          color: $color-white;
+          font-weight: 400;
+          @include adaptiv-font-height(32, 27);
+          flex-wrap: nowrap;
+        }
+      }
+    }
+  }
+}
