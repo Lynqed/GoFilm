@@ -1,10 +1,8 @@
 import React from "react";
 import style from "./style.module.scss";
-import persone1 from "assets/image/team/person2.jpeg";
-import persone2 from "assets/image/team/person1.jpeg";
-import persone3 from "assets/image/team/person3.jpeg";
-import persone4 from "assets/image/team/person4.jpeg";
-import persone5 from "assets/image/team/person5.jpeg";
+import persone1 from "assets/image/team/person1.jpg";
+import persone2 from "assets/image/team/person2.jpg";
+import persone3 from "assets/image/team/person3.jpg";
 import GrayPhoto from "components/GrayPhoto";
 import { ICommonProps } from "types";
 
@@ -12,11 +10,17 @@ import globalStyle from "style/global.module.scss";
 
 interface IProps extends ICommonProps {}
 const array = [
-  { name: "Jack Twist", position: "Videographer", image: persone1 },
-  { name: "Jack Twist", position: "Videographer", image: persone2 },
-  { name: "Jack Twist", position: "Videographer", image: persone3 },
-  { name: "Jack Twist", position: "Videographer", image: persone4 },
-  { name: "Jack Twist", position: "Videographer", image: persone5 },
+  { name: "Wietze Woudwijk", position: "Director", image: persone1 },
+  {
+    name: "Stefan Spoelstra",
+    position: " Videograaf & Editor",
+    image: persone2,
+  },
+  {
+    name: "Jacco Kazemier",
+    position: " Concept & Vormgeving",
+    image: persone3,
+  },
 ];
 const SlideFour = (props: IProps) => {
   return (

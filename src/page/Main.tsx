@@ -6,6 +6,7 @@ import { IHistoryItem, TypeGroup } from "types";
 import SlideContainer from "page/Slides";
 import { useParams } from "react-router";
 import { generateSliderId } from "utils";
+import style from "./style.module.scss";
 
 const listOfPages: IHistoryItem[] = [
   {
@@ -59,7 +60,7 @@ function App() {
     }
   }, [params]);
   return (
-    <div>
+    <div className={style.container}>
       {listOfPages.map((value) => {
         return (
           <SlideContainer

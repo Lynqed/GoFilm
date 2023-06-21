@@ -14,24 +14,24 @@
     justify-content: center;
     .innerContainer {
       position: absolute;
-      background: $orange-gradient;
+      // background: $orange-gradient;
     }
   }
 
   .content {
     width: 100vw;
     height: 100vh;
-    opacity: 0.95;
+
     top: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    background: $orange-gradient;
+    // background: $orange-gradient;
   }
   .boxProjects {
     display: flex;
     flex: 1;
-    align-items: center;
+    align-items: flex-start;
     padding-left: 70px;
     overflow: auto;
     &::-webkit-scrollbar {
@@ -49,12 +49,12 @@
 }
 @media(max-width: 850px){
   .header{
-    padding: 150px 0px 0px 70px;
+    padding: 150px 0px 50px 70px;
   }
 }
 @media(max-height: 815px){
   .header{
-    padding: 50px 0px 0px 70px;
+    padding: 50px 0px 50px 70px;
   }
 }
 @media(max-height: 370px){

@@ -8,6 +8,7 @@
     overflow: hidden;
     z-index: 9999;
     position: relative;
+    border-radius: 30px;
 
     &:hover{
         height: 500px;
@@ -120,20 +121,6 @@
     }
   }
 
-  @media(max-height:768px ){
-    .container{
-        height: 280px;
-        display: flex;
-        flex-wrap: wrap;
-        &:hover{
-            height: 310px;
-            width: 260px;
-            filter: grayscale(0);
-            position: relative;
-            z-index: 1;
-        }
-    }
-  }
   @media(max-height:614px ){
     .container{
         height: 230px;

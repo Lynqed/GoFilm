@@ -3,7 +3,7 @@ import style from "./style.module.scss";
 import { ICommonProps } from "types";
 import emailjs from "emailjs-com";
 import { toast } from "react-custom-alert";
-import Video from "assets/video/test_video.mp4";
+import Video from "assets/video/ContactUsVideo.mp4";
 import {
   isValidEmail,
   isValidFirstName,
@@ -58,15 +58,15 @@ const SlideSix = (props: IProps) => {
         .then(
           (result) => {
             setShowMessage(true);
-            toast.success("Your letter has been sent");
+            toast.success("Uw brief is verzonden");
           },
           (error) => {
-            toast.error(`connection error, try again later`);
+            toast.error(`verbindingsfout, probeer het later opnieuw`);
           }
         );
     } else {
       toast.warning(
-        `One of the required field is missed. Please define all the required fields and re-attempt.`
+        `Een van de verplichte velden is niet ingevuld. Definieer alle verplichte velden en doe een nieuwe poging.`
       );
     }
   };
@@ -80,15 +80,14 @@ const SlideSix = (props: IProps) => {
             <>
               <div className={style.yellowBox}>
                 <div className={style.boxText}>
-                  <p className={style.firstText}>Let’s make film together</p>
-                  <p className={style.secondText}>Film for everybody</p>
+                  <p className={style.firstText}>Klaar om te brainstormen?</p>
                 </div>
                 <form ref={form} onSubmit={sendEmail} className={style.boxForm}>
                   <div className={style.boxInput}>
                     <input
                       type="text"
                       name="firstName"
-                      placeholder="First Name"
+                      placeholder="Naam"
                       value={data.firstName}
                       onChange={onChange}
                       required={true}
@@ -96,7 +95,7 @@ const SlideSix = (props: IProps) => {
                     <input
                       type="text"
                       name="lastName"
-                      placeholder="Last Name"
+                      placeholder="Bedrijf"
                       value={data.lastName}
                       onChange={onChange}
                       required={!validation.lastName}
@@ -112,7 +111,7 @@ const SlideSix = (props: IProps) => {
                     <input
                       type="number"
                       name="phone"
-                      placeholder="Phone Number"
+                      placeholder="Telefoonnummer"
                       value={data.phone}
                       onChange={onChange}
                       required
@@ -121,13 +120,13 @@ const SlideSix = (props: IProps) => {
                   <div className={style.boxTextInput}>
                     <div className={style.textArea}>
                       <textarea
-                        placeholder="Your message "
+                        placeholder="Waar gaan we het over hebben?"
                         maxLength={250}
                         name="message"
                         required
                       />
                     </div>
-                    <button className={style.buttonSend}>Send Message</button>
+                    <button className={style.buttonSend}>Verstuur</button>
                   </div>
                 </form>
               </div>
@@ -135,9 +134,9 @@ const SlideSix = (props: IProps) => {
           ) : (
             <div className={style.messageBox}>
               <div className={style.message}>
-                <p className={style.messageText}>Excellent!</p>
+                <p className={style.messageText}>Uitstekend!</p>
                 <p className={style.messageTextMain}>
-                  We will contact you as soon as possible
+                  We nemen zo snel mogelijk contact met je op
                 </p>
               </div>
             </div>

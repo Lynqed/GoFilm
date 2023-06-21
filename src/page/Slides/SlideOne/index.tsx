@@ -3,7 +3,7 @@ import cn from "classnames";
 
 import style from "./style.module.scss";
 import { ICommonProps } from "types";
-import Video from "assets/video/test_video.mp4";
+import Video from "assets/video/FirstSlideVideo.mp4";
 
 import {
   defaultPosition,
