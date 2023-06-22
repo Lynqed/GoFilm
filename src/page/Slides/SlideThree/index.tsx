@@ -55,7 +55,6 @@ const SlideThree = (props: IProps) => {
     if (el) {
       const onWheel = (e: WheelEvent) => {
         e.preventDefault();
-        console.log(e);
         el.scrollTo({
           left: el.scrollLeft + e.deltaY,
           behavior: "auto",

@@ -1,7 +1,8 @@
 import VideoWette from "assets/Projects/Wetterskip/Video/video.mp4";
 import LeeVideo from "assets/Projects/Lee/Video/video.mp4";
-
-export const ProjectsData = [
+import { OneSlideValue, ThreeSlideValue, TwoSlideValue } from "types";
+interface IProps extends OneSlideValue, TwoSlideValue, ThreeSlideValue {}
+export const ProjectsData: IProps[] = [
   {
     projectName: "A1 Betononderhoud",
     video: "",

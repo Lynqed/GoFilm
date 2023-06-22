@@ -10,12 +10,13 @@ export interface OneSlideValue {
 }
 export interface TwoSlideValue {
   title: string;
-  aboutProject?: string;
-  photo?: string[];
+  aboutProject: string;
+  photo: string[];
 }
 export interface ThreeSlideValue {
-  aboutVideo?: string;
+  aboutVideo: string;
 }
+
 export enum TypeGroup {
   main = "main",
   project = "project",
@@ -26,11 +27,13 @@ export interface IHistoryItem {
   sliderId: number;
   group: TypeGroup;
   key: number | string;
+  value?: OneSlideValue | TwoSlideValue | ThreeSlideValue;
 }
 
 export interface ISliderItem {
   id: number;
   group: TypeGroup;
   scrollElementId?: string;
+
   component: React.MemoExoticComponent<React.ComponentType<ICommonProps>>;
 }

@@ -9,10 +9,10 @@ import SlideTwo from "page/Slides/SlideTwo";
 import ProjectSliderOne from "page/Project/SlideOne";
 import ProjectSliderTwo, { imagesSliderList } from "../page/Project/SlideTwo";
 import ProjectSliderThree from "page/Project/SlideThree";
-
 import AboutSlideTwo from "page/AboutUs/SlideTwo";
 
 import { ISliderItem, TypeGroup } from "../types";
+import { ProjectsData } from "data";
 
 export const debouncer = (timeout: number) =>
   _.debounce((f) => f(), timeout, { leading: false });
