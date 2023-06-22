@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import style from "./style.module.scss";
-import A1 from "assets/video/ProjectVideo/A1.mp4";
-import Henry from "assets/video/ProjectVideo/Henry.mp4";
-import Lee from "assets/video/ProjectVideo/Leeu.mp4";
-import Weetterskip from "assets/video/ProjectVideo/Wetterskip.mp4";
-import Youngla from "assets/video/ProjectVideo/Youngla.mp4";
+import A1 from "assets/Projects/A1/ShortVideo/A1.mp4";
+import Henry from "assets/Projects/Henry/ShortVideo/Henry.mp4";
+import Lee from "assets/Projects/Lee/ShortVideo/Leeu.mp4";
+import Weetterskip from "assets/Projects/Wetterskip/ShortVideo/Wetterskip.mp4";
+import Youngla from "assets/Projects/Luna/ShortVideo/Youngla.mp4";
 import LatestProjects from "components/LatestProjects";
 
 import { ICommonProps } from "types";

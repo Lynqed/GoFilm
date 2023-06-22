@@ -4,6 +4,18 @@ export interface ICommonProps {
   goTo: (id: number) => any;
 }
 
+export interface OneSlideValue {
+  projectName: string;
+  video: string;
+}
+export interface TwoSlideValue {
+  title: string;
+  aboutProject?: string;
+  photo?: string[];
+}
+export interface ThreeSlideValue {
+  aboutVideo?: string;
+}
 export enum TypeGroup {
   main = "main",
   project = "project",
