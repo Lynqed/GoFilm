@@ -1,23 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { ICommonProps } from "types";
+import React from "react";
+import { useNavigate } from "react-router";
+import { URLS } from "utils/router";
 import style from "./style.module.scss";
-import cn from "classnames";
 
-interface IProps extends ICommonProps {}
-
-const SlideTwo = (props: IProps) => {
-  const { goTo } = props;
-  const [show, setShow] = useState<null | boolean>(null);
-  useEffect(() => {
-    setShow(true);
-  }, []);
+const SlideTwo = () => {
+  const navigate = useNavigate();
+  const pageNumber = 5;
   return (
-    <div
-      className={cn(style.container, {
-        [style.show]: show === true,
-      })}
-    >
-      <div className={style.innerContainer} />
+    <div className={style.container}>
       <div className={style.content}>
         <div className={style.boxText}>
           <p className={style.boldText}>
@@ -42,7 +32,8 @@ const SlideTwo = (props: IProps) => {
           <button
             className={style.button}
             onClick={() => {
-              goTo(5);
+              const url = `${URLS.MAIN}${pageNumber}`;
+              navigate(url);
             }}
           >
             Let`s contact us

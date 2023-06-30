@@ -1,53 +1,48 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import cn from 'classnames';
-import style from './style.module.scss';
-import { interpolation } from '../../SlideOne/utils';
-import { ICommonProps } from 'types';
-const Video = require('assets/video/test_video.mp4');
-const Play = require('assets/image/play.svg').default;
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import cn from "classnames";
+import style from "./style.module.scss";
+import { ICommonProps } from "types";
+import { interpolation } from "page/Slides/SlideOne/utils";
+
+const Play = require("assets/image/play.svg").default;
 
 interface IProps extends ICommonProps {}
 const defaultSetScreen = () => ({
   width: window.innerWidth,
-  height: window.innerHeight
+  height: window.innerHeight,
 });
 
 const step = 50;
 const animationTime = 10;
 
 const SlideOne = (props: IProps) => {
-  const { end } = props;
-  const [show, setShow] = useState<null | boolean>(null);
-
-  useEffect(() => {
-    setShow(true);
-  }, []);
+  const { value } = props;
   const openState = useRef(false);
   const [open, setOpen] = useState(false);
   const [screen, setScreen] = useState(defaultSetScreen());
   const [screenOpen, setScreenOpen] = useState({
     width: 0,
-    height: 0
+    height: 0,
   });
   const resizeListener = useCallback(() => {
     setScreen(defaultSetScreen());
   }, []);
   useEffect(() => {
-    window.addEventListener('resize', resizeListener);
+    window.addEventListener("resize", resizeListener);
     return () => {
-      window.removeEventListener('resize', resizeListener);
+      window.removeEventListener("resize", resizeListener);
     };
   }, []);
   const onChangeOpen = useCallback(() => {
     if (openState.current === true) {
       setScreenOpen((screenOpen) => {
-        if (screenOpen.width <= window.innerWidth * 4) {
+        if (screenOpen.width <= window.innerWidth * 2) {
           setTimeout(() => {
             onChangeOpen();
           }, animationTime);
           return {
             width: screenOpen.width + step,
-            height: screenOpen.height + step
+            height: screenOpen.height + step,
           };
         }
         return screenOpen;
@@ -65,7 +60,7 @@ const SlideOne = (props: IProps) => {
           const height = screenOpen.height - step;
           return {
             width: width < 0 ? 0 : width,
-            height: height < 0 ? 0 : height
+            height: height < 0 ? 0 : height,
           };
         }
         return screenOpen;
@@ -78,7 +73,6 @@ const SlideOne = (props: IProps) => {
       onClickPlay();
     }
   }, []);
-
   const onClickPlay = useCallback(() => {
     setOpen((open) => {
       openState.current = !open;
@@ -101,29 +95,27 @@ const SlideOne = (props: IProps) => {
   const transformX = interpolation(screen.width, 1536, 1000, 300, 200);
   const transformHeight = interpolation(screen.height, 758, 950, 0, 100);
 
-  const text = (
-    <>
-      IN LOVE
-      <br />
-      WE THUST
-    </>
-  );
+  const text = <>{value?.value?.projectName}</>;
+  const clipId = value?.key + `-poligon`;
 
   return (
-    <div
-      className={cn(style.container, {
-        [style.show]: show === true,
-        [style.end]: end
-      })}
-    >
-      <div className={style.circleContainer}></div>
+    <div className={style.container}>
       <div className={style.content}>
         <div className={style.boxImage}>
-          <div className={style.imageContainer}>
-            <video className={style.video} src={Video} autoPlay muted loop />
+          <div
+            className={style.imageContainer}
+            style={{ clipPath: `url(#${clipId})` }}
+          >
+            <video
+              className={cn(style.video)}
+              src={value?.value?.video}
+              autoPlay
+              muted
+              loop
+            />
             <div
               className={cn(style.maskText, style.text1, {
-                [style.open]: open
+                [style.open]: open,
               })}
             >
               {text}
@@ -134,7 +126,7 @@ const SlideOne = (props: IProps) => {
             >
               <img
                 src={Play}
-                alt="playButton"
+                alt="start"
                 className={cn(style.playButton, { [style.open]: open })}
                 onClick={(e) => {
                   e.preventDefault();
@@ -148,7 +140,7 @@ const SlideOne = (props: IProps) => {
         </div>
         <svg className={style.svgPoligon} preserveAspectRatio="xMinYMin meet">
           <defs>
-            <clipPath id="poligon" clipPathUnits="userSpaceOnUse">
+            <clipPath id={clipId} clipPathUnits="userSpaceOnUse">
               <path
                 fill="white"
                 d="M1026.74 213.242L721.248 518.735C606.51 403.997 420.489 403.997 305.751 518.735L0.257812 213.242C283.259 -69.7593 743.74 -69.7593 1026.74 213.242Z"

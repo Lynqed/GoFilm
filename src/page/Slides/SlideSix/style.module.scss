@@ -1,0 +1,266 @@
+@import 'style/global.module.scss';
+textarea {
+  background: rgba(0, 0, 0, 0);
+  border: 0px;
+  font-size: 24px;
+  font-family: $Light-font-family;
+  outline: none;
+  resize: none;
+  color: $color-white;
+  height: 100%;
+  cursor: none;
+  overflow: auto;
+  width: 100%;
+}
+.textArea {
+  outline: none;
+  resize: none;
+  height: 100%;
+  border: 2px solid $color-white;
+  border-radius: 30px;
+  padding: 17px 15px 15px 40px;
+  margin-bottom: 20px;
+}
+.box {
+  flex: 0 1 10%;
+}
+textarea::placeholder {
+  color: $color-white;
+}
+textarea::-webkit-scrollbar {
+  width: 5px;
+  pointer-events: none;
+}
+textarea::-webkit-scrollbar-track {
+  background: #e8e4e4;
+  border-radius: 30px;
+}
+
+/* Handle */
+textarea::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+textarea::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 30px;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  overflow: hidden;
+  .innerContainer {
+    position: absolute;
+    z-index: 0;
+    background-color: $color-background;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+  }
+  .content {
+    // background-image: url('../../../assets/image/BG.png');
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: end;
+    top: 100vh;
+    opacity: 0.8;
+    z-index: 1;
+    overflow: hidden;
+    .messageBox {
+      flex: 0 1 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .message {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .messageText {
+          @include adaptiv-font(60, 20);
+          color: white;
+        }
+        .messageTextMain {
+          @include adaptiv-font(40, 15);
+          color: white;
+        }
+      }
+    }
+  }
+  .yellowBox {
+    background-color: rgba(244, 160, 26, 0.8);
+    flex: 0 60%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-right: 10%;
+  }
+  .firstText {
+    font-family: $Medium-font-family;
+    color: $color-white;
+    font-weight: 600;
+    @include adaptiv-font(50, 25);
+  }
+  .secondText {
+    font-family: $Light-font-family-Italic;
+    color: $color-white;
+    font-weight: 600;
+    @include adaptiv-font(30, 20);
+    letter-spacing: 2px;
+  }
+  .boxForm {
+    display: flex;
+    gap: 40px;
+    padding: 50px 60px;
+  }
+  .boxInput {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 0 1 50%;
+  }
+  .boxTextInput {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 50%;
+  }
+  .buttonSend {
+    background-color: $color-white;
+    color: $color-orange;
+    @include adaptiv-font(24, 14);
+    font-weight: 500;
+    font-family: $Light-font-family;
+    padding: 17px;
+    border: 2px solid $color-white;
+    border-radius: 30px;
+    cursor: none;
+
+    &:hover {
+      background-color: $color-orange;
+      color: white;
+    }
+  }
+  .buttonSend:active {
+    opacity: 0.6;
+  }
+  .boxText {
+    text-align: center;
+  }
+}
+@media (max-width: 1200px) {
+  .container {
+    .content {
+      .yellowBox {
+        margin-right: 7%;
+      }
+    }
+  }
+}
+@media (max-width: 1000px) {
+  .container {
+    .content {
+      justify-content: center;
+      .yellowBox {
+        margin-right: 0;
+        flex: 0 1 75%;
+      }
+    }
+  }
+}
+@media (max-width: 850px) {
+  .container {
+    .content {
+      .yellowBox {
+        flex: 0 100%;
+        padding-top: 50px;
+        margin-right: 1rem;
+      }
+      .boxForm {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px 60px;
+      }
+    }
+    textarea {
+      height: 100px;
+    }
+  }
+  textarea {
+    @include adaptiv-font(24, 17);
+  }
+}
+@media (max-width: 375px) {
+  .container {
+    .content {
+      .yellowBox {
+        padding-top: 95px;
+      }
+      .boxForm {
+        gap: 15px;
+        padding: 10px 60px;
+      }
+    }
+    textarea {
+      height: 100px;
+    }
+  }
+  textarea {
+    @include adaptiv-font(24, 17);
+  }
+}
+input {
+  border: 2px solid #ffffff;
+  border-radius: 30px;
+  outline: none;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0);
+  padding: 17px 0 17px 40px;
+  @include adaptiv-font(24, 15);
+  font-family: $Light-font-family;
+  cursor: none;
+}
+::placeholder {
+  color: #ffffff;
+  opacity: 0.6;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #ffffff;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #ffffff;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+@media(max-height:525px ){
+  .container{
+  .boxForm {
+    padding: 20px 60px;
+  }
+  .boxInput {
+    gap: 5px;
+  }
+}
+input {
+  padding: 10px 0 10px 40px;
+}
+}
+@media(max-height:325px ){
+  .container{
+  .boxForm {
+    padding:2px 60px;
+  }
+}
+}

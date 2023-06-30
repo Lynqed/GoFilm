@@ -1,0 +1,65 @@
+@import 'style/global.module.scss';
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  .circleContainer {
+    position: absolute;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .innerContainer {
+      position: absolute;
+      // background: $orange-gradient;
+    }
+  }
+
+  .content {
+    width: 100vw;
+    height: 100vh;
+
+    top: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    // background: $orange-gradient;
+  }
+  .boxProjects {
+    display: flex;
+    flex: 1;
+    align-items: flex-start;
+    padding-left: 70px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.header {
+  font-family: $Medium-font-family;
+  color: $color-white;
+  @include adaptiv-font(70, 40);
+  font-weight: 500;
+  padding: 140px 70px 50px 70px;
+}
+@media(max-width: 850px){
+  .header{
+    padding: 150px 0px 50px 70px;
+  }
+}
+@media(max-height: 815px){
+  .header{
+    padding: 50px 0px 50px 70px;
+  }
+}
+@media(max-height: 370px){
+  .header{
+    padding: 10px 0px 0px 70px;
+  }
+
+}

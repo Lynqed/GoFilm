@@ -1,26 +1,35 @@
-import React, { FC, useState } from 'react';
-import { ICommonProps, IHistoryItem } from '../types';
-import { getSliderById } from '../utils';
+import React, { FC, useRef } from "react";
+import { ToastContainer } from "react-custom-alert";
 
-interface IProps extends ICommonProps {
-  value: IHistoryItem;
-}
+import Header from "components/Header";
+import Cursor from "components/Cursor";
+import { URLS } from "utils/router";
+import { isMobile } from "utils";
+import { Route, Routes } from "react-router-dom";
 
-const SlideContainer: FC<IProps> = ({ value, ...common }: IProps) => {
-  const [Component] = useState(() => {
-    const component = getSliderById(value.sliderId);
-    if (component) {
-      return component.item.component;
-    }
-  });
-  if (!Component) {
-    return null;
-  }
+import "react-custom-alert/dist/index.css";
+
+import Main from "./Main";
+import Project from "./Project";
+import AboutUs from "./AboutUs";
+interface IProps {}
+
+const Component: FC<IProps> = ({}: IProps) => {
+  const mobileDevice = useRef(isMobile());
+
   return (
-    <div style={{ position: "relative", zIndex: common.end ? 5 : 10 }}>
-      <Component {...common} />
+    <div>
+      <ToastContainer floatingTime={3000} />
+      {!mobileDevice.current && <Cursor />}
+      <Header />
+      <Routes>
+        <Route path={URLS.MAIN} element={<Main />} />
+        <Route path={`${URLS.MAIN}:slideId`} element={<Main />} />
+        <Route path={URLS.PROJECT} element={<Project />} />
+        <Route path={URLS.ABOUT} element={<AboutUs />} />
+      </Routes>
     </div>
   );
 };
 
-export default React.memo(SlideContainer);
+export default React.memo(Component);

@@ -1,0 +1,117 @@
+@import 'style/global.module.scss';
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    .content {
+      top: 100vh;
+      opacity: 0.95;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 1;
+      .textTeam {
+        font-family: $Bold-font-family-Italic;
+        color: $color-orange;
+        @include adaptiv-font(90, 75);
+        position: absolute;
+        top: 120px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .boxImage {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        gap: 20px;
+        transform: translate(-50%, -50%);
+        align-items: center;
+      }
+    }
+  }
+
+  @media(max-width:810px){
+    .container{
+      .content{
+        .textTeam{
+          top:20%
+        }
+      }
+    }
+  }
+
+  @media(max-width:510px){
+    .container{
+      .content{
+        .boxImage{
+          gap: 10px;
+        }
+      }
+    }
+  }
+
+  @media(max-width:450px){
+    .container{
+      .content{
+        .textTeam{
+          top: 120px;
+          padding-top: 10%;
+        }
+        .boxImage{
+          left: 0%;
+          transform: translate(5%, -50%);
+          flex-wrap: wrap;
+          justify-content: center;
+          top:50%;
+          gap: 10px;
+        }
+      }
+    }
+  }
+
+  @media(max-height:614px ){
+    .container{
+      .content{
+        .textTeam{
+          font-size: 40px;
+          top: 20%;
+        }
+        .boxImage{
+          transform: translate(-50%, -50%);
+          flex-wrap: nowrap;
+          justify-content: center;
+          gap: 10px;
+        }
+      }
+    }
+  }
+  @media(max-height:340px ){
+    .container{
+      .content{
+        .textTeam{
+          font-size: 40px;
+          top: 10%;
+        }
+        .boxImage{
+          transform: translate(-50%, -50%);
+          flex-wrap: nowrap;
+          justify-content: center;
+          gap: 10px;
+        }
+      }
+    }
+  }

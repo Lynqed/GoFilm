@@ -1,102 +1,98 @@
-@import '../../../style/global.module.scss';
-.container{
-    position: absolute;
-    width: 100vw;
+@import 'style/global.module.scss';
+.container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+  .innerContainer {
+    // position: absolute;
+    z-index: 0;
+    background-color: $color-background;
     height: 100vh;
-    overflow: hidden;
-    z-index: 1;
-    .innerContainer{
-        position: absolute;
-        z-index: 0;
-        background-color: $color-background;
-        height: 100vh;
-        width: 100vw;
-        opacity: 0;
-    }
-    .content{
-        padding: 157px 70px 0 70px;
-        height: 100vh;
- 
-        .boxText{
-            display: flex;
-            flex-direction: row;
-            gap: 131px;
-            padding-bottom: 50px;
-        .boldText{
-            flex: 0 1 50%;
-            color:$color-white;
-            @include adaptiv-font(32, 15);
-            font-weight: 600;
-            font-family: $Mediu-font-family-Italic;
-            line-height: 140%;
-        }
-        .text{
-            flex: 0 1 50%;
-            color:$color-white;
-            @include adaptiv-font(20, 13);
-            line-height: 140%;
-            font-family: $Light-font-family;
-        }
-    }
-    .buttonBox{
-        display: flex;
-        justify-content: flex-end;
-    }
-    .button{
-        padding: 17px 40px 17px 40px;
-        font-size: 24px;
-        font-weight: 500;
-        border-radius: 0;
-        border: 0;
-        cursor: pointer;
-    }
-}
+    width: 100vw;
+    opacity: 0;
+  }
+  .content {
+    padding: 157px 70px 0 70px;
+    height: 100vh;
 
-&.show {
+    .boxText {
+      display: flex;
+      flex-direction: row;
+      gap: 131px;
+      padding-bottom: 50px;
+      .boldText {
+        flex: 0 1 50%;
+        color: $color-white;
+        @include adaptiv-font(32, 15);
+        font-weight: 600;
+        font-family: $Medium-font-family-Italic;
+        line-height: 140%;
+      }
+      .text {
+        flex: 0 1 50%;
+        color: $color-white;
+        @include adaptiv-font(20, 13);
+        line-height: 140%;
+        font-family: $Light-font-family;
+      }
+    }
+    .buttonBox {
+      display: flex;
+      justify-content: flex-end;
+   
+    }
+    .button {
+      padding: 17px 40px 17px 40px;
+      font-size: 24px;
+      font-weight: 500;
+      border-radius: 0;
+      border: 0;
+      cursor: pointer;
+    }
+  }
+
+  &.show {
     .innerContainer {
       animation-name: showInnerContainer;
       animation-duration: #{$duration}s;
       animation-timing-function: $animation-timing-function-show;
       animation-fill-mode: forwards;
-
     }
     .content {
-    animation-duration: 2s;
+      animation-duration: 2s;
       animation-timing-function: $animation-timing-function-show;
       animation-name: showInnerContainer;
       animation-fill-mode: forwards;
     }
   }
 }
-@media (max-width: 570px){
-    .container{
-        .content{
-            padding: 157px 15px 50px 15px;
-        .boxText{
-            gap:30px
-        }
-    }
-    }
-}
-@keyframes showInnerContainer {
-    from {
-        opacity: 0;
-        padding-top: 800px;
-
-    }
-    to {
-        opacity: 1;
-        padding-top: 157px;
-
+@media (max-width: 570px) {
+  .container {
+    .content {
+      padding: 157px 15px 50px 15px;
+      .boxText {
+        gap: 30px;
+      }
     }
   }
-  @keyframes showHideContent {
-    from {
-        opacity: 1;
-
-    }
-    to {
-        opacity: 0;
-
-    }
+}
+@keyframes showInnerContainer {
+  from {
+    opacity: 0;
+    padding-top: 800px;
+  }
+  to {
+    opacity: 1;
+    padding-top: 157px;
+  }
+}
+@keyframes showHideContent {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

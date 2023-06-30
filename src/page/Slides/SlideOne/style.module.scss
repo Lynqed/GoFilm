@@ -1,0 +1,151 @@
+@import 'style/global.module.scss';
+
+$color-text: #f5a11a;
+video{
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  transform: translate(-50%,-50%);
+}
+.mainContainer {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  .circleAnimation {
+    position: absolute;
+    z-index: 0;
+    background-color: $color-background;
+    border-radius: 100%;
+    height: 100vh;
+    width: 100vw;
+  }
+  .container {
+    // background-color: #1e1e1e;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .content {
+      position: relative;
+      .hiddenContent {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        z-index: 1;
+      }
+      z-index: 1;
+    }
+    .innerContainer {
+      position: absolute;
+      z-index: 1;
+      background-color: $color-background;
+      height: 100vh;
+      width: 100vw;
+    }
+    .backgroundImageContainer {
+      position: absolute;
+      height: 100vh;
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      .backgroundImage {
+        height: 100vh;
+        width: 100vw;
+        background-image: linear-gradient(
+          0deg,
+          rgba(245, 161, 26, 0.3),
+          rgba(245, 161, 26, 0.3)
+        );
+      }
+    }
+    .moveBlock {
+      position: absolute;
+      width: 100px;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+      right: 0;
+      cursor: pointer;
+    }
+  }
+  // &.startAnimation {
+  //   .circleAnimation {
+  //     animation-name: $animationContainerShow;
+  //     animation-duration: #{$duration}s;
+  //     animation-timing-function: $animation-timing-function-show;
+  //     animation-fill-mode: forwards;
+  //   }
+  //   .container {
+  //     top: 100vh;
+  //     animation-delay: #{$contentDuration}s;
+  //     animation-duration: #{$contentDuration}s;
+  //     animation-timing-function: $animation-timing-function-show;
+  //     animation-name: $animationContentShow;
+  //     animation-fill-mode: forwards;
+  //   }
+  // }
+  .text {
+    font-family: $Medium-font-family;
+    color: white;
+     @include adaptiv-font(120, 50);
+    user-select: none;
+    display: flex;
+    width: 100%;
+    align-items:center;
+    
+  }
+  .yellowText {
+    font-family: $Jennasue;
+    @include adaptiv-font(170, 80);
+    color: $color-text;
+    font-weight: 600;
+    user-select: none;
+  }
+
+  .text2 {
+    font-family: $Medium-font-family;
+    color: black;
+    @include adaptiv-font(120, 50);
+    user-select: none;
+    display: flex;
+    width: 100%;
+    align-items:center;
+  
+  }
+  .spanText{
+    display: flex;
+    align-items:center;
+    gap: 50px;
+    padding-left: calc(20px + 1.625vw);
+  }
+  .yellowText2 {
+    font-family: $Jennasue;
+    @include adaptiv-font(170, 100);
+    color: $color-white;
+    font-weight: 600;
+  }
+}

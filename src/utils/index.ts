@@ -1,16 +1,14 @@
 import _ from "lodash";
 
-import SlideFive from "page/SlideFive";
-import SlideFour from "page/SlideFour";
-import VariantA from "page/SlideOne";
-import SlideSix from "page/SlideSix";
-import SlideThree, { latestProjectsId } from "page/SlideThree";
-import SlideTwo from "page/SlideTwo";
-import Footer from "page/Footer";
+import SlideFive from "page/Slides/SlideFive";
+import SlideFour from "page/Slides/SlideFour";
+import VariantA from "page/Slides/SlideOne";
+import SlideSix from "page/Slides/SlideSix";
+import SlideThree, { latestProjectsId } from "page/Slides/SlideThree";
+import SlideTwo from "page/Slides/SlideTwo";
 import ProjectSliderOne from "page/Project/SlideOne";
 import ProjectSliderTwo, { imagesSliderList } from "../page/Project/SlideTwo";
 import ProjectSliderThree from "page/Project/SlideThree";
-
 import AboutSlideTwo from "page/AboutUs/SlideTwo";
 
 import { ISliderItem, TypeGroup } from "../types";
@@ -71,11 +69,6 @@ export const mainSliders: ISliderItem[] = [
     component: SlideSix,
     group: TypeGroup.main,
   },
-  {
-    id: 9,
-    component: Footer,
-    group: TypeGroup.main,
-  },
 ];
 
 export const projectSliders: ISliderItem[] = [
@@ -112,3 +105,5 @@ export const AboutSliders: ISliderItem[] = [
 export const isMobile = () => {
   return /Android|iPhone/i.test(navigator.userAgent);
 };
+
+export const generateSliderId = (id: number | string) => `slider-${id}`;

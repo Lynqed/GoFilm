@@ -13,12 +13,10 @@
 
     .boxText {
       padding-left: 70px;
-      padding-top: 400px;
-      opacity: 0;
       .headerText {
         color: $color-white;
         @include adaptiv-font(100, 45);
-        padding-top: 141px;
+        padding-top: 80px;
         .orangeText {
           color: $color-orange;
           @include adaptiv-font(100, 45);
@@ -28,7 +26,7 @@
       .mainText {
         color: $color-white;
         @include adaptiv-font(28, 17);
-        padding: 20px 0 71px 0;
+        padding: 20px 20px 71px 0;
       }
     }
     .boxProjects {
@@ -41,43 +39,14 @@
       &::-webkit-scrollbar {
         display: none;
       }
-    }
-  }
-  &.show {
-    .boxText {
-      animation-duration: #{$duration}s;
-      animation-timing-function: $animation-timing-function-show;
-      animation-name: textShow;
-      animation-fill-mode: forwards;
-    }
-    .content {
-      animation-duration: #{$duration}s;
-      animation-timing-function: $animation-timing-function-show;
-      animation-name: backgroundShow;
-      animation-fill-mode: forwards;
+      .image{
+        height: 404px;
+        width: 750px;
+      }
     }
   }
 }
 
-@keyframes textShow {
-  from {
-    padding-top: 400px;
-    opacity: 0;
-  }
-  to {
-    padding-top: 0;
-    opacity: 1;
-  }
-}
-
-@keyframes backgroundShow {
-  from {
-    background-color: transparent;
-  }
-  to {
-    background-color: $color-background;
-  }
-}
 @media(max-width:500px){
   .container{
     .content{
@@ -89,8 +58,17 @@
       }
     }
   }
-  .image{
-    height: 200px;
-  }
 
+}
+
+@media (max-width:376px) {
+  .container{
+    .content{
+      .boxProjects{
+        .image{
+          height: 300px;
+        }
+      }
+    }
+}
 }

@@ -1,7 +1,7 @@
 @import '../../../style/global.module.scss';
 
 .container {
-  position: absolute;
+  position: relative;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -19,7 +19,7 @@
     opacity: 0;
   }
   .content {
-    position: absolute;
+    // position: absolute;
     width: 100vw;
     height: 100vh;
     top: 100vh;
@@ -27,6 +27,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    background-image: $orange-gradient;
   }
 
   &.show {
@@ -88,7 +89,6 @@
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    clip-path: url('#poligon');
     transition: all 1s ease;
     z-index: 1;
     .controlContainer {
