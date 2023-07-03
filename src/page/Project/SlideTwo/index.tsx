@@ -1,14 +1,14 @@
 import React from "react";
 import style from "./style.module.scss";
 import imageProject from "assets/image/projectImg/imgProject.png";
-import { ICommonProps } from "types";
+import { TwoSlideValue } from "types";
 
 const image = [
   { image: imageProject },
   { image: imageProject },
   { image: imageProject },
 ];
-interface IProps extends ICommonProps {}
+interface IProps extends TwoSlideValue {}
 export const imagesSliderList = "images-list";
 
 const SlideTwo = () => {

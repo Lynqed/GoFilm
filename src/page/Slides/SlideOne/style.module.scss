@@ -1,4 +1,5 @@
 @import 'style/global.module.scss';
+
 $color-text: #f5a11a;
 video{
   position: absolute;
@@ -27,7 +28,7 @@ video{
     width: 100vw;
   }
   .container {
-    background-color: #1e1e1e;
+    // background-color: #1e1e1e;
     height: 100vh;
     width: 100vw;
     position: absolute;
@@ -86,7 +87,6 @@ video{
       width: 100px;
       top: 0;
       bottom: 0;
-      background-color: $color-text;
       z-index: 2;
       right: 0;
       cursor: pointer;
@@ -110,13 +110,17 @@ video{
   // }
   .text {
     font-family: $Medium-font-family;
-    color: $color-white;
-    font-size: 50px;
+    color: white;
+     @include adaptiv-font(120, 50);
     user-select: none;
+    display: flex;
+    width: 100%;
+    align-items:center;
+    
   }
   .yellowText {
     font-family: $Jennasue;
-    font-size: 100px;
+    @include adaptiv-font(170, 80);
     color: $color-text;
     font-weight: 600;
     user-select: none;
@@ -125,12 +129,22 @@ video{
   .text2 {
     font-family: $Medium-font-family;
     color: black;
-    font-size: 50px;
-    user-select:none
+    @include adaptiv-font(120, 50);
+    user-select: none;
+    display: flex;
+    width: 100%;
+    align-items:center;
+  
+  }
+  .spanText{
+    display: flex;
+    align-items:center;
+    gap: 50px;
+    padding-left: calc(20px + 1.625vw);
   }
   .yellowText2 {
     font-family: $Jennasue;
-    font-size: 100px;
+    @include adaptiv-font(170, 100);
     color: $color-white;
     font-weight: 600;
   }

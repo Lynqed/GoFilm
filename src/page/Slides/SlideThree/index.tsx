@@ -1,7 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import style from "./style.module.scss";
-import SunRise from "assets/image/SunRise.jpeg";
-import Desert from "assets/image/desert.jpeg";
+import A1 from "assets/Projects/A1/ShortVideo/A1.mp4";
+import Henry from "assets/Projects/Henry/ShortVideo/Henry.mp4";
+import Lee from "assets/Projects/Lee/ShortVideo/Leeu.mp4";
+import Weetterskip from "assets/Projects/Wetterskip/ShortVideo/Wetterskip.mp4";
+import Youngla from "assets/Projects/Luna/ShortVideo/Youngla.mp4";
 import LatestProjects from "components/LatestProjects";
 
 import { ICommonProps } from "types";
@@ -13,28 +16,34 @@ interface IProps extends ICommonProps {}
 export const latestProjectsId = "latest-Projects";
 const array = [
   {
-    header: "IN LOVE WE TRUST",
-    bodyHeader: "OUR REALITY",
-    text: "We helped children create their place in the world by giving them the power to color themselves into it.",
-    img: SunRise,
+    header: "A1-Betononderhoud",
+    bodyHeader: "Employer branding & brandfilm",
+    text: "De kennis en kunde van A1-betononderhoud vertaald naar een unieke brandfilm.",
+    video: A1,
   },
   {
-    header: "The Bunny",
-    bodyHeader: "IN LOVE WE TRUST",
-    text: "Some people may be satisfied with a ten. We like to take it to eleven.",
-    img: Desert,
+    header: "Wetterskip Fryslân",
+    bodyHeader: "Brandfilm",
+    text: "Duidelijkheid maken in de werkzaamheden van een waterschap met behulp van een videorondleiding",
+    video: Weetterskip,
   },
   {
-    header: "The Bunny",
-    bodyHeader: "IN LOVE WE TRUST",
-    text: "Some people may be satisfied with a ten. We  like to take it to eleven.",
-    img: Desert,
+    header: "LUNA YOUNG MASTERS 2023",
+    bodyHeader: "Aftermovie",
+    text: "Een creatieve aftermovie ontwikkeld voor dit meerdaagse kunstevenement",
+    video: Youngla,
   },
   {
-    header: "The Bunny",
-    bodyHeader: "IN LOVE WE TRUST",
+    header: "Leeuwerikhoeve",
+    bodyHeader: "Brandfilm",
     text: "Some people may be satisfied with a ten.Like to take it to eleven.",
-    img: Desert,
+    video: Lee,
+  },
+  {
+    header: "Henry Schein Medical x Trees for All",
+    bodyHeader: "Aftermovie",
+    text: "Contentmarketing in de gezondheidszorg",
+    video: Henry,
   },
 ];
 const SlideThree = (props: IProps) => {
@@ -46,7 +55,6 @@ const SlideThree = (props: IProps) => {
     if (el) {
       const onWheel = (e: WheelEvent) => {
         e.preventDefault();
-        console.log(e);
         el.scrollTo({
           left: el.scrollLeft + e.deltaY,
           behavior: "auto",
@@ -77,7 +85,7 @@ const SlideThree = (props: IProps) => {
                   header={el.header}
                   text={el.text}
                   bodyHeader={el.bodyHeader}
-                  img={el.img}
+                  video={el.video}
                 />
               </div>
             ))}

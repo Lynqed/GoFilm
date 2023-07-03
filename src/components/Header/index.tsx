@@ -13,9 +13,9 @@ import globalStyles from "style/global.module.scss";
 interface IProps {}
 
 const array = [
-  { label: "Work", page: 2 },
+  { label: "Projecten", page: URLS.PROJECT },
   { label: "About Us", page: URLS.ABOUT },
-  { label: "Clients", page: 4 },
+  { label: "Brands", page: 4 },
   { label: "Contact", page: 5 },
 ] as const;
 

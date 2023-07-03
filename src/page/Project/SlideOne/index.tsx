@@ -1,13 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 import style from "./style.module.scss";
-import { ICommonProps } from "types";
+import { OneSlideValue } from "types";
 import { interpolation } from "page/Slides/SlideOne/utils";
 
-const Video = require("assets/video/test_video.mp4");
+const Video = require("assets/video/ContactUsVideo.mp4");
 const Play = require("assets/image/play.svg").default;
 
-interface IProps extends ICommonProps {}
+interface IProps extends OneSlideValue {}
 const defaultSetScreen = () => ({
   width: window.innerWidth,
   height: window.innerHeight,
@@ -123,7 +123,7 @@ const SlideOne = () => {
             >
               <img
                 src={Play}
-                alt="playButton"
+                alt="start"
                 className={cn(style.playButton, { [style.open]: open })}
                 onClick={(e) => {
                   e.preventDefault();

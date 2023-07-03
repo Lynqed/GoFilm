@@ -12,7 +12,6 @@ import "react-custom-alert/dist/index.css";
 import Main from "./Main";
 import Project from "./Project";
 import AboutUs from "./AboutUs";
-
 interface IProps {}
 
 const Component: FC<IProps> = ({}: IProps) => {

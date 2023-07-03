@@ -1,9 +1,9 @@
 import React from "react";
 import style from "./style.module.scss";
-import { ICommonProps } from "types";
+import { ThreeSlideValue } from "types";
 import image from "assets/image/projectImg/imgBack.png";
 
-interface IProps extends ICommonProps {}
+interface IProps extends ThreeSlideValue {}
 
 const SlideThree = () => {
   return (

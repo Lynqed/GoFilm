@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import cn from 'classnames';
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import cn from "classnames";
 
-import style from './style.module.scss';
-import { ICommonProps } from 'types';
-import Video from 'assets/video/test_video.mp4';
+import style from "./style.module.scss";
+import { ICommonProps } from "types";
+import Video from "assets/video/FirstSlideVideo.mp4";
 
 import {
   defaultPosition,
@@ -14,11 +14,11 @@ import {
   animationSpeed,
   animationStep,
   interpolation,
-  step
-} from './utils';
-import { isMobile } from 'utils';
+  step,
+} from "./utils";
+import { isMobile } from "utils";
 
-import globalStyle from 'style/global.module.scss';
+import globalStyle from "style/global.module.scss";
 
 interface IProps extends ICommonProps {}
 
@@ -111,24 +111,24 @@ const VariantA = (props: IProps) => {
   }, [position]);
 
   useEffect(() => {
-    window.addEventListener('resize', resizeListener);
-    document.addEventListener('mousemove', mousemoveListener);
+    window.addEventListener("resize", resizeListener);
+    document.addEventListener("mousemove", mousemoveListener);
     // document.addEventListener('mousedown', moveDownListener);
     // document.addEventListener('mouseup', moveUpListener);
     if (mobileDevice.current) {
-      document.addEventListener('touchstart', touchstartListener);
-      document.addEventListener('touchmove', touchmoveListener);
-      document.addEventListener('touchend', moveUpListener);
+      document.addEventListener("touchstart", touchstartListener);
+      document.addEventListener("touchmove", touchmoveListener);
+      document.addEventListener("touchend", moveUpListener);
     }
     return () => {
-      window.removeEventListener('resize', resizeListener);
-      document.removeEventListener('mousemove', mousemoveListener);
+      window.removeEventListener("resize", resizeListener);
+      document.removeEventListener("mousemove", mousemoveListener);
       // document.removeEventListener('mousedown', moveDownListener);
       // document.removeEventListener('mouseup', moveUpListener);
       if (mobileDevice.current) {
-        document.removeEventListener('touchstart', touchstartListener);
-        document.removeEventListener('touchmove', touchmoveListener);
-        document.removeEventListener('touchend', moveUpListener);
+        document.removeEventListener("touchstart", touchstartListener);
+        document.removeEventListener("touchmove", touchmoveListener);
+        document.removeEventListener("touchend", moveUpListener);
       }
     };
   }, []);
@@ -151,7 +151,7 @@ const VariantA = (props: IProps) => {
     : 1;
 
   const backgroundStyle = {
-    transform: `translateX(${-(screenWidth() - position)}px)`
+    transform: `translateX(${-(screenWidth() - position)}px)`,
   };
 
   const mainTextStyle = {
@@ -160,7 +160,7 @@ const VariantA = (props: IProps) => {
     }%, transparent ${transitionText}%)`,
     maskImage: `linear-gradient(to right,black ${
       transitionText - step
-    }%, transparent ${transitionText}%)`
+    }%, transparent ${transitionText}%)`,
   };
 
   const hiddenTextStyle = {
@@ -169,12 +169,12 @@ const VariantA = (props: IProps) => {
     }%, transparent ${transitionText2}%)`,
     maskImage: `linear-gradient(to left,black ${
       transitionText2 - step
-    }%, transparent ${transitionText2}%)`
+    }%, transparent ${transitionText2}%)`,
   };
 
   const moveElementStyle = {
     opacity: transitionOpacity,
-    left: position
+    left: position,
   };
 
   return (
@@ -184,7 +184,7 @@ const VariantA = (props: IProps) => {
         onMouseOver={() => (dragStart.current = true)}
         onMouseLeave={() => (dragStart.current = false)}
         className={cn(style.mainContainer, {
-          [style.startAnimation]: props.start
+          [style.startAnimation]: props.start,
         })}
       >
         <div className={style.circleAnimation} />
@@ -200,8 +200,11 @@ const VariantA = (props: IProps) => {
               <p className={style.text}>
                 Get things done <br />
               </p>
+
               <p className={style.text}>
-                with<span className={style.yellowText}> your team</span>
+                <span className={style.spanText}>
+                  with<span className={style.yellowText}> your team</span>
+                </span>
               </p>
             </div>
             <div className={style.hiddenContent} style={hiddenTextStyle}>
@@ -209,7 +212,9 @@ const VariantA = (props: IProps) => {
                 Get things done <br />
               </p>
               <p className={style.text2}>
-                with<span className={style.yellowText2}> Go Film</span>
+                <span className={style.spanText}>
+                  with<span className={style.yellowText2}>Go Film</span>
+                </span>
               </p>
             </div>
           </div>

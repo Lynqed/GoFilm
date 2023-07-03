@@ -52,8 +52,8 @@ const Footer = () => {
         </div>
         <div className={style.social}>
           {social.map((el) => (
-            <a href={`${el.href}`} target="blank">
-              <img key={el.image} src={el.image} alt="social" />
+            <a key={el.image} href={`${el.href}`} target="blank">
+              <img src={el.image} alt="social" />
             </a>
           ))}
         </div>
