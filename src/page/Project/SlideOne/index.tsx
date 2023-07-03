@@ -5,7 +5,6 @@ import { ICommonProps } from "types";
 import { interpolation } from "page/Slides/SlideOne/utils";
 
 const Play = require("assets/image/play.svg").default;
-
 interface IProps extends ICommonProps {}
 const defaultSetScreen = () => ({
   width: window.innerWidth,
