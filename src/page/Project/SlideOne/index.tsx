@@ -3,6 +3,7 @@ import cn from "classnames";
 import style from "./style.module.scss";
 import { ICommonProps } from "types";
 import { interpolation } from "page/Slides/SlideOne/utils";
+import Loader from "components/Loader";
 
 const Play = require("assets/image/play.svg").default;
 interface IProps extends ICommonProps {}
@@ -19,6 +20,9 @@ const SlideOne = (props: IProps) => {
   const openState = useRef(false);
   const [open, setOpen] = useState(false);
   const [screen, setScreen] = useState(defaultSetScreen());
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
   const [screenOpen, setScreenOpen] = useState({
     width: 0,
     height: 0,
@@ -83,6 +87,22 @@ const SlideOne = (props: IProps) => {
       return !open;
     });
   }, []);
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.preload = "auto";
+      const handleCanPlayThrough = () => {
+        setIsLoading(false);
+        videoRef.current?.play();
+      };
+      videoRef.current.addEventListener("canplaythrough", handleCanPlayThrough);
+      return () => {
+        videoRef.current?.removeEventListener(
+          "canplaythrough",
+          handleCanPlayThrough
+        );
+      };
+    }
+  });
 
   const scaleOpen = interpolation(screenOpen.width, 0, 1536, 0, 2);
   const transformYOpen = interpolation(screenOpen.width, 0, 100, 0, -130);
@@ -98,61 +118,66 @@ const SlideOne = (props: IProps) => {
   const clipId = value?.key + `-poligon`;
 
   return (
-    <div className={style.container}>
-      <div className={style.content}>
-        <div className={style.boxImage}>
-          <div
-            className={style.imageContainer}
-            style={{ clipPath: `url(#${clipId})` }}
-          >
-            <video
-              className={cn(style.video)}
-              src={value?.value?.video}
-              autoPlay
-              muted
-              loop
-            />
+    <div>
+      {isLoading ? <Loader /> : null}
+      <div className={style.container}>
+        <div className={style.content}>
+          <div className={style.boxImage}>
             <div
-              className={cn(style.maskText, style.text1, {
-                [style.open]: open,
-              })}
+              className={style.imageContainer}
+              style={{ clipPath: `url(#${clipId})` }}
             >
-              {text}
-            </div>
-            <div
-              className={cn(style.controlContainer, { [style.open]: open })}
-              onClick={onClickStop}
-            >
-              <img
-                src={Play}
-                alt="start"
-                className={cn(style.playButton, { [style.open]: open })}
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  onClickPlay();
-                }}
+              <video
+                className={cn(style.video)}
+                src={value?.value?.video}
+                autoPlay
+                muted
+                loop
+                ref={videoRef}
               />
+
+              <div
+                className={cn(style.maskText, style.text1, {
+                  [style.open]: open,
+                })}
+              >
+                {text}
+              </div>
+              <div
+                className={cn(style.controlContainer, { [style.open]: open })}
+                onClick={onClickStop}
+              >
+                <img
+                  src={Play}
+                  alt="start"
+                  className={cn(style.playButton, { [style.open]: open })}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    onClickPlay();
+                  }}
+                />
+              </div>
             </div>
+            <div className={cn(style.maskText, style.text2)}>{text}</div>
           </div>
-          <div className={cn(style.maskText, style.text2)}>{text}</div>
+          <svg className={style.svgPoligon} preserveAspectRatio="xMinYMin meet">
+            <defs>
+              <clipPath id={clipId} clipPathUnits="userSpaceOnUse">
+                <path
+                  fill="white"
+                  d="M1026.74 213.242L721.248 518.735C606.51 403.997 420.489 403.997 305.751 518.735L0.257812 213.242C283.259 -69.7593 743.74 -69.7593 1026.74 213.242Z"
+                  transform={`translate(${transformX + transformXOpen}, ${
+                    transformY +
+                    transformHeight +
+                    transformYOpen +
+                    transformHeightOpen
+                  }), scale(${scale + scaleOpen})`}
+                ></path>
+              </clipPath>
+            </defs>
+          </svg>
         </div>
-        <svg className={style.svgPoligon} preserveAspectRatio="xMinYMin meet">
-          <defs>
-            <clipPath id={clipId} clipPathUnits="userSpaceOnUse">
-              <path
-                fill="white"
-                d="M1026.74 213.242L721.248 518.735C606.51 403.997 420.489 403.997 305.751 518.735L0.257812 213.242C283.259 -69.7593 743.74 -69.7593 1026.74 213.242Z"
-                transform={`translate(${transformX + transformXOpen}, ${
-                  transformY +
-                  transformHeight +
-                  transformYOpen +
-                  transformHeightOpen
-                }), scale(${scale + scaleOpen})`}
-              ></path>
-            </clipPath>
-          </defs>
-        </svg>
       </div>
     </div>
   );

@@ -46,6 +46,7 @@ const Component: FC<IProps> = ({}: IProps) => {
   return (
     <div>
       {listOfPages.map((value) => {
+        console.log("1");
         return (
           <SlideContainer
             key={value.key}

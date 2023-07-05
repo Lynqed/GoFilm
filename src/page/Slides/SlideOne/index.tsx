@@ -200,7 +200,6 @@ const VariantA = (props: IProps) => {
               <p className={style.text}>
                 Get things done <br />
               </p>
-
               <p className={style.text}>
                 <span className={style.spanText}>
                   with<span className={style.yellowText}> your team</span>

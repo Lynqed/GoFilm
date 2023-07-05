@@ -5,18 +5,18 @@ export interface ICommonProps {
   value?: IHistoryItem;
 }
 export enum VideoLinks {
-  A1Beton = "https://firebasestorage.googleapis.com/v0/b/gofilm-ad430.appspot.com/o/BetonVideo.mp4?alt=media&token=5001f0ea-d495-485b-9929-24f61ca1d915",
-  Wette = "https://firebasestorage.googleapis.com/v0/b/gofilm-bf134.appspot.com/o/WettSkip.mp4?alt=media&token=9aa252e8-fa99-45a9-b25f-0c6b6a21c7e9",
-  Luna = "https://firebasestorage.googleapis.com/v0/b/gofilm-bf134.appspot.com/o/Luna.mp4?alt=media&token=61004802-2b72-4936-ab42-0e4d6e5f8bb4",
-  Lee = "https://firebasestorage.googleapis.com/v0/b/gofilm-bf134.appspot.com/o/Lee.mp4?alt=media&token=9fa51d37-8bc7-4da5-87ef-31fd96ef8e81",
-  Henry = "https://firebasestorage.googleapis.com/v0/b/gofilm-bf134.appspot.com/o/Henry.mp4?alt=media&token=ceefc16a-db5a-469d-a176-e5549c539d75",
+  A1Beton = "https://firebasestorage.googleapis.com/v0/b/go-film-c2535.appspot.com/o/BetonVideo.mp4?alt=media&token=05f0ec66-aafc-44cf-ae70-40c5a34e1515",
+  Wette = "https://firebasestorage.googleapis.com/v0/b/go-film-c2535.appspot.com/o/WettSkip.mp4?alt=media&token=ed553c60-4f9f-44f3-9499-02ef8da30db2",
+  Luna = "https://firebasestorage.googleapis.com/v0/b/go-film-c2535.appspot.com/o/Luna.mp4?alt=media&token=08914346-c614-4e3f-b779-6583b973be01",
+  Lee = "https://firebasestorage.googleapis.com/v0/b/go-film-c2535.appspot.com/o/Lee.mp4?alt=media&token=227f8682-468d-417f-87da-e1ff62caeb8e",
+  Henry = "https://firebasestorage.googleapis.com/v0/b/go-film-c2535.appspot.com/o/Henry.mp4?alt=media&token=731eb8d7-20db-4256-9009-bc2434bbf8f4",
 }
 export enum ShortVideoLinks {
-  A1 = "https://firebasestorage.googleapis.com/v0/b/gofilm-bf134.appspot.com/o/ShortVideo%2FA1.mp4?alt=media&token=65fe00f4-68a6-4435-94c5-b925eb1f6473",
-  WeetterSkip = "https://firebasestorage.googleapis.com/v0/b/gofilm-bf134.appspot.com/o/ShortVideo%2FWetterskip.mp4?alt=media&token=44f56732-6aee-4291-be4a-cf83346b29e4",
-  Luna = "https://firebasestorage.googleapis.com/v0/b/gofilm-bf134.appspot.com/o/ShortVideo%2FLuna.mp4?alt=media&token=8d4fb152-816a-4c5e-b7da-9d39278ee86e",
-  Lee = "https://firebasestorage.googleapis.com/v0/b/gofilm-bf134.appspot.com/o/ShortVideo%2FLee.mp4?alt=media&token=de78ec36-c976-409d-bf9a-dca78e0cc622",
-  Henry = "https://firebasestorage.googleapis.com/v0/b/gofilm-bf134.appspot.com/o/ShortVideo%2FHenry.mp4?alt=media&token=0c245670-6a5d-46d9-974b-187c775453b9",
+  A1 = "https://firebasestorage.googleapis.com/v0/b/go-film-c2535.appspot.com/o/ShortVideo%2FA1.mp4?alt=media&token=5315a6e6-0de4-42b7-b5a3-d264452e9d0f",
+  WeetterSkip = "https://firebasestorage.googleapis.com/v0/b/go-film-c2535.appspot.com/o/ShortVideo%2FWetterskip.mp4?alt=media&token=9f3783ed-57ab-4e30-ae67-70bf5d6426bd",
+  Luna = "https://firebasestorage.googleapis.com/v0/b/go-film-c2535.appspot.com/o/ShortVideo%2FYoungla.mp4?alt=media&token=117b3d88-8eb1-43bf-bc61-cf103098a7a1",
+  Lee = "https://firebasestorage.googleapis.com/v0/b/go-film-c2535.appspot.com/o/ShortVideo%2FLeeu.mp4?alt=media&token=c3b63801-e9a9-405c-8e10-dc34902b46e9",
+  Henry = "https://firebasestorage.googleapis.com/v0/b/go-film-c2535.appspot.com/o/ShortVideo%2FHenry.mp4?alt=media&token=361e5e0d-16ea-4c85-8df2-ff974ebcdcb1",
 }
 
 export interface IProjectSlide {

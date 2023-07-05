@@ -25,15 +25,16 @@
     top: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    // justify-content: space-evenly;
     // background: $orange-gradient;
   }
   .boxProjects {
     display: flex;
-    flex: 1;
     align-items: flex-start;
     padding-left: 70px;
     overflow: auto;
+    position: relative;
+    z-index: 0;
     &::-webkit-scrollbar {
       display: none;
     }

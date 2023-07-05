@@ -124,6 +124,7 @@ video{
     color: $color-text;
     font-weight: 600;
     user-select: none;
+
   }
 
   .text2 {
@@ -141,6 +142,7 @@ video{
     align-items:center;
     gap: 50px;
     padding-left: calc(20px + 1.625vw);
+    height: 177px;
   }
   .yellowText2 {
     font-family: $Jennasue;
