@@ -14,7 +14,7 @@ interface IProps {}
 
 const array = [
   { label: "Projecten", page: URLS.PROJECT },
-  { label: "About Us", page: URLS.ABOUT },
+  { label: "Over ons", page: URLS.ABOUT },
   { label: "Brands", page: 4 },
   { label: "Contact", page: 5 },
 ] as const;

@@ -17,8 +17,8 @@ const array = [
     image: persone2,
   },
   {
-    name: "Jacco Kazemier",
-    position: " Concept & Vormgeving",
+    name: "Leon Reissig",
+    position: "Concept & Vormgeving",
     image: persone3,
   },
 ];
@@ -27,7 +27,7 @@ const SlideFour = (props: IProps) => {
     <div className={globalStyle.slideContainer}>
       <div className={style.container}>
         <div className={style.content}>
-          <p className={style.textTeam}>Our Team</p>
+          <p className={style.textTeam}>Het Team</p>
           <div className={style.boxImage}>
             {array.map((el, i) => (
               <GrayPhoto

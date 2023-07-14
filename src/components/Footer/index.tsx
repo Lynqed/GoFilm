@@ -4,21 +4,23 @@ import YouTube from "assets/image/socialMedia/youtube.svg";
 import Instagram from "assets/image/socialMedia/instagram.svg";
 import Facebook from "assets/image/socialMedia/facebook.svg";
 import Twitter from "assets/image/socialMedia/twitter.svg";
+import Linkedin from "assets/image/socialMedia/linkedin.svg";
 import WhiteLogo from "assets/image/WhiteLogo.svg";
 import { URLS } from "utils/router";
 import { useNavigate } from "react-router-dom";
 const pages = [
-  { name: "Services", page: 2 },
-  { name: "About Us", page: URLS.ABOUT },
-  { name: "Clients", page: 4 },
+  { name: "Projecten", page: 2 },
+  { name: "Over ons", page: URLS.ABOUT },
+  { name: "Brands", page: 4 },
   { name: "Contact ", page: 5 },
 ];
-const email = [{ name: "Examplegmail.com" }, { name: "Examplegmail.2com" }];
+const email = [{ name: "Info@gofilm.nl" }];
 const social = [
   { image: YouTube, href: "https://www.youtube.com/" },
   { image: Instagram, href: "https://instagram.com/" },
   { image: Facebook, href: "https://www.facebook.com/" },
   { image: Twitter, href: "https://twitter.com/" },
+  { image: Linkedin, href: "https://www.linkedin.com/company/gofilm/" },
 ];
 const Footer = () => {
   const navigate = useNavigate();

@@ -49,7 +49,7 @@ const SlideTwo = ({ start }: IProps) => {
           />
           <div className={style.textContainer}>
             <div>
-              <p className={style.about}>About us</p>
+              <p className={style.about}>Over ons</p>
               <p className={style.textAbout}>
                 “Onze missie is om alle bedrijven, die ervoor openstaan,
                 <br />
