@@ -8,7 +8,6 @@ import SlideThree, { latestProjectsId } from "page/Slides/SlideThree";
 import SlideTwo from "page/Slides/SlideTwo";
 import ProjectSliderOne from "page/Project/SlideOne";
 import ProjectSliderTwo, { imagesSliderList } from "../page/Project/SlideTwo";
-import ProjectSliderThree from "page/Project/SlideThree";
 import AboutSlideTwo from "page/AboutUs/SlideTwo";
 
 import { ISliderItem, TypeGroup } from "../types";
@@ -82,11 +81,6 @@ export const projectSliders: ISliderItem[] = [
     component: ProjectSliderTwo,
     group: TypeGroup.project,
     scrollElementId: imagesSliderList,
-  },
-  {
-    id: 8,
-    component: ProjectSliderThree,
-    group: TypeGroup.project,
   },
 ];
 export const AboutSliders: ISliderItem[] = [

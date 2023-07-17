@@ -55,7 +55,7 @@ export const ProjectsData: IProps[] = [
   {
     id: 2,
     projectName: "Wetterskip Fryslân",
-    video: VideoLinks.Wette,
+    video: VideoLinks.WeetterSkip,
     title: "Zichtbaarheid door film",
     aboutProject:
       "Wij hebben meegewerkt aan een campagne om Wetterskip Fryslân toegankelijker te maken voor de inwoners van Friesland.",

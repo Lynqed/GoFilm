@@ -105,7 +105,7 @@ hr {
   contentDuration: $contentDuration;
   colorBackground: $color-background;
 }
-$maxWidth: 1920;
+$maxWidth: 2500;
 $maxHeight: 900;
 @mixin adaptiv-font($pcSize, $mobSize) {
   $addSize: $pcSize - $mobSize;

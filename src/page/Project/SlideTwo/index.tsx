@@ -6,22 +6,28 @@ export const imagesSliderList = "images-list";
 
 const SlideTwo = (props: IProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (el) {
-      const onWheel = (e: WheelEvent) => {
-        e.preventDefault();
-        el.scrollTo({
-          left: el.scrollLeft + e.deltaY,
-          behavior: "auto",
-        });
-      };
+  // useEffect(() => {
+  //   const el = ref.current;
+  //   if (el) {
+  //     const onWheel = (e: WheelEvent) => {
+  //       e.preventDefault();
+  //       el.scrollTo({
+  //         left: el.scrollLeft + e.deltaY,
+  //         behavior: "auto",
+  //       });
+  //     };
 
-      el.addEventListener("wheel", onWheel);
+  //     el.addEventListener("wheel", onWheel);
 
-      return () => el.removeEventListener("wheel", onWheel);
+  //     return () => el.removeEventListener("wheel", onWheel);
+  //   }
+  // }, []);
+  const newArray = [];
+  for (let i = 0; i < 5; i++) {
+    if (props.value?.value?.photo) {
+      newArray.push(...props.value?.value?.photo);
     }
-  }, []);
+  }
   return (
     <div className={style.container}>
       <div className={style.content}>
@@ -30,7 +36,7 @@ const SlideTwo = (props: IProps) => {
           <p className={style.mainText}>{props.value?.value?.aboutProject}</p>
         </div>
         <div id={imagesSliderList} className={style.boxProjects} ref={ref}>
-          {props.value?.value?.photo.map((el, i) => (
+          {newArray.map((el, i) => (
             <div
               key={i}
               style={{
@@ -40,6 +46,9 @@ const SlideTwo = (props: IProps) => {
               <img src={el} alt="projectImg" className={style.image} />
             </div>
           ))}
+        </div>
+        <div className={style.boxAbout}>
+          <p className={style.textAbout}>{props.value?.value?.aboutVideo}</p>
         </div>
       </div>
     </div>

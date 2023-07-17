@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import style from "./style.module.scss";
 import LatestProjects from "components/LatestProjects";
 
@@ -31,7 +31,7 @@ const array = [
   {
     header: "Leeuwerikhoeve",
     bodyHeader: "Brandfilm",
-    text: "Some people may be satisfied with a ten.Like to take it to eleven.",
+    text: "Visuele rebranding om de uitstraling van dit wellnesresort te professionaliseren.",
     video: ShortVideoLinks.Lee,
   },
   {
@@ -45,22 +45,26 @@ const SlideThree = (props: IProps) => {
   const { goTo } = props;
   const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const el = ref.current;
-    if (el) {
-      const onWheel = (e: WheelEvent) => {
-        e.preventDefault();
-        el.scrollTo({
-          left: el.scrollLeft + e.deltaY,
-          behavior: "auto",
-        });
-      };
+  // useEffect(() => {
+  //   const el = ref.current;
+  //   if (el) {
+  //     const onWheel = (e: WheelEvent) => {
+  //       e.preventDefault();
+  //       el.scrollTo({
+  //         left: el.scrollLeft + e.deltaY,
+  //         behavior: "auto",
+  //       });
+  //     };
 
-      el.addEventListener("wheel", onWheel);
+  //     el.addEventListener("wheel", onWheel);
 
-      return () => el.removeEventListener("wheel", onWheel);
-    }
-  }, []);
+  //     return () => el.removeEventListener("wheel", onWheel);
+  //   }
+  // }, []);
+  const newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    newArray.push(...array);
+  }
 
   return (
     <div className={globalStyle.slideContainer}>
@@ -69,7 +73,7 @@ const SlideThree = (props: IProps) => {
           <p className={style.header}>Recente projecten</p>
 
           <div id={latestProjectsId} className={style.boxProjects} ref={ref}>
-            {array.map((el, i) => (
+            {newArray.map((el, i) => (
               <div
                 key={i}
                 onClick={() => {

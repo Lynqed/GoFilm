@@ -48,6 +48,28 @@
     font-weight: 400;
     font-family: $Light-font-family-Italic;
 }
+@media (min-width: 2300px) {
+    .container{
+        height: 700px;
+        width: 500px;
+        &:hover{
+            height: 800px;
+            width: 600px;
+        }
+    }
+
+}
+
+@media (min-width: 3000px) {
+    .container{
+        height: 900px;
+        width: 600px;
+        &:hover{
+            height: 1000px;
+            width: 700px;
+        }
+    }
+}
 
 @media(max-width: 1100px){
     .container{

@@ -30,13 +30,15 @@
   }
   .boxProjects {
     display: flex;
-    align-items: flex-start;
-    padding-left: 70px;
-    overflow: auto;
+    overflow: visible;
     position: relative;
     z-index: 0;
-    &::-webkit-scrollbar {
-      display: none;
+    animation: slide-animation 50s  linear infinite;
+    // &::-webkit-scrollbar {
+    //   display: none;
+    // }
+    &:hover{
+      animation-play-state: paused;
     }
   }
 }
@@ -63,4 +65,12 @@
     padding: 10px 0px 0px 70px;
   }
 
+}
+@keyframes slide-animation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }

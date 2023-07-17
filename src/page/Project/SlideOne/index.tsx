@@ -131,7 +131,7 @@ const SlideOne = (props: IProps) => {
                 className={cn(style.video)}
                 src={value?.value?.video}
                 autoPlay
-                muted
+                muted={open ? false : true}
                 loop
                 ref={videoRef}
               />

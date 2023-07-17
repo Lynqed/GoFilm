@@ -43,7 +43,25 @@
       }
     }
   }
+  @media (min-width: 2300px) {
+    .container{
+      .content{
+        .textTeam{
+          font-size: 100px;
+        }
+      }
+    }
 
+}
+@media (min-width: 3000px) {
+  .container{
+    .content{
+      .textTeam{
+        font-size: 120px;
+      }
+    }
+  }
+}
   @media(max-width:810px){
     .container{
       .content{
