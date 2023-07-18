@@ -102,7 +102,7 @@ const SlideOne = (props: IProps) => {
         );
       };
     }
-  });
+  }, []);
 
   const scaleOpen = interpolation(screenOpen.width, 0, 1536, 0, 2);
   const transformYOpen = interpolation(screenOpen.width, 0, 100, 0, -130);
