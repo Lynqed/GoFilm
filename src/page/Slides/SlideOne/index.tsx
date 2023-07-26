@@ -212,7 +212,7 @@ const VariantA = (props: IProps) => {
               </p>
               <p className={style.text2}>
                 <span className={style.spanText}>
-                  with<span className={style.yellowText2}>Go Film</span>
+                  with<span className={style.yellowText2}>GoFilm</span>
                 </span>
               </p>
             </div>

@@ -7,9 +7,16 @@ interface IProps {
   text: string;
   bodyHeader: string;
   video: string;
+  id: string;
 }
 
-const LatestProjects: FC<IProps> = ({ header, text, video, bodyHeader }) => {
+const LatestProjects: FC<IProps> = ({
+  header,
+  text,
+  video,
+  bodyHeader,
+  id,
+}) => {
   const navigate = useNavigate();
   const videoRef = useRef<HTMLVideoElement>(null);
 

@@ -12,7 +12,7 @@ export enum VideoLinks {
   Henry = "https://firebasestorage.googleapis.com/v0/b/gofilm-dev.appspot.com/o/GoFilm%2FLongVideo%2FHenry.mp4?alt=media&token=38107101-dffa-4d87-9ada-3c3cc8f4a06e",
 }
 export enum ShortVideoLinks {
-  A1 = "https://firebasestorage.googleapis.com/v0/b/gofilm-dev.appspot.com/o/GoFilm%2FShortVideo%2FA1.mp4?alt=media&token=ed4d3f94-b902-4ff9-91f5-45a2da764e3d",
+  A1 = "https://firebasestorage.googleapis.com/v0/b/gofilm-dev.appspot.com/o/GoFilm%2FShortVideo%2FA1.mp4?alt=media&token=2f3b5178-088d-486d-9d2d-f9ed7697bb16",
   WeetterSkip = "https://firebasestorage.googleapis.com/v0/b/gofilm-dev.appspot.com/o/GoFilm%2FShortVideo%2FWetterskip.mp4?alt=media&token=384d6b44-8a90-4c12-9868-381e15d2e316",
   Luna = "https://firebasestorage.googleapis.com/v0/b/gofilm-dev.appspot.com/o/GoFilm%2FShortVideo%2FYoungla.mp4?alt=media&token=cbe4ba35-b923-4867-992c-9b68e000ca8f",
   Lee = "https://firebasestorage.googleapis.com/v0/b/gofilm-dev.appspot.com/o/GoFilm%2FShortVideo%2FLeeu.mp4?alt=media&token=7f6680d1-e52e-4bd9-aefb-d356a3a9e089",
@@ -20,7 +20,7 @@ export enum ShortVideoLinks {
 }
 
 export interface IProjectSlide {
-  id: number;
+  id: string;
   projectName: string;
   video: string;
   title: string;

@@ -11,30 +11,35 @@ interface IProps extends ICommonProps {}
 export const latestProjectsId = "latest-Projects";
 const array = [
   {
+    id: "1",
     header: "A1-Betononderhoud",
     bodyHeader: "Employer branding & brandfilm",
     text: "De kennis en kunde van A1-betononderhoud vertaald naar een unieke brandfilm.",
     video: ShortVideoLinks.A1,
   },
   {
+    id: "2",
     header: "Wetterskip Fryslân",
     bodyHeader: "Brandfilm",
     text: "Duidelijkheid maken in de werkzaamheden van een waterschap met behulp van een videorondleiding",
     video: ShortVideoLinks.WeetterSkip,
   },
   {
+    id: "3",
     header: "LUNA YOUNG MASTERS 2023",
     bodyHeader: "Aftermovie",
     text: "Een creatieve aftermovie ontwikkeld voor dit meerdaagse kunstevenement",
     video: ShortVideoLinks.Luna,
   },
   {
+    id: "4",
     header: "Leeuwerikhoeve",
     bodyHeader: "Brandfilm",
     text: "Visuele rebranding om de uitstraling van dit wellnesresort te professionaliseren.",
     video: ShortVideoLinks.Lee,
   },
   {
+    id: "5",
     header: "Henry Schein Medical x Trees for All",
     bodyHeader: "Aftermovie",
     text: "Contentmarketing in de gezondheidszorg",
@@ -85,6 +90,7 @@ const SlideThree = (props: IProps) => {
                   text={el.text}
                   bodyHeader={el.bodyHeader}
                   video={el.video}
+                  id={el.id}
                 />
               </div>
             ))}

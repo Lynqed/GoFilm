@@ -34,7 +34,7 @@ import { IProjectSlide, VideoLinks } from "types";
 interface IProps extends IProjectSlide {}
 export const ProjectsData: IProps[] = [
   {
-    id: 1,
+    id: "1",
     projectName: "A1 Betononderhoud",
     video: VideoLinks.A1Beton,
     title: "Merkfilm",
@@ -53,7 +53,7 @@ export const ProjectsData: IProps[] = [
       "“Hoe maken we een video die de kennis en kunde laat zien van ons bedrijf?, was de vraag die ons gesteld werd. We hebben hiervoor de werknemers centraal gesteld en vanuit hun ogen het bedrijf gepresenteerd. De diversiteit van het bedrijf komt naar voren in verschillende projecten die wij met strakke beelden in kaart hebben gebracht. Door af te wisselen met POV shots nemen de werknemers van A1 betononderhoud je mee door een scala aan werkzaamheden dat dit bedrijf op dagelijkse basis uitvoert.",
   },
   {
-    id: 2,
+    id: "2",
     projectName: "Wetterskip Fryslân",
     video: VideoLinks.WeetterSkip,
     title: "Zichtbaarheid door film",
@@ -72,7 +72,7 @@ export const ProjectsData: IProps[] = [
       " De oplevering van dit project bestaat uit een serie video’s die voorbijgangers meer informatie geven over wat de taken van een waterschap zijn in, bij en rond een gemaal. Deze gemalen staan verspreid door de gehele provincie en hebben een belangrijke functie als het gaat om waterbeheer.",
   },
   {
-    id: 3,
+    id: "3",
     projectName: "LUNA YOUNG MASTERS 2023",
     video: VideoLinks.Luna,
     title: "Media Art Friesland",
@@ -91,7 +91,7 @@ export const ProjectsData: IProps[] = [
       " In het centrum van Leeuwarden vind je prachtige lichtshows en kunstwerken van nationale en internationale kunstenaars. Om hier een blijvende herinnering van te maken zijn wij op pad geweest om de gehele omgeving vast te leggen en op een creatieve manier te verwerken tot een aftermovie die een duidelijk overzicht geeft van de diverse creatieve uitingen.",
   },
   {
-    id: 4,
+    id: "4",
     projectName: "Leeuwerikhoeve",
     video: VideoLinks.Lee,
     title: "Rebranding campagne",
@@ -102,7 +102,7 @@ export const ProjectsData: IProps[] = [
       "Het gevoel van wellness is een rustgevende ervaring voor lichaam en geest. Perfect om bezoekers mee te nemen naar een droomwereld die samenkomt met de realiteit bij de Leeuwerikhoeve.",
   },
   {
-    id: 5,
+    id: "5",
     projectName: "Henry Schein Medical",
     video: VideoLinks.Henry,
     title: "Event",

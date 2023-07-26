@@ -16,10 +16,7 @@ const pages = [
 ];
 const email = [{ name: "Info@gofilm.nl" }];
 const social = [
-  { image: YouTube, href: "https://www.youtube.com/" },
   { image: Instagram, href: "https://instagram.com/" },
-  { image: Facebook, href: "https://www.facebook.com/" },
-  { image: Twitter, href: "https://twitter.com/" },
   { image: Linkedin, href: "https://www.linkedin.com/company/gofilm/" },
 ];
 const Footer = () => {

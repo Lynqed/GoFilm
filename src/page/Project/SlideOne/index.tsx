@@ -82,6 +82,9 @@ const SlideOne = (props: IProps) => {
       if (open) {
         onChangeClose();
       } else {
+        if (videoRef.current) {
+          videoRef.current.currentTime = 0;
+        }
         onChangeOpen();
       }
       return !open;

@@ -11,21 +11,34 @@ const SlideTwo = () => {
       <div className={style.content}>
         <div className={style.boxText}>
           <p className={style.boldText}>
-            With storyboarding, cinematography, sound design, and high-end
-            equipment, we’ll capture your audience’s attention and get your
-            message across for you.
+            Waarom GoFilm? Onze missie is duidelijk: wij gaan alle bedrijven,
+            die ervoor openstaan, te voorzien van hoge kwaliteit video’s om hun
+            doelgroep op een creatieve manier te bereiken. We streven erna om
+            video’s te produceren die niet alleen beelden tonen, maar ook
+            daadwerkelijk impact maken bij jullie doelgroep.
           </p>
 
           <p className={style.text}>
-            Our team has extensive experience remotely guiding clients through
-            video projects. Whether you’re working from home or located across
-            the country, we can conduct pre-planning and video shoots via
-            Microsoft Teams or some other form of virtual conferencing services.
-            Throughout this process, our team will work with you to accommodate
-            your project needs and produce stunning video assets that tell your
-            story. No matter which type of video you need, we can work with you
-            to market your product, spread your message, and achieve any other
-            goal you’ve set for your project.
+            Wat ons echt uniek maakt, is onze snelle en persoonlijke
+            samenwerking met onze klanten. We geloven sterk in het belang van
+            transparantie en kwaliteit in alles wat we doen. Bij elke opdracht
+            zetten we onze creativiteit en expertise in om moderne en
+            innovatieve video's te creëren. Of het nu gaat om bedrijfsfilms,
+            commercials of campagnevideo's. Wij streven er altijd naar om een
+            film te maken die naadloos aansluit bij jouw bedrijf en perfect
+            inspeelt op de behoeften van je doelgroep. Bij GoFilm gaat onze
+            betrokkenheid verder dan alleen jouw bedrijf. We nemen de tijd om
+            jouw doelgroep grondig te begrijpen en doen altijd het benodigde
+            onderzoek om te weten waar en hoe we de juiste snaar kunnen raken.
+            Creativiteit is als een drijfveer voor ons team. Bij elke video
+            streven we ernaar om verrassend en vernieuwend te zijn. We willen
+            niet alleen een boodschap overbrengen, maar ook een blijvende indruk
+            achterlaten bij jouw publiek. Wij zijn niet bang om samen te werken
+            met andere experts en professionals. We hechten juist waarde aan de
+            input van marketing- en communicatiebureaus om gezamenlijk tot de
+            meest effectieve campagnevideo's en commercials te komen. We kijken
+            er naar uit om van jullie te horen! <br />
+            <i>Team GoFilm</i>
           </p>
         </div>
         <div className={style.buttonBox}>
@@ -36,7 +49,7 @@ const SlideTwo = () => {
               navigate(url);
             }}
           >
-            Let`s contact us
+            Contact
           </button>
         </div>
       </div>
