@@ -6,6 +6,7 @@ import style from "./style.module.scss";
 const SlideTwo = () => {
   const navigate = useNavigate();
   const pageNumber = 5;
+
   return (
     <div className={style.container}>
       <div className={style.content}>

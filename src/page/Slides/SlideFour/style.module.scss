@@ -90,11 +90,11 @@
           padding-top: 10%;
         }
         .boxImage{
-          left: 0%;
-          transform: translate(5%, -50%);
-          flex-wrap: wrap;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
           justify-content: center;
-          top:50%;
+          top: 50%;
           gap: 10px;
         }
       }

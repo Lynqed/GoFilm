@@ -1,0 +1,28 @@
+.boxImages{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    overflow: visible;
+    gap: 30px;
+    animation: slide-animation 100s linear infinite;
+    .image{
+      height: 60vh;
+      width: 60vw;
+    }
+  }
+  @media (max-width: 570px) {
+    .boxImages{
+      .image{
+        height: 250px;
+        width: 200px;
+      }
+    }
+  }
+  @keyframes slide-animation {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }

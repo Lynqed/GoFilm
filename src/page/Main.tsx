@@ -51,6 +51,7 @@ function App() {
 
   useEffect(() => {
     const slideId = params.slideId;
+
     if (slideId) {
       const id = generateSliderId(slideId);
       const el = document.getElementById(id);

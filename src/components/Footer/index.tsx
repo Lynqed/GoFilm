@@ -1,13 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import style from "./style.module.scss";
-import YouTube from "assets/image/socialMedia/youtube.svg";
 import Instagram from "assets/image/socialMedia/instagram.svg";
-import Facebook from "assets/image/socialMedia/facebook.svg";
-import Twitter from "assets/image/socialMedia/twitter.svg";
 import Linkedin from "assets/image/socialMedia/linkedin.svg";
 import WhiteLogo from "assets/image/WhiteLogo.svg";
 import { URLS } from "utils/router";
 import { useNavigate } from "react-router-dom";
+import { isMobile } from "utils";
 const pages = [
   { name: "Projecten", page: 2 },
   { name: "Over ons", page: URLS.ABOUT },
@@ -21,6 +19,7 @@ const social = [
 ];
 const Footer = () => {
   const navigate = useNavigate();
+  const mobileDevice = useRef(isMobile());
 
   return (
     <div className={style.container}>
@@ -48,14 +47,25 @@ const Footer = () => {
               {el.name}
             </a>
           ))}
+          {mobileDevice.current && (
+            <div className={style.social}>
+              {social.map((el) => (
+                <a key={el.image} href={`${el.href}`} target="blank">
+                  <img src={el.image} alt="social" />
+                </a>
+              ))}
+            </div>
+          )}
         </div>
-        <div className={style.social}>
-          {social.map((el) => (
-            <a key={el.image} href={`${el.href}`} target="blank">
-              <img src={el.image} alt="social" />
-            </a>
-          ))}
-        </div>
+        {!mobileDevice.current && (
+          <div className={style.social}>
+            {social.map((el) => (
+              <a key={el.image} href={`${el.href}`} target="blank">
+                <img src={el.image} alt="social" />
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import style from "./style.module.scss";
 import { ICommonProps } from "types";
 interface IProps extends ICommonProps {}
@@ -6,22 +6,6 @@ export const imagesSliderList = "images-list";
 
 const SlideTwo = (props: IProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  // useEffect(() => {
-  //   const el = ref.current;
-  //   if (el) {
-  //     const onWheel = (e: WheelEvent) => {
-  //       e.preventDefault();
-  //       el.scrollTo({
-  //         left: el.scrollLeft + e.deltaY,
-  //         behavior: "auto",
-  //       });
-  //     };
-
-  //     el.addEventListener("wheel", onWheel);
-
-  //     return () => el.removeEventListener("wheel", onWheel);
-  //   }
-  // }, []);
   const newArray = [];
   for (let i = 0; i < 5; i++) {
     if (props.value?.value?.photo) {

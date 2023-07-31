@@ -11,6 +11,7 @@ import ProjectSliderTwo, { imagesSliderList } from "../page/Project/SlideTwo";
 import AboutSlideTwo from "page/AboutUs/SlideTwo";
 
 import { ISliderItem, TypeGroup } from "../types";
+import PhotoSlider from "page/AboutUs/PhotoSlider";
 
 export const debouncer = (timeout: number) =>
   _.debounce((f) => f(), timeout, { leading: false });
@@ -92,6 +93,11 @@ export const AboutSliders: ISliderItem[] = [
   {
     id: 11,
     component: AboutSlideTwo,
+    group: TypeGroup.about,
+  },
+  {
+    id: 12,
+    component: PhotoSlider,
     group: TypeGroup.about,
   },
 ];

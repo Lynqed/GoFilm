@@ -15,6 +15,11 @@ const listOfPages: IHistoryItem[] = [
     group: TypeGroup.about,
     key: uuid(),
   },
+  {
+    sliderId: 12,
+    group: TypeGroup.about,
+    key: uuid(),
+  },
 ];
 const AboutUs: FC<IProps> = () => {
   useEffect(() => {

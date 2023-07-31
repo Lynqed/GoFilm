@@ -123,7 +123,7 @@ const SlideOne = (props: IProps) => {
   return (
     <div>
       {isLoading ? <Loader /> : null}
-      <div className={style.container}>
+      <div className={style.container} id={value?.value?.id}>
         <div className={style.content}>
           <div className={style.boxImage}>
             <div

@@ -137,7 +137,7 @@ const VariantA = (props: IProps) => {
   const start = screenWidth() / 2 + offsetWidth / 2;
   const end = start - offsetWidth;
 
-  const current = position;
+  const current = mobileDevice.current ? 0 : position;
 
   const startAnimation = current <= start;
   const transitionText = startAnimation
@@ -194,7 +194,10 @@ const VariantA = (props: IProps) => {
               <video src={Video} autoPlay muted loop />
             </div>
           </div>
-          <div className={cn(style.innerContainer)} style={backgroundStyle} />
+          {!mobileDevice.current ? (
+            <div className={cn(style.innerContainer)} style={backgroundStyle} />
+          ) : null}
+
           <div ref={contentRef} className={style.content}>
             <div style={mainTextStyle}>
               <p className={style.text}>
@@ -202,10 +205,14 @@ const VariantA = (props: IProps) => {
               </p>
               <p className={style.text}>
                 <span className={style.spanText}>
-                  with<span className={style.yellowText}> your team</span>
+                  with
+                  {!mobileDevice.current ? (
+                    <span className={style.yellowText}> your team</span>
+                  ) : null}
                 </span>
               </p>
             </div>
+
             <div className={style.hiddenContent} style={hiddenTextStyle}>
               <p className={style.text2}>
                 Get things done <br />

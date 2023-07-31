@@ -48,7 +48,7 @@
         font-family: $Light-font-family-Italic;
         color: $color-white;
         font-weight: 400;
-        @include adaptiv-font(70, 27);
+        @include adaptiv-font(70, 30);
         flex-wrap: nowrap;
       }
       .orangeText {
@@ -75,6 +75,16 @@
       animation-timing-function: $animation-timing-function-show;
       animation-name: $animationContentShow;
       animation-fill-mode: forwards;
+    }
+  }
+}
+@media(max-width:800px){
+  .container {
+    .content {
+      .textContainer {
+        width: auto;
+        padding-left: 40px;
+      }
     }
   }
 }

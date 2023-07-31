@@ -5,6 +5,8 @@ import LatestProjects from "components/LatestProjects";
 import { ICommonProps, ShortVideoLinks } from "types";
 
 import globalStyle from "style/global.module.scss";
+import { useNavigate } from "react-router-dom";
+import { URLS } from "utils/router";
 
 interface IProps extends ICommonProps {}
 
@@ -47,25 +49,9 @@ const array = [
   },
 ];
 const SlideThree = (props: IProps) => {
-  const { goTo } = props;
   const ref = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const el = ref.current;
-  //   if (el) {
-  //     const onWheel = (e: WheelEvent) => {
-  //       e.preventDefault();
-  //       el.scrollTo({
-  //         left: el.scrollLeft + e.deltaY,
-  //         behavior: "auto",
-  //       });
-  //     };
-
-  //     el.addEventListener("wheel", onWheel);
-
-  //     return () => el.removeEventListener("wheel", onWheel);
-  //   }
-  // }, []);
   const newArray = [];
   for (let i = 0; i < array.length; i++) {
     newArray.push(...array);
@@ -82,7 +68,7 @@ const SlideThree = (props: IProps) => {
               <div
                 key={i}
                 onClick={() => {
-                  goTo(6);
+                  navigate(`${URLS.MAIN}${URLS.PROJECT}#${el.id}`);
                 }}
               >
                 <LatestProjects

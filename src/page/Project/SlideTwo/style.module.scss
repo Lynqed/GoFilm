@@ -133,6 +133,76 @@
     }
   }
 }
+@media(max-height:900px){
+  .container{
+    .content{
+      .boxText{
+        padding-left: 30px;
+        .headerText {
+          padding-top: 40px;
+        }
+        .mainText{
+          padding: 20px 20px 20px 0;
+        }
+      }
+      .boxProjects{
+        padding-left: 30px;
+        .image{
+          height: 300px;
+          width: 550px;
+        }
+      }
+
+    }
+  }
+}
+
+@media(max-height:700px){
+  .container{
+    .content{
+      .boxText{
+        padding-left: 30px;
+        .headerText {
+          padding-top: 10px;
+          font-size: 40px;
+        }
+      }
+      .boxProjects{
+        padding-left: 30px;
+        .image{
+          height: 200px;
+          width: 300px;
+        }
+      }
+
+    }
+  }
+}
+@media(max-height:500px){
+  .container{
+    .content{
+      .boxText{
+        padding-left: 30px;
+        .headerText {
+          padding-top: 10px;
+          font-size: 40px;
+        }
+      }
+      .boxProjects{
+        padding-left: 30px;
+        .image{
+          height: 100px;
+          width: 200px;
+        }
+      }
+      .boxAbout{
+        .textAbout{
+          width: 1035px;
+        }
+      }
+    }
+  }
+}
 
 @keyframes slide-animation {
   0% {

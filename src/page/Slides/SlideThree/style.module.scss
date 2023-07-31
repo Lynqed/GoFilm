@@ -52,7 +52,9 @@
 }
 @media(max-width: 850px){
   .header{
-    padding: 150px 0px 50px 70px;
+    display: flex;
+    justify-content: center;
+    padding: 150px 0 50px 0;
   }
 }
 @media(max-height: 815px){
