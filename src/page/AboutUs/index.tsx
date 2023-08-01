@@ -26,7 +26,7 @@ const AboutUs: FC<IProps> = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div>
+    <div style={{ overflowX: "hidden" }}>
       {listOfPages.map((value) => {
         return (
           <SlideContainer

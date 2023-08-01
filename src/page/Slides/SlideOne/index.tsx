@@ -191,7 +191,7 @@ const VariantA = (props: IProps) => {
         <div className={style.container}>
           <div className={style.backgroundImageContainer}>
             <div className={style.backgroundImage}>
-              <video src={Video} autoPlay muted loop />
+              <video src={Video} autoPlay muted loop playsInline />
             </div>
           </div>
           {!mobileDevice.current ? (

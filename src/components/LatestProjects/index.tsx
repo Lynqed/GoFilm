@@ -2,12 +2,14 @@ import React, { FC, useRef } from "react";
 import style from "./style.module.scss";
 import { useNavigate } from "react-router-dom";
 import { URLS } from "utils/router";
+import { isIOS } from "react-device-detect";
 interface IProps {
   header: string;
   text: string;
   bodyHeader: string;
   video: string;
   id: string;
+  poster: string;
 }
 
 const LatestProjects: FC<IProps> = ({
@@ -15,6 +17,7 @@ const LatestProjects: FC<IProps> = ({
   text,
   video,
   bodyHeader,
+  poster,
   id,
 }) => {
   const navigate = useNavigate();
@@ -35,14 +38,19 @@ const LatestProjects: FC<IProps> = ({
   return (
     <div className={style.container}>
       <p className={style.headerText}>{header}</p>
-      <video
-        className={style.boxVideo}
-        src={video}
-        ref={videoRef}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        loop
-      />
+
+      {isIOS ? (
+        <img src={poster} alt="test" className={style.image} />
+      ) : (
+        <video
+          src={video}
+          ref={videoRef}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          muted
+          playsInline
+        />
+      )}
       <div className={style.boxBody}>
         <div className={style.box}>
           <p className={style.bodyHeader}>{bodyHeader}</p>
@@ -52,10 +60,15 @@ const LatestProjects: FC<IProps> = ({
           <button
             className={style.button}
             onClick={() => {
-              navigate(URLS.PROJECT);
+              navigate(`${URLS.MAIN}${URLS.PROJECT}#${id}`);
             }}
           >
-            VIEW CASE
+            <a
+              href={`${URLS.MAIN}${URLS.PROJECT}#${id}`}
+              className={style.button}
+            >
+              VIEW CASE
+            </a>
           </button>
         </div>
       </div>

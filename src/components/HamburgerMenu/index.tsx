@@ -37,6 +37,7 @@ const HamburgerMenu: React.FC<IProps> = ({ links }) => {
               onClick={() => {
                 const url = `${URLS.MAIN}${el.page}`;
                 navigate(url);
+                setIsOpen(false);
               }}
             >
               {el.label}

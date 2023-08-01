@@ -29,6 +29,7 @@ import HenryPhoto1 from "assets/Projects/Henry/Photo/1.png";
 import HenryPhoto2 from "assets/Projects/Henry/Photo/2.png";
 import HenryPhoto3 from "assets/Projects/Henry/Photo/3.png";
 import HenryPhoto4 from "assets/Projects/Henry/Photo/4.png";
+
 import { IProjectSlide, VideoLinks } from "types";
 
 interface IProps extends IProjectSlide {}
@@ -38,6 +39,7 @@ export const ProjectsData: IProps[] = [
     projectName: "A1 Betononderhoud",
     video: VideoLinks.A1Beton,
     title: "Merkfilm",
+
     aboutProject:
       "Meedenken vanaf het eerste moment. Dan kan A1 Betononderhoud met haar kennis en kunde het fundament leggen voor de beste maatwerk oplossing.",
     photo: [
@@ -57,6 +59,7 @@ export const ProjectsData: IProps[] = [
     projectName: "Wetterskip Fryslân",
     video: VideoLinks.WeetterSkip,
     title: "Zichtbaarheid door film",
+
     aboutProject:
       "Wij hebben meegewerkt aan een campagne om Wetterskip Fryslân toegankelijker te maken voor de inwoners van Friesland.",
     photo: [
@@ -76,6 +79,7 @@ export const ProjectsData: IProps[] = [
     projectName: "LUNA YOUNG MASTERS 2023",
     video: VideoLinks.Luna,
     title: "Media Art Friesland",
+
     aboutProject:
       "Bijna drie weken lang genoten we van mediakunst van jong talent uit binnen- en buitenland in het Stationskwartier in Leeuwarden, hierbij hebben wij gezorgd voor de aftermovie die dit evenement samenvat.",
     photo: [
@@ -95,6 +99,7 @@ export const ProjectsData: IProps[] = [
     projectName: "Leeuwerikhoeve",
     video: VideoLinks.Lee,
     title: "Rebranding campagne",
+
     aboutProject:
       "Een volledige visuele vertaling van alle onderdelen van dit wellnessresort, om een duidelijk beeld te geven waar toekomstige bezoekers komen.",
     photo: [LeePhoto1, LeePhoto2, LeePhoto3, LeePhoto4, LeePhoto5, LeePhoto6],

@@ -4,6 +4,7 @@ import style from "./style.module.scss";
 import { ICommonProps } from "types";
 import { interpolation } from "page/Slides/SlideOne/utils";
 import Loader from "components/Loader";
+import { isMobile } from "utils";
 
 const Play = require("assets/image/play.svg").default;
 interface IProps extends ICommonProps {}
@@ -22,6 +23,7 @@ const SlideOne = (props: IProps) => {
   const [screen, setScreen] = useState(defaultSetScreen());
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const mobileDevice = useRef(isMobile());
 
   const [screenOpen, setScreenOpen] = useState({
     width: 0,
@@ -137,8 +139,8 @@ const SlideOne = (props: IProps) => {
                 muted={open ? false : true}
                 loop
                 ref={videoRef}
+                playsInline={mobileDevice.current}
               />
-
               <div
                 className={cn(style.maskText, style.text1, {
                   [style.open]: open,
@@ -166,18 +168,20 @@ const SlideOne = (props: IProps) => {
           </div>
           <svg className={style.svgPoligon} preserveAspectRatio="xMinYMin meet">
             <defs>
-              <clipPath id={clipId} clipPathUnits="userSpaceOnUse">
-                <path
-                  fill="white"
-                  d="M1026.74 213.242L721.248 518.735C606.51 403.997 420.489 403.997 305.751 518.735L0.257812 213.242C283.259 -69.7593 743.74 -69.7593 1026.74 213.242Z"
-                  transform={`translate(${transformX + transformXOpen}, ${
-                    transformY +
-                    transformHeight +
-                    transformYOpen +
-                    transformHeightOpen
-                  }), scale(${scale + scaleOpen})`}
-                ></path>
-              </clipPath>
+              {!mobileDevice.current ? (
+                <clipPath id={clipId} clipPathUnits="userSpaceOnUse">
+                  <path
+                    fill="white"
+                    d="M1026.74 213.242L721.248 518.735C606.51 403.997 420.489 403.997 305.751 518.735L0.257812 213.242C283.259 -69.7593 743.74 -69.7593 1026.74 213.242Z"
+                    transform={`translate(${transformX + transformXOpen}, ${
+                      transformY +
+                      transformHeight +
+                      transformYOpen +
+                      transformHeightOpen
+                    }), scale(${scale + scaleOpen})`}
+                  ></path>
+                </clipPath>
+              ) : null}
             </defs>
           </svg>
         </div>

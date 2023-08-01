@@ -27,6 +27,7 @@ export interface IProjectSlide {
   aboutProject: string;
   photo: string[];
   aboutVideo: string;
+  poster?: string;
 }
 
 export enum TypeGroup {

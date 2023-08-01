@@ -4,12 +4,14 @@ import { ICommonProps } from "types";
 import emailjs from "emailjs-com";
 import { toast } from "react-custom-alert";
 import Video from "assets/video/ContactUsVideo.mp4";
+
 import {
   isValidEmail,
   isValidFirstName,
   isValidSecondName,
 } from "utils/Validation";
 import Footer from "components/Footer";
+import { isMobile } from "utils";
 
 interface IProps extends ICommonProps {}
 const emailjsData = {
@@ -21,6 +23,7 @@ const emailjsData = {
 const SlideSix = (props: IProps) => {
   const form = useRef<HTMLFormElement>(null);
   const [showMessage, setShowMessage] = useState(false);
+
   const [data, setData] = useState({
     email: "",
     phone: "",
@@ -75,7 +78,7 @@ const SlideSix = (props: IProps) => {
     <>
       <div className={style.container}>
         <div className={style.content}>
-          <video src={Video} autoPlay muted loop />
+          <video src={Video} autoPlay muted loop playsInline />
           {!showMessage ? (
             <>
               <div className={style.yellowBox}>

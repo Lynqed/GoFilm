@@ -1,12 +1,13 @@
 import React, { useRef } from "react";
 import style from "./style.module.scss";
 import LatestProjects from "components/LatestProjects";
-
 import { ICommonProps, ShortVideoLinks } from "types";
-
 import globalStyle from "style/global.module.scss";
-import { useNavigate } from "react-router-dom";
-import { URLS } from "utils/router";
+import A1Poster from "assets/image/posterVideo/A1Poster.png";
+import WetterSkipPoster from "assets/image/posterVideo/WetterskipPoster.png";
+import LunaPoster from "assets/image/posterVideo/LunaPoster.png";
+import LeePoster from "assets/image/posterVideo/LeeuPoster.png";
+import HenryPoster from "assets/image/posterVideo/HenryPoster.png";
 
 interface IProps extends ICommonProps {}
 
@@ -18,6 +19,7 @@ const array = [
     bodyHeader: "Employer branding & brandfilm",
     text: "De kennis en kunde van A1-betononderhoud vertaald naar een unieke brandfilm.",
     video: ShortVideoLinks.A1,
+    poster: A1Poster,
   },
   {
     id: "2",
@@ -25,6 +27,7 @@ const array = [
     bodyHeader: "Brandfilm",
     text: "Duidelijkheid maken in de werkzaamheden van een waterschap met behulp van een videorondleiding",
     video: ShortVideoLinks.WeetterSkip,
+    poster: WetterSkipPoster,
   },
   {
     id: "3",
@@ -32,6 +35,7 @@ const array = [
     bodyHeader: "Aftermovie",
     text: "Een creatieve aftermovie ontwikkeld voor dit meerdaagse kunstevenement",
     video: ShortVideoLinks.Luna,
+    poster: LunaPoster,
   },
   {
     id: "4",
@@ -39,6 +43,7 @@ const array = [
     bodyHeader: "Brandfilm",
     text: "Visuele rebranding om de uitstraling van dit wellnesresort te professionaliseren.",
     video: ShortVideoLinks.Lee,
+    poster: LeePoster,
   },
   {
     id: "5",
@@ -46,14 +51,14 @@ const array = [
     bodyHeader: "Aftermovie",
     text: "Contentmarketing in de gezondheidszorg",
     video: ShortVideoLinks.Henry,
+    poster: HenryPoster,
   },
 ];
 const SlideThree = (props: IProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
 
   const newArray = [];
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < 10; i++) {
     newArray.push(...array);
   }
 
@@ -65,18 +70,14 @@ const SlideThree = (props: IProps) => {
 
           <div id={latestProjectsId} className={style.boxProjects} ref={ref}>
             {newArray.map((el, i) => (
-              <div
-                key={i}
-                onClick={() => {
-                  navigate(`${URLS.MAIN}${URLS.PROJECT}#${el.id}`);
-                }}
-              >
+              <div key={i}>
                 <LatestProjects
                   header={el.header}
                   text={el.text}
                   bodyHeader={el.bodyHeader}
                   video={el.video}
                   id={el.id}
+                  poster={el.poster}
                 />
               </div>
             ))}

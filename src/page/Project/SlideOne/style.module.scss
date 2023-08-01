@@ -81,6 +81,7 @@
   .text2 {
     z-index: 0;
     color: white;
+    @include adaptiv-font(200, 40);
   }
   .imageContainer {
     position: relative;
@@ -127,6 +128,7 @@
       z-index: 1;
       color: black;
       opacity: 1;
+      @include adaptiv-font(200, 40);
       transition: opacity 1s ease;
       &.open {
         opacity: 0;

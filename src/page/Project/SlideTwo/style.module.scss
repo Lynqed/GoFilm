@@ -10,6 +10,7 @@
     position: absolute;
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
 
     .boxText {
       padding-left: 70px;
@@ -209,6 +210,6 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(calc(-800px * 7));
   }
 }

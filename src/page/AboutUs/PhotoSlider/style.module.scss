@@ -4,17 +4,19 @@
     align-items: center;
     overflow: visible;
     gap: 30px;
-    animation: slide-animation 100s linear infinite;
+  
+    animation: slide-animation 60s linear infinite;
     .image{
-      height: 60vh;
-      width: 60vw;
+      
+      height: 80vh;
+      width: 80vw;
     }
   }
   @media (max-width: 570px) {
     .boxImages{
       .image{
-        height: 250px;
-        width: 200px;
+        height: 350px;
+        width: 500px;
       }
     }
   }
@@ -23,6 +25,6 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-100%);
+      transform: translateX(calc(-800px * 7));
     }
   }
