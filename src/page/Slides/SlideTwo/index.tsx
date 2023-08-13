@@ -52,9 +52,9 @@ const SlideTwo = ({ start }: IProps) => {
               <p className={style.about}>Over ons</p>
               <p className={style.textAbout}>
                 “Onze missie is om alle bedrijven, die ervoor openstaan,
-                <p className={style.orangeText}>
+                <span className={style.orangeText}>
                   te voorzien van hoge kwaliteit video’s
-                </p>
+                </span>
                 om hun doelgroep op een creatieve manier te bereiken”
               </p>
             </div>
