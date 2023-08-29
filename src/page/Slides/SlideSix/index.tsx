@@ -11,13 +11,12 @@ import {
   isValidSecondName,
 } from "utils/Validation";
 import Footer from "components/Footer";
-import { isMobile } from "utils";
 
 interface IProps extends ICommonProps {}
 const emailjsData = {
-  serviceId: "service_tkljv1g",
-  templateId: "template_0xn8sj1",
-  publicKey: "UVL2GjbJcGYA8mWwZ",
+  serviceId: "service_im8t1kk",
+  templateId: "template_j3564ub",
+  publicKey: "fdaMmcsMCbOyrolsE",
 };
 
 const SlideSix = (props: IProps) => {
